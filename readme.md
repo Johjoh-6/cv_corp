@@ -6,6 +6,9 @@ cd weblipack
 
 npm install
 
-npm run watch
-npm run build
+// webpack
+npm run watch OR npm run build
+
+// php
+php -S localhost:3000 -t public
 ```
