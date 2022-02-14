@@ -1,8 +1,9 @@
-### WebliPack
+# CV-Corp
+
 
 ```
-git clone
-cd weblipack
+git clone 
+cd cv_corp
 
 npm install
 
