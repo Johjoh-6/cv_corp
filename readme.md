@@ -1,15 +1,24 @@
 # CV-Corp
+This is only a theme Wordpress of CV Corp
 
-
-```
-git clone 
+## Instalation
+```bash
+git clone https://github.com/Johjoh-6/cv_corp
 cd cv_corp
 
 npm install
+```
 
-// webpack
-npm run watch OR npm run build
+For run Webpack. 
+```bash
+npm run watch
+```
+or
+```bash
+npm run build
+```
 
-// php
+For run PHP
+```bash
 php -S localhost:3000 -t public
 ```
