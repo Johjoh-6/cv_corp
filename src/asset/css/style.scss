@@ -1,2 +1,22 @@
 @use 'variable';
 
+body{
+    background-color: variable.$color-background;
+    #page{
+      display: flex;
+      flex-flow: column nowrap;
+      min-height: 100vh;
+    }
+  }
+  .wrap{
+    width: min(1400px, 100%);
+    margin-inline: auto;
+  }
+  
+  //Main content
+  #main {
+    flex-grow: 2;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+  }

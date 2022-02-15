@@ -10,22 +10,12 @@
  */
 
 ?>
-
-	<footer id="colophon" class="site-footer">
+	</main><!-- #main -->
+	<footer id="footer" ">
 		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'cv-corp' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'cv-corp' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'cv-corp' ), 'cv-corp', '<a href="http://underscores.me/">Underscores.me</a>' );
-				?>
+			<p>footer ici</p>
 		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
+	</footer>
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
