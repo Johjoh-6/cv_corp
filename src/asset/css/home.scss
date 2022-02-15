@@ -5,31 +5,36 @@
     max-width: 1400px;
     width:100%;
     margin: 0 auto;
-    max-width: 1200px;
     
     
-    .intro{
-        width: 80%;
-        margin: 0 auto;
+    #intro{
+        padding: 1rem;
         display: flex;
+        flex-flow: row nowrap;
         align-items: center;
         text-align: center;
-        .imgsvg{
-            width: 100%;
-            .imgsvg img{
-                width: 100%;
-            }
+        
+        img{
+           width: 40%;
+
         }
         
         .text-intro{
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: space-between;
+            width: 60%;
             .texte{
-                padding: 2rem;
+                
                 p{
-                    font-size: xx-large;
-                    margin-bottom: 10rem;
+                    font-size: variable.$font-24;
                 }
             }
             .intro-btn{
+                display: flex;
+                flex-flow: row nowrap;
+                gap: 1rem;
+                justify-content: center;
                 a {
                     background-color: black;
                     color: white;
@@ -40,74 +45,67 @@
         }
     }
 
-    .confiance{
+    #partenaire{
         margin-top: 5rem;
         display: flex;
+        flex-flow: row nowrap;
         align-items: center;
-        .entreprise-img{
+        width: 50%;
+        .logo-entreprise{
             display: flex;
-            width: 30%;
+            flex-flow: row nowrap;
             align-items: center;
+            width: 60%;
+        }
+        
+    }
+
+    #fonction{
+        display: flex;
+        flex-flow: row nowrap;
+        text-align: center;
+        justify-content: space-around;
+        justify-items: center;
+        &>*{width: 31%;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        }
+        .backgroud-circle{
+            background-color: #E0DCD8;
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             img{
-                padding: 1rem;
+                width: 80%;
             }
+        }
+        .fonction-texte{
+            text-align: center;
         }
     }
 
-    .posibilitée{
+    #avis{
         display: flex;
-        margin-top: 10rem;
-        .posibilitée1{
-            text-align: center;
-            padding: 2rem;
-            .posibilitée-img1{
-                background-color: #E0DCD8;
-                display: block;
-                border-radius: 50%;
-                height: 300px;
-                width: 300px;
-                margin: 0;
-                img{
-                    position: relative;
-                    top: 4rem;
-                    width: 85%;
-                }
-            }
-            .posibilitée-img2{
-                background-color: #E0DCD8;
-                display: block;
-                border-radius: 50%;
-                height: 300px;
-                width: 300px;
-                margin: 0;
-                position: relative;
-                left: 60px;
-                img{
-                    position: relative;
-                    top: 3rem;
-                    width: 85%;
-                }
-            }
-            .posibilitée-img3{
-                background-color: #E0DCD8;
-                display: block;
-                border-radius: 50%;
-                height: 300px;
-                width: 300px;
-                margin: 0;
-                img{
-                    position: relative;
-                    top: 3rem;
-                    width: 85%;
-                }
-            }
-            .posibilitée-texte{
-                margin-top: 3rem;
-                
-                h2{
-                    
-                }
-            }
+        flex-flow: column nowrap;
+        padding: 5rem;
+        .avis:nth-child(odd){
+            display: flex;
+            flex-flow: row-reverse nowrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+        #avis1{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .backgroud-avis{
+            background-color: #E0DCD8;
+            border-radius: 10%;
         }
     }
     
