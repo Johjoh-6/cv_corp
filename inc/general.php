@@ -42,7 +42,9 @@ function cv_corp_scripts() {
 	wp_enqueue_style( 'cv-corp-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_enqueue_style('stylebase', get_template_directory_uri() . '/public/dist/css/style.bundle.css', array(), _S_VERSION);
     // FONT
-    wp_enqueue_style('fonts', 'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700;1,900&display=swap', array(), _S_VERSION);
+    wp_enqueue_style('fonts-roboto', 'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700;1,900&display=swap', array(), _S_VERSION);
+    wp_enqueue_style('fonts-code', 'https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap', array(), _S_VERSION);
+
     //JS
     //JQUERY 
     wp_deregister_script('jquery');
