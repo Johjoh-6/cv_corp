@@ -1,2 +1,15 @@
 @use 'variable';
 
+
+.flex {
+  display: flex;
+}
+.sb {
+  justify-content: space-between;
+}
+.absolute {
+  position: absolute;
+}
+.relative {
+  position: relative;
+}

@@ -10,8 +10,11 @@ import '@fortawesome/fontawesome-free/js/brands';
 
 // CSS 
 import './asset/css/style.scss';
+import './asset/css/cv.scss';
 
 // JS
+// import './asset/js/inc/localstorage.js';
+import './asset/js/cv.js';
 import './asset/js/index.js';
 
 console.log('WebliPack Starter OK');

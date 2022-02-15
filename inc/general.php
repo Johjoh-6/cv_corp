@@ -48,6 +48,9 @@ function cv_corp_scripts() {
     wp_deregister_script('jquery');
     wp_enqueue_script('jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js' , array(),'1.0.0', true);
 
+    //VUE JS
+    wp_enqueue_script('vuejs', 'https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js' , array(),'1.0.0', true);
+
 	//BUNDLE MAIN
     wp_enqueue_script('mainjs', get_template_directory_uri() . '/public/dist/js/index.bundle.js', array(), _S_VERSION, true);
 
