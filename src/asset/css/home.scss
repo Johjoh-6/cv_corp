@@ -1,0 +1,114 @@
+@use 'variable';
+
+
+.wrap{
+    max-width: 1400px;
+    width:100%;
+    margin: 0 auto;
+    max-width: 1200px;
+    
+    
+    .intro{
+        width: 80%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        .imgsvg{
+            width: 100%;
+            .imgsvg img{
+                width: 100%;
+            }
+        }
+        
+        .text-intro{
+            .texte{
+                padding: 2rem;
+                p{
+                    font-size: xx-large;
+                    margin-bottom: 10rem;
+                }
+            }
+            .intro-btn{
+                a {
+                    background-color: black;
+                    color: white;
+                    padding: 0.5rem 3rem;
+                    border-radius: 10%;
+                }
+            }
+        }
+    }
+
+    .confiance{
+        margin-top: 5rem;
+        display: flex;
+        align-items: center;
+        .entreprise-img{
+            display: flex;
+            width: 30%;
+            align-items: center;
+            img{
+                padding: 1rem;
+            }
+        }
+    }
+
+    .posibilitée{
+        display: flex;
+        margin-top: 10rem;
+        .posibilitée1{
+            text-align: center;
+            padding: 2rem;
+            .posibilitée-img1{
+                background-color: #E0DCD8;
+                display: block;
+                border-radius: 50%;
+                height: 300px;
+                width: 300px;
+                margin: 0;
+                img{
+                    position: relative;
+                    top: 4rem;
+                    width: 85%;
+                }
+            }
+            .posibilitée-img2{
+                background-color: #E0DCD8;
+                display: block;
+                border-radius: 50%;
+                height: 300px;
+                width: 300px;
+                margin: 0;
+                position: relative;
+                left: 60px;
+                img{
+                    position: relative;
+                    top: 3rem;
+                    width: 85%;
+                }
+            }
+            .posibilitée-img3{
+                background-color: #E0DCD8;
+                display: block;
+                border-radius: 50%;
+                height: 300px;
+                width: 300px;
+                margin: 0;
+                img{
+                    position: relative;
+                    top: 3rem;
+                    width: 85%;
+                }
+            }
+            .posibilitée-texte{
+                margin-top: 3rem;
+                
+                h2{
+                    
+                }
+            }
+        }
+    }
+    
+}
