@@ -1,0 +1,19 @@
+/*    color */
+$color-primary: #E0DCD8;
+$color-secondary: #afafaf;
+$color-background: #ffffff;
+$color-bnt: #000000;
+$color-hover: #010101;
+
+
+/* Fonts family*/
+$font-roboto: 'Roboto', sans-serif;
+
+/* Fonts size */
+$font-3-5: clamp(1.5rem, 1.5rem + 3vw, 3.5rem);
+$font-24: clamp(1.2rem, 1.2rem + 2vw, 24px);
+$font-20: clamp(1rem, 1rem + 2vw, 20px);
+$font-18: clamp(.9rem, .9rem + 2vw, 18px);
+$font-16: clamp(.8rem, .8rem + 2vw, 16px);
+$font-14: clamp(.7rem, .7rem + 2vw, 14px);
+
