@@ -10,6 +10,7 @@ import '@fortawesome/fontawesome-free/js/brands';
 
 // CSS 
 import './asset/css/style.scss';
+import './asset/css/form_style.scss';
 
 // JS
 import './asset/js/index.js';
