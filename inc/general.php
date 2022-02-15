@@ -42,7 +42,9 @@ function cv_corp_scripts() {
 	wp_enqueue_style( 'cv-corp-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_enqueue_style('stylebase', get_template_directory_uri() . '/public/dist/css/style.bundle.css', array(), _S_VERSION);
     // FONT
-    wp_enqueue_style('fonts', 'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700;1,900&display=swap', array(), _S_VERSION);
+    wp_enqueue_style('fonts-roboto', 'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700;1,900&display=swap', array(), _S_VERSION);
+    wp_enqueue_style('fonts-code', 'https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap', array(), _S_VERSION);
+
     //JS
     //JQUERY 
     wp_deregister_script('jquery');
@@ -59,7 +61,51 @@ function cv_corp_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'cv_corp_scripts' );
 
+// Remove admin bar for all user except admin
+add_action('after_setup_theme', 'remove_admin_bar');
+function remove_admin_bar() {
+if (!current_user_can('administrator') && !is_admin()) {
+  show_admin_bar(false);
+}
+}
 
+// Redirection after login
+function redirect_login_page() {
+	$login_page  = home_url( '/login/' );
+	$page_viewed = basename($_SERVER['REQUEST_URI']);
+   
+	if( $page_viewed == "wp-login.php" && $_SERVER['REQUEST_METHOD'] == 'GET') {
+	  wp_redirect($login_page);
+	  exit;
+	}
+  }
+  add_action('init','redirect_login_page');
+
+  // verification of user
+  function login_failed() {
+	$login_page  = home_url( '/login/' );
+	wp_redirect( $login_page . '?login=failed' );
+	exit;
+  }
+  add_action( 'wp_login_failed', 'login_failed' );
+   
+  function verify_username_password( $user, $username, $password ) {
+	$login_page  = home_url( '/login/' );
+	  if( $username == "" || $password == "" ) {
+		  wp_redirect( $login_page . "?login=empty" );
+		  exit;
+	  }
+  }
+  add_filter( 'authenticate', 'verify_username_password', 1, 3);
+
+  //logout if not connected
+  function logout_page() {
+	$login_page  = home_url( '/login/' );
+	wp_redirect( $login_page . "?login=false" );
+	exit;
+  }
+  add_action('wp_logout','logout_page');
+  
 
 require get_template_directory() . '/inc/extra/template-tags.php';
 require get_template_directory() . '/inc/extra/template-functions.php';

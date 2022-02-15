@@ -2,12 +2,16 @@
 $color-primary: #E0DCD8;
 $color-secondary: #afafaf;
 $color-background: #ffffff;
-$color-bnt: #000000;
-$color-hover: #010101;
+$color-btn: #000000;
+$color-hover: #444444;
+$color-connect: #5D738D;
+$color-recruiter: #458E9D;
+$color-error: #d81616;
 
 
 /* Fonts family*/
 $font-roboto: 'Roboto', sans-serif;
+$font-code:  'Source Sans Pro', sans-serif;
 
 /* Fonts size */
 $font-3-5: clamp(1.5rem, 1.5rem + 3vw, 3.5rem);
