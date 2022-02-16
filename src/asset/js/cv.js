@@ -14,6 +14,7 @@ function retrieveCVSave() {
         return JSON.parse(localStorageSave.dataCv)
     }
 }
+
 let dataCv = {
     nomCv: 'NOM ICI',
     prenomCv: '',
@@ -25,22 +26,30 @@ let dataCv = {
     experiences: []
 }
 if (typeof retrieveCVSave() != 'undefined') {
-    console.log('retriveing save')
+    console.log('retrieving save')
     dataCv = retrieveCVSave()
     console.log(retrieveCVSave())
 }
 let i = 0
+console.log(dataCv.experiences)
 dataCv.experiences.forEach(function () {
-    console.log(dataCv.experiences)
-    let liTxt=dataCv.experiences[i]['job'] +' chez '+ dataCv.experiences[i]['entreprise']
-    const li = document.createElement("li")
-    document.querySelector('.experienceList').appendChild(li)
-    li.className = "singleExperience"
-    document.querySelector('.experienceList .singleExperience:last-of-type').innerText = liTxt
+
+    const liExp = '<li class="singleExperience flex" data-expId ="'+i+'"><button class="deleteExpBtn" data-expIdDelBtn ="'+i+'">Supprimer</button><div><h2 class="expTitle"></h2><p class="expDates"></p><p class="expDetails"></p></div></li>'
+    const liExpCv = '<li class="singleExperienceCv flex" data-expId ="'+i+'"><div><h2 class="expTitle"></h2><p class="expDates"></p><p class="expDetails"></p></div></li>'
+    let expTitle= dataCv.experiences[i]['job'] +' chez '+ dataCv.experiences[i]['entreprise']
+    let expDates= dataCv.experiences[i]['expStart'] +' - '+ dataCv.experiences[i]['expEnd']
+    let expDetails= dataCv.experiences[i]['expDetails']
+    document.querySelector('.experienceList').innerHTML+=liExp
+    document.querySelector('.experienceList .singleExperience:last-of-type .expTitle').innerText = expTitle
+    document.querySelector('.experienceList .singleExperience:last-of-type .expDetails').innerText = expDetails
+    document.querySelector('.experienceList .singleExperience:last-of-type .expDates').innerText = expDates
+    document.querySelector('.experienceListCv').innerHTML+=liExpCv
+    document.querySelector('.experienceListCv .singleExperienceCv:last-of-type .expTitle').innerText = expTitle
+    document.querySelector('.experienceListCv .singleExperienceCv:last-of-type .expDetails').innerText = expDetails
+    document.querySelector('.experienceListCv .singleExperienceCv:last-of-type .expDates').innerText = expDates
+
     i++
 })
-
-
 
 
 
@@ -71,18 +80,49 @@ if (document.body.contains(document.querySelector('.full_page')))  {
         let singleExperience = {
             entreprise: document.querySelector('.experienceModale #entreprise').value,
             job: document.querySelector('.experienceModale #job').value,
+            expStart: document.querySelector('.experienceModale #expStart').value,
+            expEnd: document.querySelector('.experienceModale #expEnd').value,
+            expDetails: document.querySelector('.experienceModale #expDetails').value,
         }
-        let i = 1
         dataCv.experiences.push(singleExperience)
         dataCVSave()
         console.log(dataCVSave())
         document.querySelector('.experienceModale').style.display = 'none';
-        let liTxt=singleExperience.job +' chez '+ singleExperience.entreprise
-        const li = document.createElement("li")
-        document.querySelector('.experienceList').appendChild(li)
-        li.className = "singleExperience"
-        document.querySelector('.experienceList .singleExperience:last-of-type').innerText = liTxt
+        const liExp = '<li class="singleExperience flex" data-expId ="'+(dataCv.experiences.length - 1)+'"><button class="deleteExpBtn" data-expIdDelBtn ="'+(dataCv.experiences.length - 1)+'">Supprimer</button><div><h2 class="expTitle"></h2><p class="expDates"></p><p class="expDetails"></p></div></li>'
+        const liExpCv = '<li class="singleExperienceCv flex" data-expId ="'+(dataCv.experiences.length - 1)+'"><div><h2 class="expTitle"></h2><p class="expDates"></p><p class="expDetails"></p></div></li>'
+        let expTitle= singleExperience.job +' chez '+ singleExperience.entreprise
+        let expDates= singleExperience.expStart +' - '+ singleExperience.expEnd
+        let expDetails= singleExperience.expDetails
+        document.querySelector('.experienceList').innerHTML+=liExp
+        document.querySelector('.experienceList .singleExperience:last-of-type .expTitle').innerText = expTitle
+        document.querySelector('.experienceList .singleExperience:last-of-type .expDetails').innerText = expDetails
+        document.querySelector('.experienceList .singleExperience:last-of-type .expDates').innerText = expDates
+        document.querySelector('.experienceListCv').innerHTML+=liExpCv
+        document.querySelector('.experienceListCv .singleExperienceCv:last-of-type .expTitle').innerText = expTitle
+        document.querySelector('.experienceListCv .singleExperienceCv:last-of-type .expDetails').innerText = expDetails
+        document.querySelector('.experienceListCv .singleExperienceCv:last-of-type .expDates').innerText = expDates
     }
     dataCVSave()
     Object.values(dataCv).onchange = console.log('savetest');
+}
+
+
+//SUPPRESSION EXPERIENCE
+let delBtns = document.querySelectorAll('.deleteExpBtn')
+for(let i = 0; i<delBtns.length; i++) {
+    delBtns[i].onclick = function() {
+        console.log('click')
+        let expToDelete = this.dataset.expiddelbtn
+        console.log(expToDelete)
+        // localStorage.removeItem(dataCv.experiences[expToDelete])
+        dataCv['experiences'].splice(expToDelete,1)
+        dataCVSave()
+        // retrieveCVSave().experiences.splice(expToDelete,1)
+        // console.log(localStorage)
+        console.log(dataCv)
+        let domElemToDelete = document.querySelector('.singleExperience[data-expId = "'+expToDelete+'"]')
+        domElemToDelete.remove()
+        domElemToDelete = document.querySelector('.singleExperienceCv[data-expId = "'+expToDelete+'"]')
+        domElemToDelete.remove()
+    }
 }

@@ -66,8 +66,23 @@
                     <span>{{ adresseCv }}</span>
                 </li>
             </ul>
+            <div class="experiences">
+                <h2>Experiences</h2>
+                <ul class="experienceListCv">
+
+                </ul>
+            </div>
         </div>
     </section>
+
+
+
+
+
+
+
+
+
     <section class="cvModale dNone experienceModale absolute">
         <ul>
             <li class="cvNomInput">
@@ -77,6 +92,31 @@
             <li>
                 <label for="job">Position : </label>
                 <input id="job" name="job" type="text">
+            </li>
+            <li class="flex">
+                <div>
+                    <label for="expStart">Année de début : </label>
+                    <select name="expStart" id="expStart">
+                        <?php for($i = 1900; $i <= date("Y"); $i++) { ?>
+                            <option value="<?= $i ?>"><?= $i ?></option>
+                        <?php } ?>
+                    </select>
+                    <!-- /# -->
+                </div>
+                <div>
+                    <label for="expEnd">Année de fin : </label>
+                    <select name="expEnd" id="expEnd">
+                        <option value="present">Présent</option>
+                        <?php for($i = 1900; $i <= date("Y"); $i++) { ?>
+                            <option value="<?= $i ?>"><?= $i ?></option>
+                        <?php } ?>
+                    </select>
+                </div>
+            </li>
+            <li>
+                <label for="expDetails">Détails de l'expérience</label>
+                <textarea name="expDetails" id="expDetails" cols="15" rows="5"></textarea>
+                <!-- /# -->
             </li>
             <li>
                 <span id="experienceAdd">Ajouter une experience</span>
