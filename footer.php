@@ -10,11 +10,9 @@
  */
 
 ?>
-	<section>
-		<footer>
-			<div id="footer">
+	</main><!-- #main -->
+			<footer id="footer">
 				<div class="container_footer">
-					<div class="item_footer">
 						<div class="box_footer_0">
 							<h2>CV CORP</h2>
 							<p>Copyright 2021 - tous droits réservés</p>
@@ -40,10 +38,8 @@
 							</ul>
 						</div>
 					</div>
-				</div>
-			</div>
-		</footer>
-	</section>
+			</footer>
+ </div><!-- #page -->
 
 <?php wp_footer(); ?>
 

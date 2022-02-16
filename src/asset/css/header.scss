@@ -1,55 +1,53 @@
 @use 'variable';
 
-#header{
-    background: #E0DCD8;
-        .container_header{
-            display: flex;
-            justify-content: center;
-            
-        }
-        .item_header{
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    padding: 2rem;
-                    width: 100%;
-                    height: 100%;
-                    .logo{
-                        width: 100%;
-                        height: 100%;
-                        img{
-                            width: 100%;
-                            height: 100%;
-                        }
-                    }
-                 }
+#header {
+    background: variable.$color-primary;
+    .container_header {
+        width: min(1400px, 100%);
+        display: flex;
+        justify-content: space-between;
+        flex-flow: row nowrap;
+        align-items: center;
+        padding: 1rem .6rem;
 
         .box_header_nav {
-        ul {
-            display: flex;
-            align-items: center;
-        }
-        a {
-            padding: 1rem;
-            text-decoration: none;
-            color: black;
-        }
+            ul {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                flex-flow: row nowrap;
+                gap: .8rem;
+                transition: all .3s;
 
-        li {
-            list-style: none;
-            margin-right: 1rem;
-        }
+                li {
+                    cursor: pointer;
 
-        }
-        .cta_button {
-            align-items: center;
-            background: #000000;
-            border-radius: 20px;
-            padding: 0.7rem;
-            text-align: center;
-            text-decoration: none;
-        a{
-            color: white;
-        }
+                    a {
+                        color: variable.$color-btn;
+                        font-size: variable.$font-16;
+                        font-weight: 700;
+                    }
+
+                    &:hover,
+                    &:hover a {
+                        color: variable.$color-hover;
+                    }
+                }
+            }
+
+            .cta_button {
+                background: variable.$color-btn;
+                border-radius: 20px;
+                padding: 0.7rem;
+                a {
+                    color: variable.$color-background;
+                }
+                &:hover,
+                &:hover a {
+                    background-color: variable.$color-background;
+                    color: variable.$color-btn;
+                }
+            }
         }
     }
+}

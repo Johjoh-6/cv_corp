@@ -22,24 +22,23 @@
 
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-	<div id="header">
+<div id="page" class="site">
+	<header id="header" class="site-header">
 		<div class="container_header">
-			<div class="item_header">
-				<div class="box_header_logo">	
-					<img src="<?php echo get_template_directory_uri(); ?>/src/asset/img/logoheader.svg" alt="">
-				</div>
+				<a href="<?= path(); ?>" class="box_header_logo">	
+					<img src="<?= asset('img/logoheader.svg'); ?>" alt="">
+				</a>
 				<div class="box_header_nav">
 					<ul>
-						<li><a href="">Accueil</a></li>
-						<li><a href="<?= path(); ?>/cv">Créer votre CV</a></li>
-						<li class="cta_button"><a href="<?= path(); ?>/about">Inscription</a></li>
+						<li><a href="<?= path(); ?>">Accueil</a></li>
+						<li><a href="<?= path('/cv'); ?>">Créer votre CV</a></li>
+						<li class="cta_button"><a href="<?= path('/register'); ?>">Inscription</a></li>
 						<li class="cta_button"><a href="<?php echo wp_logout_url( get_home_url() ); ?>" title="Logout">Déconnexion</a></li>
 						<li class="cta_button"><a href="<?= path('/login'); ?>">Connexion</a></li>
 					</ul>
 				</div>
-			</div>
 		</div>
-	</div>
+	</header><!-- #header -->
 	
 	<main id="main">
 		

@@ -7,7 +7,7 @@ echo '<pre style="height: 200px; overflow-y: scroll; font-size: .7rem; padding: 
 }
 
 function asset($file){
-return get_template_directory_uri() . '/asset/' . $file;
+return get_template_directory_uri() . '/src/asset/' . $file;
 }
 
 function path($slug = '/'){
