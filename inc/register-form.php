@@ -8,17 +8,18 @@ add_action( 'register_form', 'myplugin_register_form' );
 
 function myplugin_register_form() {
     $success = false;
-    if (!empty($_POST['wp-submit']) ) {
+    if (!empty($_POST['wp-submit'])) {
     global $registrationError;
-
     $user_login = (!empty( $_POST['user_login'])) ? cleanXss('user_login') : '';
     $user_email = (!empty( $_POST['user_email'])) ? cleanXss('user_email') : '';
     $user_pass = (!empty( $_POST['user_pass'])) ? cleanXss('user_pass') : '';
     $confirm_pass = (!empty( $_POST['confirm_pass'])) ? cleanXss('confirm_pass') : '';
     $first_name = (!empty( $_POST['first_name'])) ? cleanXss('first_name') : '';
     $last_name = (!empty( $_POST['last_name'])) ? cleanXss('last_name') : '';
-    
-   
+
+    if(!isset($_POST['readmention'])){
+        $registrationError .= '<p>Veuillez prendre connaissance de nos CGU</p>';
+    }
     if ($user_login == '') {
         $registrationError .= '<p>Entrer un noms d\'utilisateur</p>';
     }
@@ -111,6 +112,12 @@ function myplugin_register_form() {
             <p>
                 <label for="last_name">Nom</label>
                 <input type="text" name="last_name" id="last_name" class="input" value="<?= recupInputValue('last_name'); ?>">
+            </p>
+            <p>
+           
+                <span><a href="<?= path('/cookie')?>">données personnelles et cookies</a> 
+								<a href="<?= path('/mention-legal')?>">mentions légal</a>
+                <label><input name="readmention" type="checkbox" id="readmention" value="true">Lu</label></span>
             </p>
         <p>
             <input type="submit" name="wp-submit" id="wp-submit" class="button button-primary" value="S'enregistrer">

@@ -4,6 +4,7 @@
     background: variable.$color-primary;
     .container_header {
         width: min(1400px, 100%);
+        margin-inline: auto;
         display: flex;
         justify-content: space-between;
         flex-flow: row nowrap;

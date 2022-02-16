@@ -5,6 +5,7 @@
         background: variable.$color-primary;
         .container_footer {
             width: min(1400px, 100%);
+            margin-inline: auto;
             padding: 1rem 0.8rem;
             display: flex;
             justify-content: space-between;

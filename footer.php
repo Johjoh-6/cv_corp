@@ -20,21 +20,21 @@
 						<div class="box_footer_0">
 							<h2>Nos services</h2>
 							<ul>
-								<li><a href="">Création de CV</a></li>
-								<li><a href="">Inscription</a></li>
+								<li><a href="<?= path('/cv')?>">Création de CV</a></li>
+								<li><a href="<?= path('/login')?>">Inscription</a></li>
 							</ul>
 						</div>
 						<div class="box_footer_0">
 							<h2>Données</h2>
 							<ul>
-								<li><a href="">Données personnelles et cookies</a></li>
-								<li><a href="">Mentions légal</a></li>
+								<li><a href="<?= path('/cookie')?>">Données personnelles et cookies</a></li>
+								<li><a href="<?= path('/mention-legal')?>">Mentions légal</a></li>
 							</ul>
 						</div>
 						<div class="box_footer_1">
 							<h2>Contact</h2>
 							<ul>
-								<li><a href="">Nous Contacter</a></li>
+								<li><a href="<?= path()?>">Nous Contacter</a></li>
 							</ul>
 						</div>
 					</div>
