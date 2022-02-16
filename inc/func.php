@@ -57,3 +57,23 @@ function showJson($data){
         die('error in json encoding');
     }
 }
+
+function cleanXss($nameInput)
+{
+    return trim(strip_tags($_POST[$nameInput]));
+}
+
+function recupInputValue($key)
+{
+    if(!empty($_POST[$key])) {
+        echo $_POST[$key];
+    }
+}
+function dateToRead($dateDb){
+    $date = new DateTime();
+    $date->setTimestamp($dateDb);
+    return $date->format('d/m/Y H:i:s');
+}
+function currentTimeDate(){
+    return date('Y-m-d H:i:s');
+    }

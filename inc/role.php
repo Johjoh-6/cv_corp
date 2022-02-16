@@ -12,3 +12,7 @@ $wp_roles->remove_role("recruiter");
 add_role( 'recruiter', 'Recruteur / recruteuse',  array(
         'read' => true
     ) );
+
+    //Make 'candidate' a default role
+
+update_option('default_role','candidate');

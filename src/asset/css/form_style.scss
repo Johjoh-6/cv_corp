@@ -74,6 +74,7 @@
         border-radius: 5px;
        padding: .3rem .5rem;
        width: 100%;
+       margin-bottom: .6rem;
        }
       
     
@@ -90,5 +91,12 @@
                color: variable.$color-primary;
            }
        }
+   }
+   .success{
+       text-align: center;
+       color: variable.$color-background;
+       font-size: variable.$font-20;
+       line-height: 2;
+
    }
 }
