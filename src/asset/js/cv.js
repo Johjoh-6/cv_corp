@@ -45,43 +45,44 @@ dataCv.experiences.forEach(function () {
 
 
 
-
-//gestion des des inputs en VUE
-var cvInputs = new Vue({
-    el: '.full_page',
-    data: dataCv,
-    methods: {
-        onChangePfp() {
-            console.log('lol')
-            let imgInp = document.querySelector('input#photo')
-            const [file] = imgInp.files
-            if (file) {
-                dataCv.image = URL.createObjectURL(file)
+if (document.body.contains(document.querySelector('.full_page')))  {
+    //gestion des des inputs en VUE
+    var cvInputs = new Vue({
+        el: '.full_page',
+        data: dataCv,
+        methods: {
+            onChangePfp() {
+                console.log('lol')
+                let imgInp = document.querySelector('input#photo')
+                const [file] = imgInp.files
+                if (file) {
+                    dataCv.image = URL.createObjectURL(file)
+                }
+            },
+            autosave() {
+                dataCVSave()
             }
-        },
-        autosave() {
-            dataCVSave()
         }
+    })
+    document.getElementById('experienceBtn').onclick = function() {
+        document.querySelector('.experienceModale').style.display = 'block';
     }
-})
-document.getElementById('experienceBtn').onclick = function() {
-    document.querySelector('.experienceModale').style.display = 'block';
-}
-document.getElementById('experienceAdd').onclick = function() {
-    let singleExperience = {
-        entreprise: document.querySelector('.experienceModale #entreprise').value,
-        job: document.querySelector('.experienceModale #job').value,
+    document.getElementById('experienceAdd').onclick = function() {
+        let singleExperience = {
+            entreprise: document.querySelector('.experienceModale #entreprise').value,
+            job: document.querySelector('.experienceModale #job').value,
+        }
+        let i = 1
+        dataCv.experiences.push(singleExperience)
+        dataCVSave()
+        console.log(dataCVSave())
+        document.querySelector('.experienceModale').style.display = 'none';
+        let liTxt=singleExperience.job +' chez '+ singleExperience.entreprise
+        const li = document.createElement("li")
+        document.querySelector('.experienceList').appendChild(li)
+        li.className = "singleExperience"
+        document.querySelector('.experienceList .singleExperience:last-of-type').innerText = liTxt
     }
-    let i = 1
-    dataCv.experiences.push(singleExperience)
     dataCVSave()
-    console.log(dataCVSave())
-    document.querySelector('.experienceModale').style.display = 'none';
-    let liTxt=singleExperience.job +' chez '+ singleExperience.entreprise
-    const li = document.createElement("li")
-    document.querySelector('.experienceList').appendChild(li)
-    li.className = "singleExperience"
-    document.querySelector('.experienceList .singleExperience:last-of-type').innerText = liTxt
+    Object.values(dataCv).onchange = console.log('savetest');
 }
-dataCVSave()
-Object.values(dataCv).onchange = console.log('savetest');
