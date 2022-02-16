@@ -16,6 +16,7 @@ import './asset/css/footer.scss';
 import './asset/css/cv.scss';
 import './asset/css/form_style.scss';
 
+
 // JS
 // import './asset/js/inc/localstorage.js';
 import './asset/js/cv.js';
