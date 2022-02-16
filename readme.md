@@ -28,13 +28,14 @@ php -S localhost:3000 -t public
 in wordpress active the theme
 create
 the page
->home Template model home
->mention legal Template model mentions legal
->cookie Template model cookie
->création de CV utilisateur, Slug "cv_editor" Template model CV user
->login
->register
->forgot-pwd
+*home Template model home
+*mention legal Template model mentions legal
+*cookie Template model cookie
+*création de CV utilisateur, Slug "cv_editor" Template model CV user
+
+*login
+*register
+*forgot-pwd
 
 
 ## New user
