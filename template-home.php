@@ -2,22 +2,19 @@
 
 /* Template Name: home */
 
-get_header();
-
-?>
+get_header(); ?>
 
 <div class="wrap">
+
     <section id="intro">
-        
         <img src="<?php echo get_template_directory_uri(); ?>/src/asset/img/imgIntro.png" alt="">
-        
         <div class="text-intro">
             <div class="texte">
                 <p>Générateur de CV simple, facile et rapide</p>
             </div>
             <diV class="intro-btn">
-                <a href="">Incription</a>
-                <a href="">Connexion</a>
+                <a href="<?php path('/register'); ?>">Incription</a>
+                <a href="<?php path('/login'); ?>">Connexion</a>
             </diV>
         </div>
     </section>
@@ -92,5 +89,4 @@ get_header();
     </section>
 </div>
 
-<?php
-get_footer();
+<?php get_footer();

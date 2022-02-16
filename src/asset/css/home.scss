@@ -2,60 +2,89 @@
 
 
 .wrap{
-    max-width: 1400px;
-    width:100%;
-    margin: 0 auto;
+    
     
     
     #intro{
-        padding: 1rem;
         display: flex;
         flex-flow: row nowrap;
         align-items: center;
         text-align: center;
-        
+        padding: 5rem;
+        @media (max-width: 950px){
+            display: flex;
+            flex-flow: column nowrap;
+            padding: 0rem;
+        }
         img{
-           width: 40%;
-
+           width: 47%;
+           @media (max-width: 950px){
+               display: none;
+           }
         }
         
         .text-intro{
             display: flex;
             flex-flow: column nowrap;
-            justify-content: space-between;
-            width: 60%;
+            align-self: flex-end;
+            @media (max-width: 950px){
+                align-self: auto;
+            }
             .texte{
-                
+                margin-block-end: 5rem;
                 p{
                     font-size: variable.$font-24;
+                    font-size: 48px;
+                    @media (max-width: 950px){
+                        width: 570px;
+                        height: 112px;
+                    }
                 }
             }
             .intro-btn{
                 display: flex;
                 flex-flow: row nowrap;
-                gap: 1rem;
+                gap: 2rem;
                 justify-content: center;
+                
                 a {
                     background-color: black;
                     color: white;
-                    padding: 0.5rem 3rem;
-                    border-radius: 10%;
+                    padding: 0.5rem 5rem;
+                    border-radius: 10px;
+                    font-size: 24px;
+                    &:hover{
+                        background: #C4C4C4;
+                        color: black;
+                    }
                 }
             }
         }
     }
 
     #partenaire{
-        margin-top: 5rem;
         display: flex;
         flex-flow: row nowrap;
         align-items: center;
-        width: 50%;
+        @media (max-width: 950px){
+            flex-flow: column nowrap;
+            margin-top: 5rem;
+        }
         .logo-entreprise{
             display: flex;
             flex-flow: row nowrap;
             align-items: center;
-            width: 60%;
+            width: 233px;
+            @media (max-width: 950px){
+                display: flex;
+                flex-flow: column nowrap;
+            }
+            img{
+                margin-left: 10rem;
+                @media (max-width: 950px){
+                    margin-left: 0rem;
+                }
+            }
         }
         
     }
@@ -66,6 +95,13 @@
         text-align: center;
         justify-content: space-around;
         justify-items: center;
+        margin-top: 5rem;
+        @media (max-width: 950px){
+                display: flex;
+                flex-flow: column nowrap;
+                align-items: center;
+                gap: 5rem;
+        }
         &>*{width: 31%;
         display: flex;
         flex-flow: column nowrap;
@@ -85,18 +121,29 @@
         }
         .fonction-texte{
             text-align: center;
+            font-size: 20px;
+            h2{
+                font-size: 30px;;
+            }
         }
+        
     }
 
     #avis{
         display: flex;
         flex-flow: column nowrap;
-        padding: 5rem;
+        gap: 5rem;
+        padding: 4rem;
+        margin-top: 5rem;
+        font-size: 20px;
         .avis:nth-child(odd){
             display: flex;
             flex-flow: row-reverse nowrap;
             align-items: center;
             justify-content: space-between;
+        }
+        @media (max-width: 800px){
+            align-items: center;
         }
         #avis1{
             display: flex;
@@ -105,7 +152,18 @@
         }
         .backgroud-avis{
             background-color: #E0DCD8;
-            border-radius: 10%;
+            border-radius: 10px;
+            width: 25rem;
+            @media (max-width: 800px){
+                display: none;
+                
+            }
+        }
+        .avis-texte{
+            width: 35rem;
+            /* padding: 0rem; */
+            text-align: center;
+            font-size: 25px;
         }
     }
     
