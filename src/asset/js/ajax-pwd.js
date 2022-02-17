@@ -9,7 +9,7 @@ $('#update_password').on('click', function(e){
         url: ajaxurl,
         type: 'POST',
         data: {
-            action: 'ajax_pwd',
+            action: 'ajax_account_pwd',
             id: id,
             
         },
@@ -26,7 +26,7 @@ $('#update_password').on('click', function(e){
 
 
 function showError(res){
-    const display = document.querySelector('#form-account');
+    const display = document.querySelector('#form-pwd');
     display.innerHTML = '';
     for(const errors in res.errors){
         const p = document.createElement('p');
@@ -37,7 +37,7 @@ function showError(res){
 }
 
 function showSuccess(res){
-    const display = document.querySelector('#form-account');
+    const display = document.querySelector('#form-pwd');
     if(res.succes){
         const p = document.createElement('p');
         p.style.color = 'green';

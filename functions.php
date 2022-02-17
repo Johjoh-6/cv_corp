@@ -18,4 +18,5 @@ require get_template_directory(). '/inc/register-form.php';
  * Ajax
  */
 require get_template_directory() . '/inc/ajax/ajax-account.php';
+require get_template_directory() . '/inc/ajax/ajax-account-pwd.php';
 

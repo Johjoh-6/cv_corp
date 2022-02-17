@@ -14,7 +14,7 @@ function updatePwd() {
 
         // Faille xss
         $pwd = cleanXss('first_name');
-        $errors = 1;
+        $errors = ['pwd'];
     
         if(count($errors) == 0) {
             wp_update_user([

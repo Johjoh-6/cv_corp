@@ -29,5 +29,6 @@ import './asset/js/burger-menu.js';
 
 // AJAX
 import './asset/js/ajax-account.js';
+import './asset/js/ajax-pwd.js';
 
 console.log('WebliPack Starter OK');
