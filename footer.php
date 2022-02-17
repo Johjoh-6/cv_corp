@@ -34,7 +34,7 @@
 						<div class="box_footer_1">
 							<h2>Contact</h2>
 							<ul>
-								<li><a href="">Nous Contacter</a></li>
+								<li><a href="<?= path('contact'); ?>">Nous Contacter</a></li>
 							</ul>
 						</div>
 					</div>

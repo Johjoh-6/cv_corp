@@ -44,8 +44,8 @@
                 }
                 &:hover,
                 &:hover a {
-                    background-color: variable.$color-background;
-                    color: variable.$color-btn;
+                    background: variable.$color-hover;
+                    color: variable.$color-background;
                 }
             }
         }

@@ -15,7 +15,10 @@ import './asset/css/home.scss';
 import './asset/css/footer.scss';
 import './asset/css/cv.scss';
 import './asset/css/form_style.scss';
-
+import './asset/css/cookies.scss';
+import './asset/css/mentions.scss';
+import './asset/css/404.scss';
+import './asset/css/contact.scss';
 
 // JS
 // import './asset/js/inc/localstorage.js';

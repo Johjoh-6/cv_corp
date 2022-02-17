@@ -3,22 +3,20 @@
 
 .wrap{
     
-    
-    
     #intro{
         display: flex;
         flex-flow: row nowrap;
         align-items: center;
         text-align: center;
-        padding: 5rem;
-        @media (max-width: 950px){
-            display: flex;
+        width: 95%;
+        @media (max-width: 1064px){
             flex-flow: column nowrap;
-            padding: 0rem;
+            width: auto;
         }
+        
         img{
            width: 47%;
-           @media (max-width: 950px){
+           @media (max-width: 600px){
                display: none;
            }
         }
@@ -26,18 +24,20 @@
         .text-intro{
             display: flex;
             flex-flow: column nowrap;
-            align-self: flex-end;
-            @media (max-width: 950px){
-                align-self: auto;
+            gap: 15px;
+            @media (max-width: 600px){
+                align-items: center;
+            }
+            @media (max-width: 570px){
+            
             }
             .texte{
-                margin-block-end: 5rem;
+                margin-bottom: 1rem;
                 p{
                     font-size: variable.$font-24;
                     font-size: 48px;
                     @media (max-width: 950px){
-                        width: 570px;
-                        height: 112px;
+                        
                     }
                 }
             }
@@ -46,16 +46,20 @@
                 flex-flow: row nowrap;
                 gap: 2rem;
                 justify-content: center;
-                
+                @media (max-width: 600px){
+                    flex-flow: column;
+                }
                 a {
                     background-color: black;
                     color: white;
                     padding: 0.5rem 5rem;
                     border-radius: 10px;
                     font-size: 24px;
-                    &:hover{
-                        background: #C4C4C4;
-                        color: black;
+                    &:hover,
+                    &:hover a {
+                        background: variable.$color-hover;
+                        color: variable.$color-background;
+
                     }
                 }
             }
@@ -66,27 +70,52 @@
         display: flex;
         flex-flow: row nowrap;
         align-items: center;
+        gap: 10px;
+        justify-content: center;
         @media (max-width: 950px){
             flex-flow: column nowrap;
             margin-top: 5rem;
         }
-        .logo-entreprise{
-            display: flex;
-            flex-flow: row nowrap;
-            align-items: center;
-            width: 233px;
-            @media (max-width: 950px){
-                display: flex;
-                flex-flow: column nowrap;
-            }
-            img{
-                margin-left: 10rem;
-                @media (max-width: 950px){
-                    margin-left: 0rem;
-                }
-            }
+        h2{
+            font-size: 20px;
         }
         
+        .keyframe{
+            
+            .logo-entreprise{
+                display: flex;
+                flex-flow: row nowrap;
+                align-items: center;
+                
+                ul {
+                    display: flex;
+                    align-items: center;
+                    img{
+                        width: 230px;
+                    }     
+                } 
+                @media (max-width: 950px){
+                    overflow: hidden;
+                    animation-name: slidein;
+                    @keyframes slidein {
+                        from {
+                          margin-left: 100%;
+                          width: 300%;
+                        }
+                        75% {
+                          font-size: 300%;
+                          margin-left: 25%;
+                          width: 150%;
+                        }
+                        to {
+                          margin-left: 0%;
+                          width: 100%;
+                        }
+                    }
+
+                }
+            }            
+        }
     }
 
     #fonction{
@@ -95,18 +124,20 @@
         text-align: center;
         justify-content: space-around;
         justify-items: center;
-        margin-top: 5rem;
+
+        padding: 1rem;
+        &>*{
+            width: 50%;
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            padding: 1rem;
+        }
         @media (max-width: 950px){
-                display: flex;
-                flex-flow: column nowrap;
-                align-items: center;
-                gap: 5rem;
-        }
-        &>*{width: 31%;
-        display: flex;
-        flex-flow: column nowrap;
-        align-items: center;
-        }
+            flex-flow: column nowrap;
+            align-items: center;
+            gap: 50px;
+    }
         .backgroud-circle{
             background-color: #E0DCD8;
             border-radius: 50%;
@@ -116,7 +147,7 @@
             align-items: center;
             justify-content: center;
             img{
-                width: 80%;
+                width: 90%;
             }
         }
         .fonction-texte{
@@ -132,38 +163,47 @@
     #avis{
         display: flex;
         flex-flow: column nowrap;
-        gap: 5rem;
-        padding: 4rem;
-        margin-top: 5rem;
-        font-size: 20px;
-        .avis:nth-child(odd){
+        gap: 60px;
+        margin: 20px;
+        .avis-box:nth-child(odd){
             display: flex;
             flex-flow: row-reverse nowrap;
             align-items: center;
             justify-content: space-between;
+            @media (max-width: 800px){
+                flex-flow: column nowrap;
+                
+            }
         }
         @media (max-width: 800px){
             align-items: center;
+            
         }
-        #avis1{
+        .avis-box{
             display: flex;
             align-items: center;
             justify-content: space-between;
+            @media (max-width: 800px){
+                flex-flow: column nowrap;
+                
+            }
         }
         .backgroud-avis{
             background-color: #E0DCD8;
             border-radius: 10px;
-            width: 25rem;
+            width: 325px;
             @media (max-width: 800px){
-                display: none;
+                width: 230px;
                 
             }
         }
         .avis-texte{
-            width: 35rem;
-            /* padding: 0rem; */
             text-align: center;
             font-size: 25px;
+            width: 30%;
+            @media (max-width: 950px){
+                width: 100%;
+            }
         }
     }
     
