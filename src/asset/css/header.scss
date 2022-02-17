@@ -11,7 +11,7 @@
         align-items: center;
         padding: 1rem .6rem;
 
-        .box_header_nav {
+        #box_header_nav {
             ul {
                 display: flex;
                 align-items: center;
@@ -50,5 +50,36 @@
                 }
             }
         }
+        #box_header_nav_phone{
+            margin-top: 0;
+            display: none;
+            visibility: hidden;
+            position: fixed;
+            z-index: 30;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+
+            #close{
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            font-size: variable.$font-3-5;
+            color: variable.$color-background;
+            cursor: pointer;
+            }
+          
+        }
+        #menu-burger{
+            display: none;
+            color: variable.$color-background;
+            font-size: variable.$font-3-5;
+            position: absolute;
+            right: 0px;
+            top: 0px;
+            cursor: pointer;
+          }
     }
 }

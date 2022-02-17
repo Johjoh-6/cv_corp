@@ -76,9 +76,11 @@ function dateToRead($dateDb){
 }
 function currentTimeDate(){
     return date('Y-m-d H:i:s');
-    }
+}
 
 
 function getRoleCurrentUser(){
+    if(is_user_logged_in()){
     return wp_get_current_user()->roles[0];
+    }
 }

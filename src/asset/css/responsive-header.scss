@@ -1,0 +1,12 @@
+@use "variable";
+
+@media screen and (max-width: 670px) {
+    #header{
+       #box_header_nav{
+         display: none;
+          }
+        #menu-burger{
+          display: block;
+        }
+        }
+}
