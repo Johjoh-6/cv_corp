@@ -77,3 +77,8 @@ function dateToRead($dateDb){
 function currentTimeDate(){
     return date('Y-m-d H:i:s');
     }
+
+
+function getRoleCurrentUser(){
+    return wp_get_current_user()->roles[0];
+}
