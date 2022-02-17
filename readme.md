@@ -28,14 +28,19 @@ php -S localhost:3000 -t public
 in wordpress active the theme
 create
 the page
-- home Template model home
-- mention legal Template model mentions legal
-- cookie Template model cookie
+- home, Slug "home" Template model home. Set as static page Accuiel in lecture.
+- mention legal, Slug "mention-legal" Template model Mentions Legal
+- cookie, Slug "cookie" Template model cookies
 - création de CV utilisateur, Slug "cv_editor" Template model CV user
+- dashboard, Slug "dashboard" Template model Dashboard
+- mes cv, Slug "mycv" Template model MyCv
+- mon compte, Slug "compte" Template model Compte
 
-- login
-- register
-- forgot-pwd
+
+
+- login, Slug "login"
+- register, Slug "register"
+- forgot-pwd, Slug "forgot-pwd"
 
 
 ## New user
