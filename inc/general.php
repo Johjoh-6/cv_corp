@@ -105,7 +105,69 @@ function redirect_login_page() {
 	exit;
   }
   add_action('wp_logout','logout_page');
-  
+ 
+// access denied
+function can_access(){
+    $login_page  = home_url( '/login/' );
+
+		//for dashboard
+	$page_dashboard = 'template-dashboard.php';
+	if (is_page_template($page_dashboard)) {
+		if(is_user_logged_in()){
+			$role = wp_get_current_user()->roles[0];
+			if($role !== 'admin' && $role !== 'recruiter'){
+				wp_redirect( $login_page . "?login=denied" );
+				exit;
+			}
+		} else{
+			wp_redirect( $login_page . "?login=false" );
+		exit;
+		}
+	}
+	// mon compte
+	$page_compte = 'template-compte.php';
+	if (is_page_template($page_compte)) {
+		if(is_user_logged_in()){
+			$role = wp_get_current_user()->roles[0];
+			if($role !== 'candidate' && $role !== 'recruiter'){
+				wp_redirect( $login_page . "?login=denied" );
+				exit;
+			}
+		} else{
+			wp_redirect( $login_page . "?login=false" );
+		exit;
+		}
+	}
+	// mes cv
+	$page_my_cv = 'template-my-cv.php';
+	if (is_page_template($page_my_cv)) {
+		if(is_user_logged_in()){
+			$role = wp_get_current_user()->roles[0];
+			if($role !== 'candidate'){
+				wp_redirect( $login_page . "?login=denied" );
+				exit;
+			}
+		} else{
+			wp_redirect( $login_page . "?login=false" );
+		exit;
+		}
+	}
+	//detail cv
+	$page_cv_detail = 'page-cv.php';
+	if (is_page_template($page_cv_detail)) {
+		if(is_user_logged_in()){
+			$role = wp_get_current_user()->roles[0];
+			if($role !== 'candidate' && $role !== 'recruiter' && $role !== 'admin'){
+				wp_redirect( $login_page . "?login=denied" );
+				exit;
+			}
+		} else{
+			wp_redirect( $login_page . "?login=false" );
+		exit;
+		}
+	}
+}
+add_action( 'template_redirect', 'can_access' );
 
 require get_template_directory() . '/inc/extra/template-tags.php';
 require get_template_directory() . '/inc/extra/template-functions.php';

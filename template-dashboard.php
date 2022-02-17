@@ -2,7 +2,10 @@
 
 /* Template Name: Dashboard */
 
-get_header(); ?>
+get_header(); 
+
+can_access();
+?>
 
 
 <h1>dashboard</h1>

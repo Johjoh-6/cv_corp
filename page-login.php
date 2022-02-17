@@ -10,6 +10,8 @@ if ( $login === "failed" ) {
     $error = '<p> Nom de compte ou mots de passe vide.</p>';
   } elseif ( $login === "false" ) {
     $error = '<p> Vous n\'êtes pas connecter.</p>';
+  }elseif ( $login === "denied" ) {
+    $error = '<p> Vous n\'avais pas les permisions.</p>';
   }
 ?>
 
