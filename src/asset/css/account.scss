@@ -1,0 +1,107 @@
+@use 'variable';
+
+#account{
+    width: min(1400px, 100%);
+    margin-inline: auto;
+    #box-account{
+        width: min(900px, 98%);
+        margin-inline: auto;
+        background-color: variable.$color-connect;
+        border-radius: 10px;
+        padding: 1.5rem;
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 1rem;
+        justify-content: space-between;
+        
+        .header-account{
+            color: variable.$color-background;
+            display: flex;
+            flex-flow: row nowrap;
+            gap: 2rem;
+            img{
+                width: 100px;
+                height: 100px;
+                border-radius: 25px;
+            }
+            .header-account_text{
+                flex-grow: 2;
+                padding: 1rem 0.6rem;
+                text-transform: capitalize;
+            }
+        }
+        .account-detail{
+            background-color: variable.$color-background;
+            border-radius: 10px;
+            display: flex;
+            flex-flow: column nowrap;
+            gap: 1rem;
+            padding: 1.5rem;
+            h3{
+                font-size: variable.$font-20;
+                font-weight: 700;
+            }
+            form{
+                display: flex;
+                flex-flow: row wrap;
+                &> p{
+                    display: flex;
+                    flex-flow: column nowrap;
+                    gap: 1rem;
+                    padding: 1rem .6rem;
+                    width: 50%;
+                    @media (max-width: 600px) {
+                        width: 100%;
+                    }
+                    label{
+                        font-size: variable.$font-16;
+                        font-weight: 500;
+                    }
+                    input{
+                        border-radius: 5px;
+                        padding: .3rem;
+                        border: 2px solid variable.$color-connect;
+                        &:focus{
+                            color: variable.$color-background;
+                        }
+                        &:focus-visible{
+                            outline: 2px solid variable.$color-primary;
+                            background-color: variable.$color-secondary;
+                        }
+                    }
+                }
+                .submit{
+                    flex-grow: 2;
+                    width: 100%;
+                    input{
+                        font-size: variable.$font-18;
+                        color: variable.$color-background;
+                        background-color: variable.$color-btn;
+                        border: none;
+                        transition: all .3s;
+                        cursor: pointer;
+                        &:hover{
+                            background-color: variable.$color-hover;
+                        }
+                    }
+                }
+            }
+            .error-form{
+                text-align: center;
+                margin-top: .8rem;
+               min-height: 2rem;
+               color: variable.$color-error;
+               font-size: variable.$font-14;
+              width: 100%;
+              text-align: center;
+               p{
+                background-color: variable.$color-background;
+                border-radius: 5px;
+               padding: .3rem .5rem;
+               width: 100%;
+               margin-bottom: .6rem;
+               }
+            }
+        }
+    }
+}

@@ -2,7 +2,7 @@
 
 //350 x 250
 // add_image_size('img_menu', 130, 130, true);
-
+add_image_size('img_compte', 150, 150, true);
 
 
 function remove_default_img_sizes($sizes)

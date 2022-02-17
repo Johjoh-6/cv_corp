@@ -37,7 +37,7 @@ function metaField($meta, $string){
     if (!empty($meta[$string][0])){
         return nl2br($meta[$string][0]);
     } else{
-        return 'Content not found';
+        return '';
     }
 }
 function metaFieldImg($meta, $string, $img_size){
@@ -83,4 +83,51 @@ function getRoleCurrentUser(){
     if(is_user_logged_in()){
     return wp_get_current_user()->roles[0];
     }
+}
+function showRoleCurrentUser(){
+    $role = wp_get_current_user()->roles[0];
+    if($role === 'candidate'){
+        return 'Candidat / candidate';
+    } 
+    if($role !== 'recruiter'){
+        return 'Recruteur / recruteuse';
+    }else {
+        return '';
+    }
+}
+
+function emailValidation($errors,$email,$key)
+{
+    if(!empty($email)) {
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $errors[$key] = 'Veuillez renseigner un email valid';
+        }
+    } else {
+        $errors[$key] = 'Veuillez renseigner un email';
+    }
+    return $errors;
+}
+
+function textValidation($errors,$value,$key,$min = 3,$max = 50)
+{
+    if(!empty($value)) {
+        if(mb_strlen($value) < $min) {
+            $errors[$key] = 'Min '.$min.' caractères';
+        } elseif (mb_strlen($value) > $max) {
+            $errors[$key] = 'Max '.$max.' caractères';
+        }
+    } else {
+        $errors[$key] = 'Veuillez renseigner ce champ.';
+    }
+    return $errors;
+}
+
+function validatePhoneNumber($errors, $phoneV, $key)
+{
+     $filtered_phone_number = filter_var($phoneV, FILTER_SANITIZE_NUMBER_INT);
+     $phone_to_check = str_replace("-", "", $filtered_phone_number);
+     if (strlen($phone_to_check) < 10 || strlen($phone_to_check) > 14) {
+        $errors[$key] = 'Veuillez renseigner un numéro de téléphone valide';
+     } 
+     return $errors;
 }

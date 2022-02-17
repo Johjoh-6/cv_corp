@@ -115,7 +115,7 @@ function can_access(){
 	if (is_page_template($page_dashboard)) {
 		if(is_user_logged_in()){
 			$role = wp_get_current_user()->roles[0];
-			if($role !== 'admin' && $role !== 'recruiter'){
+			if($role !== 'administrator' && $role !== 'recruiter'){
 				wp_redirect( $login_page . "?login=denied" );
 				exit;
 			}
@@ -157,7 +157,7 @@ function can_access(){
 	if (is_page_template($page_cv_detail)) {
 		if(is_user_logged_in()){
 			$role = wp_get_current_user()->roles[0];
-			if($role !== 'candidate' && $role !== 'recruiter' && $role !== 'admin'){
+			if($role !== 'candidate' && $role !== 'recruiter' && $role !== 'administrator'){
 				wp_redirect( $login_page . "?login=denied" );
 				exit;
 			}
