@@ -77,9 +77,13 @@
             color: variable.$color-background;
             font-size: variable.$font-3-5;
             position: absolute;
-            right: 0px;
-            top: 0px;
+            right: 10px;
+            top: 10px;
             cursor: pointer;
+            z-index: 500;
+            &:hover{
+                color: variable.$color-hover;
+            }
           }
     }
 }

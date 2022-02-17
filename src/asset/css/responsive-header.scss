@@ -2,6 +2,7 @@
 
 @media screen and (max-width: 670px) {
     #header{
+      .container_header{
        #box_header_nav{
          display: none;
           }
@@ -9,4 +10,5 @@
           display: block;
         }
         }
+      }
 }
