@@ -31,14 +31,17 @@
 				<div class="box_header_nav">
 					<ul>
 						<?php if (getRoleCurrentUser() === 'recruiter'){ ?>
-						<li><a href="<?= path('dashboard'); ?>">Dashboard</a></li>
+						<li><a href="<?= path('/dashboard'); ?>">Dashboard</a></li>
 						<?php } else {?>
 						<li><a href="<?= path(); ?>">Accueil</a></li>
 						<li><a href="<?= path('/cv'); ?>">Créer votre CV</a></li>
 						<?php }
-						if(is_user_logged_in()){?>
-						<li class="cta_button"><a href="<?= path('/compte'); ?>" >Mon compte</a></li>
-						<li class="cta_button"><a href="<?php echo wp_logout_url( get_home_url() ); ?>" title="Logout">Déconnexion</a></li>
+						if(is_user_logged_in()){
+							if (getRoleCurrentUser() === 'candidate'){ ?>
+							<li class="cta_button"><a href="<?= path('/mycv'); ?>" >Mes CV</a></li>
+							<?php } ?>
+							<li class="cta_button"><a href="<?= path('/compte'); ?>" >Mon compte</a></li>
+							<li class="cta_button"><a href="<?php echo wp_logout_url( get_home_url() ); ?>" title="Logout">Déconnexion</a></li>
 						<?php } else { ?>
 						<li class="cta_button"><a href="<?= path('/register'); ?>">Inscription</a></li>
 						<li class="cta_button"><a href="<?= path('/login'); ?>">Connexion</a></li>
