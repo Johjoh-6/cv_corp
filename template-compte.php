@@ -69,7 +69,7 @@ $meta_user = get_user_meta($id_user);
                     <input type="password" name="confirm_pass" id="confirm_pass">
                 </p>
                 <p class="submit">
-                    <input type="submit" id="update_password" value="Modifier le mots de passe">
+                    <input type="submit" id="update_password" value="Modifier le mots de passe" data-id="<?= $id_user;?>">
                 </p>
             </form>
             <div id="form-pwd" class="error-form">
