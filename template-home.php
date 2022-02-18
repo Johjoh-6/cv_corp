@@ -8,7 +8,7 @@ get_header(); ?>
 <div class="wrap">
 
     <section id="intro">
-        <img src="<?= asset('img/imgIntro.png')?>" alt="">
+        <img src="<?= asset('img/imgIntro.png')?>" alt="image intro">
         <div class="text-intro">
             <div class="texte">
                 <p>Générateur de CV simple, facile et rapide</p>
@@ -28,7 +28,7 @@ get_header(); ?>
                     <li><img src="<?= asset('img/decatlon.png')?>" alt=""></li>
                     <li><img src="<?= asset('img/normandie.png')?>" alt=""></li>
                     <li><img src="<?= asset('img/bouygues.png')?>" alt=""></li>
-                </ul>
+                </ul> 
             </div>
         </div>
     </section>

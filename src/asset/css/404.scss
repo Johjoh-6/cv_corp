@@ -1,4 +1,4 @@
-@use 'variable';
+@use 'variable' as var;
 @import url('https://fonts.googleapis.com/css?family=Orbitron:400');
 
 
@@ -10,8 +10,7 @@
   align-items: center;
   justify-content: center;
   margin: 0;
-  
-  color: #171717;
+  color: var.$color-text;
   font-size: 112px;
   font-family: 'Roboto', monospace;
   letter-spacing: 10;
@@ -24,7 +23,7 @@
   color: black;
   text-decoration: none;
   &:hover {
-    color: variable.$color-hover;
+    color: var.$color-hover;
   }
 }
 

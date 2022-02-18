@@ -1,8 +1,8 @@
-@use 'variable';
+@use 'variable' as var;
 
 
     #footer{
-        background: variable.$color-primary;
+        background: var.$color-primary;
         .container_footer {
             width: min(1400px, 100%);
             margin-inline: auto;
@@ -12,8 +12,8 @@
             gap: 1rem;
             flex-flow: row nowrap;  
                 h2 {
-                    font-size: variable.$font-20;
-                    color: variable.$color-text;
+                    font-size: var.$font-20;
+                    color: var.$color-text;
                     font-weight: 700;
                     margin-bottom: 1rem;
                 }   
@@ -26,10 +26,10 @@
                         margin-bottom: 1rem;
                         transition: all .3s;
                         a {
-                            color: variable.$color-text;
+                            color: var.$color-text;
                         }
                         &:hover a{
-                            color: variable.$color-hover;
+                            color: var.$color-hover;
                         }
                     }
                  }        
@@ -37,13 +37,13 @@
             .box_footer_1 {
                 align-items: center;
                     a {
-                        color: variable.$color-background;
+                        color: var.$color-background;
                         padding: 0.7rem;
-                        background: variable.$color-btn;
+                        background: var.$color-btn;
                         border-radius: 20px;
                         &:hover{
-                            background: variable.$color-hover;
-                            color: variable.$color-background;
+                            background: var.$color-hover;
+                            color: var.$color-background;
                         }
                     }
             }

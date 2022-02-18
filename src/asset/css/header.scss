@@ -1,7 +1,7 @@
-@use 'variable';
+@use 'variable' as var;
 
 #header {
-    background: variable.$color-primary;
+    background: var.$color-primary;
     .container_header {
         width: min(1400px, 100%);
         margin-inline: auto;
@@ -24,29 +24,29 @@
                     cursor: pointer;
 
                     a {
-                        color: variable.$color-btn;
-                        font-size: variable.$font-16;
+                        color: var.$color-btn;
+                        font-size: var.$font-16;
                         font-weight: 700;
                     }
 
                     &:hover,
                     &:hover a {
-                        color: variable.$color-hover;
+                        color: var.$color-hover;
                     }
                 }
             }
 
             .cta_button {
-                background: variable.$color-btn;
+                background: var.$color-btn;
                 border-radius: 20px;
                 padding: 0.7rem;
                 a {
-                    color: variable.$color-background;
+                    color: var.$color-background;
                 }
                 &:hover,
                 &:hover a {
-                    background: variable.$color-hover;
-                    color: variable.$color-background;
+                    background: var.$color-hover;
+                    color: var.$color-background;
                 }
             }
         }
@@ -66,23 +66,23 @@
             position: absolute;
             top: 0px;
             right: 0px;
-            font-size: variable.$font-3-5;
-            color: variable.$color-background;
+            font-size: var.$font-3-5;
+            color: var.$color-background;
             cursor: pointer;
             }
           
         }
         #menu-burger{
             display: none;
-            color: variable.$color-background;
-            font-size: variable.$font-3-5;
+            color: var.$color-background;
+            font-size: var.$font-3-5;
             position: absolute;
             right: 10px;
             top: 10px;
             cursor: pointer;
             z-index: 500;
             &:hover{
-                color: variable.$color-hover;
+                color: var.$color-hover;
             }
           }
     }

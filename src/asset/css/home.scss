@@ -1,4 +1,4 @@
-@use 'variable';
+@use 'variable' as var;
 
 
 .wrap{
@@ -34,7 +34,7 @@
             .texte{
                 margin-bottom: 1rem;
                 p{
-                    font-size: variable.$font-24;
+                    font-size: var.$font-24;
                     font-size: 48px;
                     @media (max-width: 950px){
                         
@@ -57,8 +57,8 @@
                     font-size: 24px;
                     &:hover,
                     &:hover a {
-                        background: variable.$color-hover;
-                        color: variable.$color-background;
+                        background: var.$color-hover;
+                        color: var.$color-background;
 
                     }
                 }
@@ -70,33 +70,36 @@
         display: flex;
         flex-flow: row nowrap;
         align-items: center;
-        gap: 10px;
+        /*gap: 10px;*/
         justify-content: center;
-        @media (max-width: 1000px){
+        @media (max-width: 1151px){
             flex-flow: column nowrap;
-            margin-top: 5rem;
+            margin-top: 50px;
+            text-align: center;
         }
         h2{
             font-size: 20px;
+            width: 25%;
         }
         
         .keyframe{
-            
             .logo-entreprise{
                 display: flex;
                 flex-flow: row nowrap;
                 align-items: center;
-                
                 ul {
                     display: flex;
                     align-items: center;
                     img{
-                        width: 230px;
+                        @media (max-width: 1151px){
+                            width: 250px;
+                        }
                     }     
                 } 
-                @media (max-width: 1000px){
-                    overflow: hidden;
+                @media (max-width: 1151px){
+                    overflow: scroll;
                     animation-name: slidein;
+                    width: 250px;
                     @keyframes slidein {
                         from {
                           margin-left: 100%;
@@ -109,10 +112,9 @@
                         }
                         to {
                           margin-left: 0%;
-                          width: 100%;
+                          width: 200%;
                         }
                     }
-
                 }
             }            
         }
