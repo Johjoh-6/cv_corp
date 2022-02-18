@@ -46,6 +46,10 @@ $meta_user = get_user_meta($id_user);
                     <input type="tel" id="phone" name="phone"  value="" placeholder="<?=  metaField($meta_user, 'phone');?>">
                 </p>
                 <p>
+                    <label for="adress">Adresse</label>
+                    <input type="text" id="adress" name="adress"  value="" placeholder="<?=  metaField($meta_user, 'adress');?>">
+                </p>
+                <p>
                     <label for="img">Photos de profil</label>
                     <input type="file" id="img" name="img">
                 </p>
@@ -73,7 +77,7 @@ $meta_user = get_user_meta($id_user);
                 </p>
             </form>
             <div id="form-pwd" class="error-form">
-                
+    
             </div>
         </div>
     </div>

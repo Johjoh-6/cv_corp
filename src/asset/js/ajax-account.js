@@ -7,7 +7,8 @@ $('#edit').on('click', function(e){
     const lastName = document.querySelector('#last_name').value;
     const email = document.querySelector('#email').value;
     const phone = document.querySelector('#phone').value;
-    // const img = document.querySelector('#img-profil').value;
+    const adress = document.querySelector('#adress').value;
+    const img = document.querySelector('#img-profil').value;
     $.ajax({
         url: ajaxurl,
         type: 'POST',
@@ -18,7 +19,8 @@ $('#edit').on('click', function(e){
             last_name: lastName,
             email: email,
             phone: phone,
-            // img: img
+            adress: adress,
+            img: img
         },
         success: function (res){
             console.log(res);
@@ -36,6 +38,7 @@ function showInAccount(res){
     document.querySelector('#last_name').setAttribute('placeholder', res.last_name);
     document.querySelector('#email').setAttribute('placeholder', res.email);
     document.querySelector('#phone').setAttribute('placeholder', res.phone);
+    document.querySelector('#adress').setAttribute('placeholder', res.adress);
     // document.querySelector('#img-profil').setAttribute('src', res.img)
 }
 

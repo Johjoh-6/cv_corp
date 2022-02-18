@@ -8,34 +8,56 @@ function gNuUserDetails() {
 
     $ID = $_POST['id'];
     $meta_user = get_user_meta($ID);
-
     $errors = [];
     $succes = false;
 
         // Faille xss
         $first_name = cleanXss('first_name');
+        $last_name = cleanXss('last_name');
+        $email = cleanXss('email');
+        $phone = cleanXss('phone');
+        $adress = cleanXss('adress');
+
+        //Validation
         if(!empty($first_name)){
             $errors = textValidation($errors, $first_name,'first_name',2 , 200);
+            if(!empty($errors['first_name'])){
+                $first_name = $meta_user['first_name'][0];
+            }
         } else {
             $first_name = $meta_user['first_name'][0];
         }
-        $last_name = cleanXss('last_name');
         if(!empty($last_name)){
             $errors = textValidation($errors,$last_name,'last_name',2, 200);
+            if(!empty($errors['last_name'])){
+                $last_name = $meta_user['last_name'][0];
+            }
         } else{
             $last_name = $meta_user['last_name'][0];
-        }
-        $email = cleanXss('email');
+        } 
         if(!empty($email)){
             $errors = emailValidation($errors,$email,'email');
+            if(!empty($errors['email'])){
+                $email = $meta_user['email'][0];
+            }
         } else{
             $email = $meta_user['email'][0];
         }
-        $phone = cleanXss('phone');
         if(!empty($phone)){
             $errors = validatePhoneNumber($errors, $phone, 'phone');
+            if(!empty($errors['phone'])){
+                $phone = $meta_user['phone'][0];
+            }
         } else {
             $phone = $meta_user['phone'][0];
+        }
+        if(!empty($adress)){
+            $errors = textValidation($errors, $adress, 'adress', 5, 255);
+            if(!empty($errors['adress'])){
+                $adress = $meta_user['adress'][0];
+            }
+        } else {
+            $adress = $meta_user['adress'][0];
         }
     
         if(count($errors) == 0) {
@@ -46,6 +68,7 @@ function gNuUserDetails() {
             ]);
             update_user_meta( $ID, 'email', $email);
             update_user_meta( $ID, 'phone', $phone);
+            update_user_meta( $ID, 'adress', $adress);
             // update_user_meta( $ID, 'img', $img);
             $succes = true;
         }
@@ -54,10 +77,11 @@ function gNuUserDetails() {
    
     $data = [
         'id'=> $ID,
-        'first_name'=> $meta_user['first_name'][0],
-        'last_name'=> $meta_user['last_name'][0],
-        'email'=>  $meta_user['email'][0],
-        'phone'=> $meta_user['phone'][0],
+        'first_name'=> $first_name,
+        'last_name'=> $last_name,
+        'email'=>  $email,
+        'phone'=> $phone,
+        'adress'=> $adress,
         // 'img'=> $img,
         'errors'=> $errors,
         'succes'=>$succes
