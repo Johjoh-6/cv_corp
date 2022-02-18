@@ -72,7 +72,7 @@
         align-items: center;
         gap: 10px;
         justify-content: center;
-        @media (max-width: 950px){
+        @media (max-width: 1000px){
             flex-flow: column nowrap;
             margin-top: 5rem;
         }
@@ -94,7 +94,7 @@
                         width: 230px;
                     }     
                 } 
-                @media (max-width: 950px){
+                @media (max-width: 1000px){
                     overflow: hidden;
                     animation-name: slidein;
                     @keyframes slidein {
