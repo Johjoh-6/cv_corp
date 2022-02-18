@@ -10,13 +10,17 @@ function gNuUserDetails() {
     $meta_user = get_user_meta($ID);
     $errors = [];
     $succes = false;
-
+    
+        // IMG
+        $imgFile = $_FILES['img'];
+    
         // Faille xss
         $first_name = cleanXss('first_name');
         $last_name = cleanXss('last_name');
         $email = cleanXss('email');
         $phone = cleanXss('phone');
         $adress = cleanXss('adress');
+    
 
         //Validation
         if(!empty($first_name)){
@@ -59,8 +63,18 @@ function gNuUserDetails() {
         } else {
             $adress = $meta_user['adress'][0];
         }
-    
+        if(!empty($imgFile)){
+            $errors = validateImgProfil($errors, 'img', 'img');
+            if(!empty($errors['img'])){
+                $img = $meta_user['img'][0];
+            }
+        } else {
+            $img = $meta_user['img'][0];
+        }
+       
         if(count($errors) == 0) {
+            $attachment_id = media_handle_upload( 'img', $ID, array(), array('test_form' => false) );
+            $attachment_url = wp_get_attachment_url($attachment_id);
             wp_update_user([
                 'ID'=> $ID,
                 'first_name' => $first_name,
@@ -69,7 +83,8 @@ function gNuUserDetails() {
             update_user_meta( $ID, 'email', $email);
             update_user_meta( $ID, 'phone', $phone);
             update_user_meta( $ID, 'adress', $adress);
-            // update_user_meta( $ID, 'img', $img);
+            update_user_meta( $ID, 'img', $attachment_id);
+            
             $succes = true;
         }
     
@@ -82,7 +97,8 @@ function gNuUserDetails() {
         'email'=>  $email,
         'phone'=> $phone,
         'adress'=> $adress,
-        // 'img'=> $img,
+        'img'=> $attachment_id,
+        'img_url'=> $attachment_url,
         'errors'=> $errors,
         'succes'=>$succes
         ];

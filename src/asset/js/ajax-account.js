@@ -8,22 +8,28 @@ $('#edit').on('click', function(e){
     const email = document.querySelector('#email').value;
     const phone = document.querySelector('#phone').value;
     const adress = document.querySelector('#adress').value;
-    const img = document.querySelector('#img-profil').value;
+    const img = document.querySelector('#img').files[0];
+    const form_data = new FormData();
+    form_data.append('id', id);
+    form_data.append('action', 'ajax_account');
+    form_data.append('first_name', firstName);
+    form_data.append('last_name', lastName);
+    form_data.append('email', email);
+    form_data.append('phone', phone);
+    form_data.append('adress', adress);
+    form_data.append('img', img);
+    console.log(img);
     $.ajax({
         url: ajaxurl,
         type: 'POST',
-        data: {
-            action: 'ajax_account',
-            id: id,
-            first_name: firstName,
-            last_name: lastName,
-            email: email,
-            phone: phone,
-            adress: adress,
-            img: img
+        processData: false,
+        contentType: false,
+        data: form_data,
+        beforeSend: function () {
+            console.log('send');
         },
         success: function (res){
-            console.log(res);
+            console.log('response');
            showInAccount(res);
            showError(res);
            showSuccess(res);
@@ -39,7 +45,9 @@ function showInAccount(res){
     document.querySelector('#email').setAttribute('placeholder', res.email);
     document.querySelector('#phone').setAttribute('placeholder', res.phone);
     document.querySelector('#adress').setAttribute('placeholder', res.adress);
-    // document.querySelector('#img-profil').setAttribute('src', res.img)
+    if(res.img_url){
+        document.querySelector('#img-profil').setAttribute('src', res.img_url);
+    }
 }
 
 function showError(res){

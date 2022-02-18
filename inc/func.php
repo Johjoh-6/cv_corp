@@ -131,3 +131,31 @@ function validatePhoneNumber($errors, $phoneV, $key)
      } 
      return $errors;
 }
+
+function validateImgProfil($errors, $imgFile, $key){
+        $fileinfo = @getimagesize($_FILES[ $imgFile]["tmp_name"]);
+        $width = $fileinfo[0];
+        $height = $fileinfo[1];
+        
+        $allowed_image_extension = array(
+            "png",
+            "jpg",
+            "jpeg"
+        );
+        
+        // Get image file extension
+        $file_extension = pathinfo($_FILES[ $imgFile]["name"], PATHINFO_EXTENSION);
+        
+        // Validate file input to check if is not empty
+        if (! file_exists($_FILES[ $imgFile]["tmp_name"])) {
+            $errors[$key] = 'Fichier vide';
+        }    // Validate file input to check if is with valid extension
+        else if (! in_array($file_extension, $allowed_image_extension)) {
+            $errors[$key] = 'Format non supporter ! (png, jpg, jpeg)';
+    
+        }    // Validate image file size
+        else if (($_FILES["file-input"]["size"] > 2000000)) {
+            $errors[$key] = 'Fichier trop volumineux';
+        }    
+        return $errors;
+}
