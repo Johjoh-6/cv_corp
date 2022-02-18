@@ -9,6 +9,7 @@ require get_template_directory(). '/inc/img.php';
 require get_template_directory(). '/inc/role.php';
 require get_template_directory(). '/inc/register-form.php';
 
+
 /**
  * Custom
  */
@@ -19,4 +20,5 @@ require get_template_directory(). '/inc/register-form.php';
  */
 require get_template_directory() . '/inc/ajax/ajax-account.php';
 require get_template_directory() . '/inc/ajax/ajax-account-pwd.php';
+require get_template_directory(). '/inc/ajax/ajax-cv.php';
 
