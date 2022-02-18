@@ -1,3 +1,4 @@
+
 <div class="flex full_page relative">
     <section id="cvEditor">
         <h1>Editez votre CV</h1>
@@ -5,7 +6,6 @@
             <h2>Profil</h2>
             <form action="" method="post">
             <ul>
-
                 <li class="cvNomInput">
                     <label for="nom">Nom : </label>
                     <input id="nom" name="nom" type="text" v-model="nomCv" v-on:change="autosave()">
@@ -36,41 +36,72 @@
         <div class="experiences">
             <h2>Experiences</h2>
             <ul class="experienceList">
-
             </ul>
             <p id="experienceBtn">Ajouter une experience</p>
         </div>
+        <div class="formations">
+            <h2>Formations</h2>
+            <ul class="formationList">
+            </ul>
+            <p id="formationBtn">Ajouter une formation</p>
+        </div>
+        <div class="langues">
+            <h2>Langues parlées</h2>
+            <ul class="langueList">
+            </ul>
+            <p id="langueBtn">Ajouter une langue parlée</p>
+        </div>
+        <button class="saveBtn">SAUVEGARDER</button>
     </section>
     <section id="cvVisualizer">
-        <div class="fullCv relative">
-            <div class="pfpCv" v-bind:style="{ backgroundImage: 'url(' + image + ')' }"></div>
-            <ul>
-                <li>
-                    <label for="nom">Nom : </label>
-                    <span>{{ nomCv }}</span>
-                </li>
-                <li>
-                    <label for="prenom">Prénom : </label>
-                    <span>{{ prenomCv }}</span>
-                </li>
-                <li>
-                    <label for="email">Adresse mail : </label>
-                    <span>{{ emailCv }}</span>
-                </li>
-                <li>
-                    <label for="phone">Numéro de téléphone : </label>
-                    <span>{{ phoneCv }}</span>
-                </li>
-                <li>
-                    <label for="adresse">Adresse : </label>
-                    <span>{{ adresseCv }}</span>
-                </li>
-            </ul>
-            <div class="experiences">
-                <h2>Experiences</h2>
-                <ul class="experienceListCv">
-
+        <div class="fullCv relative flex">
+            <div class="cvLeft">
+                <div class="pfpCv" v-bind:style="{ backgroundImage: 'url(' + image + ')' }"></div>
+                <ul>
+                    <li>
+                        <label for="nom">Nom : </label>
+                        <span>{{ nomCv }}</span>
+                    </li>
+                    <li>
+                        <label for="prenom">Prénom : </label>
+                        <span>{{ prenomCv }}</span>
+                    </li>
+                    <li>
+                        <label for="email">Adresse mail : </label>
+                        <span>{{ emailCv }}</span>
+                    </li>
+                    <li>
+                        <label for="phone">Numéro de téléphone : </label>
+                        <span>{{ phoneCv }}</span>
+                    </li>
+                    <li>
+                        <label for="adresse">Adresse : </label>
+                        <span>{{ adresseCv }}</span>
+                    </li>
                 </ul>
+
+                <div class="formations">
+                    <h2>Formations</h2>
+                    <ul class="formationListCv">
+
+                    </ul>
+                </div>
+                <div class="langues">
+                    <h2>Formations</h2>
+                    <ul class="langueListCv">
+
+                    </ul>
+                </div>
+            </div>
+            <div class="cvRight">
+
+                <div class="experiences">
+                    <h2>Experiences</h2>
+                    <ul class="experienceListCv">
+
+                    </ul>
+                </div>
+
             </div>
         </div>
     </section>
@@ -85,7 +116,7 @@
 
     <section class="cvModale dNone experienceModale absolute">
         <ul>
-            <li class="cvNomInput">
+            <li>
                 <label for="entreprise">Entreprise : </label>
                 <input id="entreprise" name="entreprise" type="text">
             </li>
@@ -115,11 +146,86 @@
             </li>
             <li>
                 <label for="expDetails">Détails de l'expérience</label>
-                <textarea name="expDetails" id="expDetails" cols="15" rows="5"></textarea>
+                <textarea name="expDetails" id="expDetails" cols="20" rows="5"></textarea>
                 <!-- /# -->
             </li>
             <li>
                 <span id="experienceAdd">Ajouter une experience</span>
+            </li>
+        </ul>
+
+    </section>
+    <section class="cvModale dNone formationModale absolute">
+        <ul>
+            <li>
+                <label for="organisme">Organisme de formation : </label>
+                <input id="organisme" name="organisme" type="text">
+            </li>
+            <li>
+                <label for="nomFormation">Nom de la formation : </label>
+                <input id="nomFormation" name="nomFormation" type="text">
+            </li>
+            <li>
+                <label for="formLieu">Lieu de formation : </label>
+                <input id="formLieu" name="formLieu" type="text">
+            </li>
+            <li>
+                <label for="diplome">Diplome obtenu : </label>
+                <input id="diplome" name="diplome" type="text">
+            </li>
+            <li class="flex">
+                <div>
+                    <label for="formStart">Année de début : </label>
+                    <select name="formStart" id="formStart">
+                        <?php for($i = 1900; $i <= date("Y"); $i++) { ?>
+                            <option value="<?= $i ?>"><?= $i ?></option>
+                        <?php } ?>
+                    </select>
+                    <!-- /# -->
+                </div>
+                <div>
+                    <label for="formEnd">Année de fin : </label>
+                    <select name="formEnd" id="formEnd">
+                        <option value="present">Présent</option>
+                        <?php for($i = 1900; $i <= date("Y"); $i++) { ?>
+                            <option value="<?= $i ?>"><?= $i ?></option>
+                        <?php } ?>
+                    </select>
+                </div>
+            </li>
+            <li>
+                <label for="formDetails">Détails de la formation</label>
+                <textarea name="formDetails" id="formDetails" cols="20" rows="5"></textarea>
+                <!-- /# -->
+            </li>
+            <li>
+                <span id="formationAdd">Ajouter une formation</span>
+            </li>
+        </ul>
+
+    </section>
+
+    <section class="cvModale dNone langueModale absolute">
+        <ul>
+            <li>
+                <label for="langue">Langue : </label>
+                <input id="langue" name="langue" type="text">
+            </li>
+            <li class="flex">
+                <div>
+                    <label for="niveauLangue">Niveau : </label>
+                    <select name="niveauLangue" id="niveauLangue">
+                        <option value="1">1 (débutant)</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5 (parlé couramment)</option>
+                    </select>
+                    <!-- /# -->
+                </div>
+            </li>
+            <li>
+                <span id="langueAdd">Ajouter une langue</span>
             </li>
         </ul>
 
