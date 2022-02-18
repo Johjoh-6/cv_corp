@@ -18,7 +18,6 @@ $('#edit').on('click', function(e){
     form_data.append('phone', phone);
     form_data.append('adress', adress);
     form_data.append('img', img);
-    console.log(img);
     $.ajax({
         url: ajaxurl,
         type: 'POST',
