@@ -1,4 +1,4 @@
-@use 'variable';
+@use 'variable' as var;
 
 #account{
     width: min(1400px, 100%);
@@ -6,7 +6,7 @@
     #box-account{
         width: min(900px, 98%);
         margin-inline: auto;
-        background-color: variable.$color-connect;
+        background-color: var.$color-connect;
         border-radius: 10px;
         padding: 1.5rem;
         display: flex;
@@ -15,7 +15,7 @@
         justify-content: space-between;
         
         .header-account{
-            color: variable.$color-background;
+            color: var.$color-background;
             display: flex;
             flex-flow: row nowrap;
             gap: 2rem;
@@ -31,14 +31,14 @@
             }
         }
         .account-detail{
-            background-color: variable.$color-background;
+            background-color: var.$color-background;
             border-radius: 10px;
             display: flex;
             flex-flow: column nowrap;
             gap: 1rem;
             padding: 1.5rem;
             h3{
-                font-size: variable.$font-20;
+                font-size: var.$font-20;
                 font-weight: 700;
             }
             form{
@@ -54,19 +54,19 @@
                         width: 100%;
                     }
                     label{
-                        font-size: variable.$font-16;
+                        font-size: var.$font-16;
                         font-weight: 500;
                     }
                     input{
                         border-radius: 5px;
                         padding: .3rem;
-                        border: 2px solid variable.$color-connect;
+                        border: 2px solid var.$color-connect;
                         &:focus{
-                            color: variable.$color-background;
+                            color: var.$color-background;
                         }
                         &:focus-visible{
-                            outline: 2px solid variable.$color-primary;
-                            background-color: variable.$color-secondary;
+                            outline: 2px solid var.$color-primary;
+                            background-color: var.$color-secondary;
                         }
                     }
                 }
@@ -74,14 +74,14 @@
                     flex-grow: 2;
                     width: 100%;
                     input{
-                        font-size: variable.$font-18;
-                        color: variable.$color-background;
-                        background-color: variable.$color-btn;
+                        font-size: var.$font-18;
+                        color: var.$color-background;
+                        background-color: var.$color-btn;
                         border: none;
                         transition: all .3s;
                         cursor: pointer;
                         &:hover{
-                            background-color: variable.$color-hover;
+                            background-color: var.$color-hover;
                         }
                     }
                 }
@@ -90,12 +90,12 @@
                 text-align: center;
                 margin-top: .8rem;
                min-height: 2rem;
-               color: variable.$color-error;
-               font-size: variable.$font-14;
+               color: var.$color-error;
+               font-size: var.$font-14;
               width: 100%;
               text-align: center;
                p{
-                background-color: variable.$color-background;
+                background-color: var.$color-background;
                 border-radius: 5px;
                padding: .3rem .5rem;
                width: 100%;

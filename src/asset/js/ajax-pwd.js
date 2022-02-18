@@ -4,7 +4,7 @@ $('#update_password').on('click', function(e){
     const form = document.querySelector('#pwd-account');
     id = e.currentTarget.dataset.id;
     e.preventDefault();
-   
+   const pwd = 
     $.ajax({
         url: ajaxurl,
         type: 'POST',
