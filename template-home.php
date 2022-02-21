@@ -25,9 +25,9 @@ get_header(); ?>
         <div class="keyframe">
             <div class="logo-entreprise">
                 <ul>
-                    <li><img src="<?= asset('img/decatlon.png')?>" alt=""></li>
-                    <li><img src="<?= asset('img/normandie.png')?>" alt=""></li>
-                    <li><img src="<?= asset('img/bouygues.png')?>" alt=""></li>
+                    <li><img src="<?= asset('img/decatlon.png')?>" alt="img-decatlon"></li>
+                    <li><img src="<?= asset('img/normandie.png')?>" alt="img-normandie"></li>
+                    <li><img src="<?= asset('img/bouygues.png')?>" alt="img-bouygues"></li>
                 </ul> 
             </div>
         </div>
@@ -36,7 +36,7 @@ get_header(); ?>
     <section id="fonction">
         <div>
             <div class="backgroud-circle">
-                <img src="<?= asset('img/bull1.svg')?>" alt="">
+                <img src="<?= asset('img/bull1.svg')?>" alt="img-bull1">
             </div>
             <div class="fonction-texte">
                 <h2>Sélection de CV</h2>
@@ -46,7 +46,7 @@ get_header(); ?>
 
         <div>
             <div class="backgroud-circle">
-                <img src="<?= asset('img/bull2.svg')?>" alt="">
+                <img src="<?= asset('img/bull2.svg')?>" alt="img-bull2">
             </div>
             <div class="fonction-texte">
                 <h2>Crée un CV</h2>
@@ -56,7 +56,7 @@ get_header(); ?>
 
         <div>
             <div class="backgroud-circle">
-                <img src="<?= asset('img/bull3.svg"')?>" alt="">
+                <img src="<?= asset('img/bull3.svg"')?>" alt="img-bull3">
             </div>
             <div class="fonction-texte">
                 <h2>Téléchargement PDF</h2>
@@ -68,7 +68,7 @@ get_header(); ?>
     <section id="avis">
         <div class="avis-box">
             <div class="backgroud-avis">
-                <img src="<?= asset('img/avis1.svg')?>" alt="">
+                <img src="<?= asset('img/avis1.svg')?>" alt="img-avies1">
             </div>
             <div class="avis-texte">
                 <p>"Un exenllent service, à l'écoute et efficace. Large gamme proposée pour crée un CV, et corrige également les fautes; Je recommande fortement."</p>
@@ -76,7 +76,7 @@ get_header(); ?>
         </div>
         <div class="avis-box">
             <div class="backgroud-avis">
-                <img src="<?= asset('img/avis2.svg')?>" alt="">
+                <img src="<?= asset('img/avis2.svg')?>" alt="img-avies2">
             </div>
             <div class="avis-texte">
                 <p>"Super ! J"ai directement été prise pour un poste. Merci !"</p>
@@ -84,7 +84,7 @@ get_header(); ?>
         </div>
         <div class="avis-box">
             <div class="backgroud-avis">
-                <img src="<?= asset('img/avis3.svg')?>" alt="">
+                <img src="<?= asset('img/avis3.svg')?>" alt="img-avies3">
             </div>
             <div class="avis-texte">
                 <p>"Tres pratique, très rapide et bonne mise en valeur du CV !!! Merci."</p>
