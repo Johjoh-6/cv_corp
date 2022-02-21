@@ -1,5 +1,5 @@
 //Require for PDF.js
-import * as pdfjsLib from 'pdfjs-dist/webpack';
+// import * as pdfjsLib from 'pdfjs-dist/webpack';
 
 // Reset CSS Variable
 import './asset/css/reset.scss';

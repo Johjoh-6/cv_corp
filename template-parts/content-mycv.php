@@ -27,7 +27,8 @@ debug($allCv);
                         <div class="box_text_profil_candidat">
                             <h2><?= $singleCv["cv_title"] ?></h2>
                             <div class="cta_candit" data_cvid="<?= $singleCv["id"] ?>">
-                                <a href="<?= path('/cv') ?>?cvEdit='<?= $singleCv["id"] ?>'">Editer ce CV</a>
+                                <a href="<?= path('/cv') ?>?cvEdit=<?= $singleCv["id"] ?>">Editer ce CV</a>
+                                <a href="<?= path('/cv-detail') ?>?cv=<?= $singleCv["id"] ?>">Voir ce CV</a>
                             </div>
                         </div>
                     </div>
