@@ -17,13 +17,13 @@ debug($cv);
 <section id="pdf-cv">
     <div id="pdf-cv_model">
         <div id="pdf-cv_info_box">
-            <img src="<?= wp_get_attachment_image_url($cv->id_picture, 'img_compte'); ?>" alt="photo de <?= $cv->user_lastname;?>">
+            <img src="<?= !empty($cv->id_picture) ? wp_get_attachment_image_url($cv->id_picture, 'img_compte') : ''; ?>" alt="photo de <?= !empty($cv->user_lastname) ?  $cv->user_lastname : '';?>">
             <div id="pdf-cv_info">
-                <p>Nom : <?= $cv->user_lastname; ?></p>
-                <p>Prénom : <?= $cv->user_firstname; ?></p>
-                <p>Email : <?= $cv->user_email; ?></p>
-                <p>Tél : <?= $cv->user_phone; ?></p>
-                <p>Adresse : <?= $cv->user_adress; ?></p>
+                <p>Nom : <?= !empty($cv->user_lastname) ?  $cv->user_lastname : ''; ?></p>
+                <p>Prénom : <?= !empty($cv->user_firstname) ? $cv->user_firstname : ''; ?></p>
+                <p>Email : <?= !empty($cv->user_email) ? $cv->user_email : '' ; ?></p>
+                <p>Tél : <?=  !empty($cv->user_phone) ? $cv->user_phone : ''; ?></p>
+                <p>Adresse : <?= !empty($cv->user_adress) ? $cv->user_adress : ''; ?></p>
             </div>
         </div>
         <div id="pdf-cv_box">
@@ -69,6 +69,7 @@ debug($cv);
                 <?php } ?>
             </div>
             <div>
+                <?php if(!empty($cv->experience)) { ?>
                 <div id="pdf-cv_exp_list">
                     <h3>Épérience Professionnel</h3>
                     <?php 
@@ -84,6 +85,7 @@ debug($cv);
                     }
                     ?>
                 </div>
+                <?php } if(!empty($cv->studies)){ ?>
                 <div id="pdf-cv_studie_list">
                     <h3>Formation et Diplôme</h3>
                     <?php 
@@ -100,6 +102,7 @@ debug($cv);
                     }
                     ?>
                 </div>
+                <?php } ?>
             </div>
         </div>
     </div>
