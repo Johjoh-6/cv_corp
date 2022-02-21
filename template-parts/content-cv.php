@@ -1,4 +1,4 @@
-
+<?php global $wpdb ?>
 <div class="flex full_page relative">
     <section id="cvEditor">
         <h1>Editez votre CV</h1>
@@ -169,10 +169,6 @@
                 <label for="formLieu">Lieu de formation : </label>
                 <input id="formLieu" name="formLieu" type="text">
             </li>
-            <li>
-                <label for="diplome">Diplome obtenu : </label>
-                <input id="diplome" name="diplome" type="text">
-            </li>
             <li class="flex">
                 <div>
                     <label for="formStart">Année de début : </label>
@@ -209,7 +205,16 @@
         <ul>
             <li>
                 <label for="langue">Langue : </label>
-                <input id="langue" name="langue" type="text">
+                <select name="langue" class="langue">
+                    <option value=""></option>
+                    <?php
+                    $langues  = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}langues", ARRAY_A );
+                    foreach ($langues as $langue) {
+                        ?> <option value="<?= $langue['id'] ?>"><?= $langue['langue_name'] ?></option>
+                    <?php }
+                    ?>
+                </select>
+                <input class="langue" name="langue" type="text">
             </li>
             <li class="flex">
                 <div>
@@ -221,7 +226,6 @@
                         <option value="4">4</option>
                         <option value="5">5 (parlé couramment)</option>
                     </select>
-                    <!-- /# -->
                 </div>
             </li>
             <li>

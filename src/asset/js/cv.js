@@ -90,12 +90,13 @@ if (document.body.contains(document.querySelector('.full_page')))  {
         emailCv: '',
         phoneCv: '',
         adresseCv: '',
-        testID: '',
+        ID: '',
         image: '',
         experiences: [],
         formations: [],
         langues: [],
     }
+
     if (typeof retrieveCVSave() != 'undefined') {
         console.log('retrieving save')
         dataCv = retrieveCVSave()
@@ -131,33 +132,27 @@ if (document.body.contains(document.querySelector('.full_page')))  {
 
         const liForm = '<li class="singleFormation flex" data-expId ="'+(dataCv.formations.length - 1)+'">' +
             '<button class="deleteFormBtn" data-formIdDelBtn ="'+(dataCv.formations.length - 1)+'">Supprimer</button>' +
-            '<div><h2 class="formTitle"></h2><p class="formLieu"></p><p class="formDiplome"></p><p class="formDates"></p><p class="formDetails"></p></div>' +
+            '<div><h2 class="formTitle"></h2><p class="formLieu"></p><p class="formDates"></p><p class="formDetails"></p></div>' +
             '</li>'
         const liFormCv = '<li class="singleFormationCv flex" data-expId ="'+(dataCv.formations.length - 1)+'">' +
-            '<div><h2 class="formTitle"></h2><p class="formLieu"><p class="formDiplome"></p><p class="formDates"></p><p class="formDetails"></p></div>' +
+            '<div><h2 class="formTitle"></h2><p class="formLieu"><p class="formDates"></p><p class="formDetails"></p></div>' +
             '</li>'
         let formTitle= dataCv.formations[f]['nomFormation'] +' chez '+ dataCv.formations[f]['organisme']
         let formDates= dataCv.formations[f]['formStart'] +' - '+ dataCv.formations[f]['formEnd']
         let formDetails= dataCv.formations[f]['formDetails']
-        let formDiplome= dataCv.formations[f]['formDiplome']+' obtenu'
         let formLieu= dataCv.formations[f]['formLieu']
         document.querySelector('.formationList').innerHTML+=liForm
         addTxtLineModale('formation', 'formTitle',formTitle)
         addTxtLineModale('formation', 'formDates',formDates)
         addTxtLineModale('formation', 'formDetails',formDetails)
         addTxtLineModale('formation', 'formLieu',formLieu)
-        if (dataCv.formations[f]['formDiplome']) {
-            addTxtLineModale('formation', 'formDiplome',formDiplome)
-        }
         document.querySelector('.formationListCv').innerHTML+=liFormCv
 
         addTxtLineModaleCv('formation', 'formTitle',formTitle)
         addTxtLineModaleCv('formation', 'formDates',formDates)
         addTxtLineModaleCv('formation', 'formDetails',formDetails)
         addTxtLineModaleCv('formation', 'formLieu',formLieu)
-        if (dataCv.formations[f]['formDiplome']) {
-            addTxtLineModaleCv('formation', 'formDiplome',formDiplome)
-        }
+
         f++
     })
     dataCv.langues.forEach(function () {
@@ -256,21 +251,36 @@ if (document.body.contains(document.querySelector('.full_page')))  {
     //LANGUE
     document.getElementById('langueBtn').onclick = function() {
         document.querySelector('.langueModale').style.display = 'block';
+        document.querySelector('.langueModale input.langue').onchange = (function() {
+            if (document.querySelector('.langueModale input.langue').value) {
+                document.querySelector('.langueModale select.langue').disabled = true
+            } else {
+                document.querySelector('.langueModale select.langue').disabled = false
+            }
+        })
+        document.querySelector('.langueModale select.langue').onchange = (function() {
+            if (document.querySelector('.langueModale select.langue').value) {
+                document.querySelector('.langueModale input.langue').disabled = true
+            } else {
+                document.querySelector('.langueModale input.langue').disabled = false
+            }
+        })
     }
 
 
     document.getElementById('langueAdd').onclick = function() {
-        let singleLangue = {
-            langue: document.querySelector('.langueModale #langue').value,
-            niveau: document.querySelector('.langueModale #niveauLangue').value,
-        }
+            let singleLangue = {
+                id:document.querySelector('.langueModale select.langue option:checked').value,
+                langue: document.querySelector('.langueModale select.langue option:checked').textContent+document.querySelector('.langueModale input.langue').value,
+                niveau: document.querySelector('.langueModale #niveauLangue').value,
+            }
+
         let niveauLangue= []
         for (let nivIndex = 1; nivIndex <= singleLangue.niveau; nivIndex++) {
             niveauLangue.push(nivIndex)
         }
         dataCv.langues.push(singleLangue)
         dataCVSave()
-        console.log(dataCVSave())
         document.querySelector('.langueModale').style.display = 'none';
         const liLangue = '<li class="singleLangue flex" data-expId ="'+(dataCv.langues.length - 1)+'"><button class="deleteLanBtn" data-expIdDelBtn ="'+(dataCv.langues.length - 1)+'">Supprimer</button><div><h2 class="langue"></h2><ul class="niveauLangue"></ul></div></li>'
         const liLangueCv = '<li class="singleLangueCv flex" data-expId ="'+(dataCv.langues.length - 1)+'"><div><h2 class="langue"></h2><ul class="niveauLangue"></ul></div></li>'
@@ -293,15 +303,12 @@ if (document.body.contains(document.querySelector('.full_page')))  {
         for (let nivNegative = singleLangue.niveau; nivNegative < 5; nivNegative++) {
             document.querySelector('.singleLangueCv:last-of-type .niveauLangue').innerHTML += starEmpty
         }
-
         //SUPPRESSION LANGUE
     }
-
 
     document.getElementById('formationBtn').onclick = function() {
         document.querySelector('.formationModale').style.display = 'block';
     }
-
 
     document.getElementById('formationAdd').onclick = function() {
         let singleFormation = {
@@ -310,7 +317,6 @@ if (document.body.contains(document.querySelector('.full_page')))  {
             formStart: document.querySelector('.formationModale #formStart').value,
             formEnd: document.querySelector('.formationModale #formEnd').value,
             formDetails: document.querySelector('.formationModale #formDetails').value,
-            formDiplome: document.querySelector('.formationModale #diplome').value,
             formLieu: document.querySelector('.formationModale #formLieu').value,
         }
         dataCv.formations.push(singleFormation)
@@ -319,16 +325,16 @@ if (document.body.contains(document.querySelector('.full_page')))  {
         document.querySelector('.formationModale').style.display = 'none';
 
         const liForm = '<li class="singleFormation flex" data-expId ="'+(dataCv.formations.length - 1)+'">' +
-            '<button class="deleteFormBtn" data-formIdDelBtn ="'+(dataCv.formations.length - 1)+'">Supprimer</button>' +
-            '<div><h2 class="formTitle"></h2><p class="formLieu"><p class="formDiplome"></p><p class="formDates"></p><p class="formDetails"></p></div>' +
+            '<but' +
+            'ton class="deleteFormBtn" data-formIdDelBtn ="'+(dataCv.formations.length - 1)+'">Supprimer</button>' +
+            '<div><h2 class="formTitle"></h2><p class="formLieu"><p class="formDates"></p><p class="formDetails"></p></div>' +
             '</li>'
         const liFormCv = '<li class="singleFormationCv flex" data-expId ="'+(dataCv.formations.length - 1)+'">' +
-            '<div><h2 class="formTitle"></h2><p class="formLieu"><p class="formDiplome"></p><p class="formDates"></p><p class="formDetails"></p></div>' +
+            '<div><h2 class="formTitle"></h2><p class="formLieu"></p><p class="formDates"></p><p class="formDetails"></p></div>' +
             '</li>'
         let formTitle= singleFormation.nomFormation +' chez '+ singleFormation.organisme
         let formDates= singleFormation.formStart +' - '+ singleFormation.formEnd
         let formDetails= singleFormation.formDetails
-        let formDiplome= singleFormation.formDiplome+' obtenu'
         let formLieu= singleFormation.formLieu
 
         document.querySelector('.formationList').innerHTML+=liForm
@@ -336,9 +342,7 @@ if (document.body.contains(document.querySelector('.full_page')))  {
         addTxtLineModale('formation', 'formDates',formDates)
         addTxtLineModale('formation', 'formDetails',formDetails)
         addTxtLineModale('formation', 'formLieu',formLieu)
-        if (singleFormation.formDiplome) {
-            addTxtLineModale('formation', 'formDiplome',formDiplome)
-        }
+
 
 
         document.querySelector('.formationListCv').innerHTML+=liFormCv
@@ -347,17 +351,11 @@ if (document.body.contains(document.querySelector('.full_page')))  {
         addTxtLineModaleCv('formation', 'formDates',formDates)
         addTxtLineModaleCv('formation', 'formDetails',formDetails)
         addTxtLineModaleCv('formation', 'formLieu',formLieu)
-        if (singleFormation.formDiplome) {
-            addTxtLineModaleCv('formation', 'formDiplome', formDiplome)
-        }
+
         addFormDelBtn()
     }
     dataCVSave()
     Object.values(dataCv).onchange = console.log('savetest');
-
-
-
-
 
 
 
@@ -403,7 +401,12 @@ document.querySelector('.saveBtn').onclick = function() {
             console.log('AJAX SENT')
         },
         success: function (response) {
-            console.log(response)
+            let responseData = response
+            let cvId = responseData.trim().charAt(0)
+            dataCv.ID = cvId
+            console.log(cvId)
+            dataCVSave()
+            console.log('----')
         },
     })
 
