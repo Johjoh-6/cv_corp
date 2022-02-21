@@ -20,6 +20,7 @@
     "core-js": "^3.19.1",
     "css-loader": "^6.5.1",
     "mini-css-extract-plugin": "^2.4.5",
+    "pdfjs-dist": "^2.12.313",
     "postcss-loader": "^6.2.1",
     "sass": "^1.43.5",
     "sass-loader": "^12.3.0",
@@ -27,5 +28,8 @@
     "webpack": "^5.64.4",
     "webpack-cli": "^4.9.1",
     "webpack-dev-server": "^4.6.0"
+  },
+  "dependencies": {
+    "jspdf": "^2.5.1"
   }
 }
