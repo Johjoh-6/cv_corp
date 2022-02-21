@@ -14,6 +14,7 @@ import './asset/css/header.scss';
 import './asset/css/home.scss';
 import './asset/css/footer.scss';
 import './asset/css/cv.scss';
+import './asset/css/content-cv.scss';
 import './asset/css/page-cv.scss';
 import './asset/css/form_style.scss';
 import './asset/css/cookies.scss';

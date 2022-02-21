@@ -5,10 +5,20 @@ get_header(); ?>
 <h1>cv details</h1>
 
 <section id="pdf-cv">
+    <div class="box-info-cv">
+        <img src="<?= asset('img/photo-profil-test.png')?>" alt="photoProfil">
+        <div class="info-cv">
+            <p>Prenom : <?php ?></p>
+            <p>Nom : <?php ?></p>
+        </div>
+    </div>
     <div id="my_pdf_viewer">
         <div id="canvas_container">
             <canvas id="pdf_renderer"></canvas>
             <img src="<?php //pdf bdd ?>" alt="">
+            <div class="btn-modif">
+                <a href="">modifier</a>
+            </div>
         </div>
         <!--changement de page navigation-->
         <!--
@@ -21,6 +31,7 @@ get_header(); ?>
             <button id="zoom_in">+</button>
             <button id="zoom_out">-</button>
         </div>
+        
     </div>
 </section>
 

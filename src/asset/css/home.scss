@@ -43,7 +43,7 @@
                     flex-flow: column;
                 }
                 a {
-                    background-color: black;
+                    background: var.$color-btn;
                     color: var.$color-background;
                     padding: 0.5rem 5rem;
                     border-radius: 10px;
