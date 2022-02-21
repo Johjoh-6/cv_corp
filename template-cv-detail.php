@@ -108,6 +108,7 @@ debug($cv);
     </div>
 </section>
 <button id="getPdf" data-fisrt-name="<?=  metaField($meta_user, 'first_name');?>" data-last-name="<?=  metaField($meta_user, 'last_name');?>">Click here</button>
+<input type="hidden" name="jsonarray" value="<?= htmlspecialchars(json_encode($cv),ENT_QUOTES); ?>" id="jsonarray">
 
 
 <?php get_footer();
