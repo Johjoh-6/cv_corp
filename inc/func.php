@@ -170,7 +170,7 @@ function getCvById($idcv){
     global $wpdb;
     $info = $wpdb->get_results("SELECT `user_firstname`, `user_lastname`, `user_email`, `user_phone`, `user_adress`, `id_picture`  FROM {$wpdb->prefix}cv WHERE id = $idcv", OBJECT);
     $experience = $wpdb->get_results("SELECT `job_name`, `company_name`, `date_start`, `date_end`, `details` FROM {$wpdb->prefix}experience WHERE id_cv = $idcv", ARRAY_A);
-    $studie = $wpdb->get_results("SELECT `study_name`, `study_details`, `school_name`, `school_location`, `date_start`, `date_end`  FROM {$wpdb->prefix}studies WHERE id_cv = $idcv", ARRAY_A);
+    $studies = $wpdb->get_results("SELECT `study_name`, `study_details`, `school_name`, `school_location`, `date_start`, `date_end`  FROM {$wpdb->prefix}studies WHERE id_cv = $idcv", ARRAY_A);
     $skills = $wpdb->get_results("SELECT skills.skill_name, pivot.skill_level 
         FROM {$wpdb->prefix}skill_pivot AS pivot
         LEFT JOIN {$wpdb->prefix}skills AS skills ON pivot.id_skill = skills.id
@@ -192,8 +192,8 @@ function getCvById($idcv){
     foreach($experience as $key => $value){
         $cv_obj->experience[] = $value;
     }
-    foreach($studie as $key => $value){
-        $cv_obj->studie[] = $value;
+    foreach($studies as $key => $value){
+        $cv_obj->studies[] = $value;
     }
     foreach($skills as $key => $value){
         $cv_obj->skills[] = $value;
