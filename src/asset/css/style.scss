@@ -1,4 +1,4 @@
-@use 'variable';
+@use 'variable' as var;
 
 
 .flex {
@@ -14,8 +14,8 @@
   position: relative;
 }
 body{
-    background-color: variable.$color-background;
-    font-family: variable.$font-roboto;
+    background-color: var.$color-background;
+    font-family: var.$font-roboto;
     #page{
       display: flex;
       flex-flow: column nowrap;
@@ -37,5 +37,5 @@ body{
   }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: variable.$font-code;
+  font-family: var.$font-code;
 }

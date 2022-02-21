@@ -9,14 +9,13 @@ $id_user = get_current_user_id();
 // update_user_meta( $id_user, 'phone', '123456789');
 
 $meta_user = get_user_meta($id_user);
-
 ?>
 
 
 <section id="account">
     <div id="box-account">
         <div class="header-account">
-            <img id="img-profil" src="<?= metaFieldImg($meta_user, 'img', 'img_compte');?>" alt="">
+            <img id="img-profil" src="<?= metaFieldImg($meta_user, 'img', 'img_compte'); ?>" alt="">
             <div class="header-account_text">
                 <p class="header-account_role">
                     <?= showRoleCurrentUser();?>
@@ -28,7 +27,7 @@ $meta_user = get_user_meta($id_user);
         </div>
         <div class="account-detail">
             <h3>Information personnel</h3>
-            <form action="" method="$_POST" id="detail-account">
+            <form action="" method="$_POST" id="detail-account" enctype="multipart/form-data">
                 <p>
                     <label for="first_name">Prénom</label>
                     <input type="text" id="first_name" name="first_name" value="" placeholder="<?=  metaField($meta_user, 'first_name');?>">
@@ -44,6 +43,10 @@ $meta_user = get_user_meta($id_user);
                 <p>
                     <label for="phone">Téléphone</label>
                     <input type="tel" id="phone" name="phone"  value="" placeholder="<?=  metaField($meta_user, 'phone');?>">
+                </p>
+                <p>
+                    <label for="adress">Adresse</label>
+                    <input type="text" id="adress" name="adress"  value="" placeholder="<?=  metaField($meta_user, 'adress');?>">
                 </p>
                 <p>
                     <label for="img">Photos de profil</label>
@@ -69,11 +72,11 @@ $meta_user = get_user_meta($id_user);
                     <input type="password" name="confirm_pass" id="confirm_pass">
                 </p>
                 <p class="submit">
-                    <input type="submit" id="update_password" value="Modifier le mots de passe">
+                    <input type="submit" id="update_password" value="Modifier le mots de passe" data-id="<?= $id_user;?>">
                 </p>
             </form>
             <div id="form-pwd" class="error-form">
-                
+    
             </div>
         </div>
     </div>

@@ -4,18 +4,19 @@ $('#update_password').on('click', function(e){
     const form = document.querySelector('#pwd-account');
     id = e.currentTarget.dataset.id;
     e.preventDefault();
-   const pwd = 
+   const pwd = document.querySelector('#user_pass').value;
+   const pwdConfirm = document.querySelector('#confirm_pass').value;
+
     $.ajax({
         url: ajaxurl,
         type: 'POST',
         data: {
             action: 'ajax_account_pwd',
             id: id,
-            
+            user_pass: pwd,
+            confirm_pass: pwdConfirm
         },
         success: function (res){
-            console.log(res);
-          
            showError(res);
            showSuccess(res);
             resetForm(form);

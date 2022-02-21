@@ -13,13 +13,24 @@ function updatePwd() {
     $succes = false;
 
         // Faille xss
-        $pwd = cleanXss('first_name');
-        $errors = ['pwd'];
-    
+        $user_pass = (!empty( $_POST['user_pass'])) ? cleanXss('user_pass') : '';
+        $confirm_pass = (!empty( $_POST['confirm_pass'])) ? cleanXss('confirm_pass') : '';
+
+        if ($user_pass == '' || $confirm_pass == '') {
+            $errors['password'] = 'Entrer tout les champs';
+        }
+      
+        if (strlen($user_pass) < 8) {
+            $errors['short-pwd'] = 'Mots de passe trop court';
+        }
+      
+        if ($user_pass != $confirm_pass) {
+            $errors['different-pwd'] = 'Mots de passe différent';
+        }
         if(count($errors) == 0) {
             wp_update_user([
                 'ID'=> $ID,
-                'user_pass' => $pwd
+                'user_pass' => $user_pass
             ]);
            
             $succes = true;

@@ -1,14 +1,14 @@
-@use "variable";
+@use 'variable' as var;
 
-@media screen and (max-width: 670px) {
-    #header{
-      .container_header{
-       #box_header_nav{
-         display: none;
-          }
-        #menu-burger{
-          display: block;
-        }
-        }
+@media screen and (max-width: 733px) {
+  #header{
+    .container_header{
+     #box_header_nav{
+       display: none;
       }
+      #menu-burger{
+        display: block;
+      }
+    }
+  }
 }
