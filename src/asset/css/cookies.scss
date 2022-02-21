@@ -10,20 +10,20 @@
         }
         h1{
             text-align: center;
-            font-size: 36px;
+            font-size: var.$font-24;
             gap: 1rem;
-            @media (max-width: 600px){
-                font-size: 30px;
+            @media (max-width: 900px){
+                font-size: var.$font-20;
             }
         }
         h2{
-            font-size: 48px;
+            font-size: var.$font-3-5;
             font-weight: bold;
-            @media (max-width: 600px){
-                font-size: 25px;
+            @media (max-width: 900px){
+                font-size: var.$font-24;
             }
         }
-        @media (max-width: 700px) {
+        @media (max-width: 900px) {
             text-align: center;
         }
     }
