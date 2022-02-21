@@ -78,7 +78,7 @@ echo $langueCount;
         <div class="fullCv relative flex">
             <div class="cvLeft">
                 <div class="pfpCv" v-bind:style="{ backgroundImage: 'url(' + image + ')' }"></div>
-                <ul>
+                <ul class="info-cv">
                     <li>
                         <h2>{{ titleCv }}</h2>
                     </li>
@@ -99,7 +99,7 @@ echo $langueCount;
                         <span>{{ phoneCv }}</span>
                     </li>
                     <li>
-                        <label for="adresse">Adresse : </label>
+                        <label for="adresse">Adresse postal : </label>
                         <span>{{ adresseCv }}</span>
                     </li>
                 </ul>
@@ -111,7 +111,7 @@ echo $langueCount;
                     </ul>
                 </div>
                 <div class="langues">
-                    <h2>Formations</h2>
+                    <h2>Langues</h2>
                     <ul class="langueListCv">
 
                     </ul>
