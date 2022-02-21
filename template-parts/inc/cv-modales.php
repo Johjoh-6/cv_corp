@@ -93,7 +93,7 @@
             <select name="langue" class="langue">
                 <option value=""></option>
                 <?php
-                $langues  = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}langues", ARRAY_A );
+                $langues  = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}langues WHERE `shows_up_in_select` = 1", ARRAY_A );
                 foreach ($langues as $langue) {
                     ?> <option value="<?= $langue['id'] ?>"><?= $langue['langue_name'] ?></option>
                 <?php }
@@ -144,7 +144,7 @@
             <select name="skill" class="skill">
                 <option value=""></option>
                 <?php
-                $skills  = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}skills", ARRAY_A );
+                $skills  = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}skills WHERE `shows_up_in_select` = 1", ARRAY_A );
                 foreach ($skills as $skill) {
                     ?> <option value="<?= $skill['id'] ?>"><?= $skill['skill_name'] ?></option>
                 <?php }

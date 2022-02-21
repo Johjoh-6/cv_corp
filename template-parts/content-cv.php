@@ -1,4 +1,5 @@
-<?php global $wpdb ?>
+<?php global $wpdb;  $langueCount = $wpdb->get_var("SELECT count(*) AS total FROM cv_langues WHERE langue_name='Français'")
+; echo $langueCount?>
 <div class="flex full_page relative">
     <section id="cvEditor">
         <h1>Editez votre CV</h1>

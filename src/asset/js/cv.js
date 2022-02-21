@@ -236,10 +236,6 @@ if (document.body.contains(document.querySelector('.full_page')))  {
 
 
 
-
-
-
-
     //gestion des des inputs en VUE
     var cvInputs = new Vue({
         el: '.full_page',
