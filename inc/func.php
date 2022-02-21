@@ -159,3 +159,51 @@ function validateImgProfil($errors, $imgFile, $key){
         }    
         return $errors;
 }
+
+function getCv($idUser){
+    global $wpdb;
+    $table = $wpdb->prefix.'cv';
+    return $wpdb->get_results("SELECT * FROM $table WHERE id_user = $idUser", OBJECT);
+}
+
+function getCvById($idcv){
+    global $wpdb;
+    $info = $wpdb->get_results("SELECT `user_firstname`, `user_lastname`, `user_email`, `user_phone`, `user_adress`, `id_picture`  FROM {$wpdb->prefix}cv WHERE id = $idcv", OBJECT);
+    $experience = $wpdb->get_results("SELECT `job_name`, `company_name`, `date_start`, `date_end`, `details` FROM {$wpdb->prefix}experience WHERE id_cv = $idcv", ARRAY_A);
+    $studie = $wpdb->get_results("SELECT `study_name`, `study_details`, `school_name`, `school_location`, `date_start`, `date_end`  FROM {$wpdb->prefix}studies WHERE id_cv = $idcv", ARRAY_A);
+    $skills = $wpdb->get_results("SELECT skills.skill_name, pivot.skill_level 
+        FROM {$wpdb->prefix}skill_pivot AS pivot
+        LEFT JOIN {$wpdb->prefix}skills AS skills ON pivot.id_skill = skills.id
+        WHERE pivot.id_cv = $idcv", ARRAY_A);
+    $langues = $wpdb->get_results("SELECT langue.langue_name, pivot.langue_level 
+        FROM {$wpdb->prefix}langues_pivot AS pivot
+        LEFT JOIN {$wpdb->prefix}langues AS langue ON pivot.id_langue = langue.id
+        WHERE pivot.id_cv = $idcv", ARRAY_A);
+    $hobbie = $wpdb->get_results("SELECT hobbie.hobbie_name, pivot.hobbie_details
+        FROM {$wpdb->prefix}hobbie_pivot AS pivot
+        LEFT JOIN {$wpdb->prefix}hobbie AS hobbie ON pivot.id_hobbie = hobbie.id
+        WHERE pivot.id_cv = $idcv", ARRAY_A);
+        
+   
+    $cv_obj = new stdClass();
+    foreach($info[0] as $key => $value){
+        $cv_obj->$key = $value;
+    }
+    foreach($experience as $key => $value){
+        $cv_obj->experience[] = $value;
+    }
+    foreach($studie as $key => $value){
+        $cv_obj->studie[] = $value;
+    }
+    foreach($skills as $key => $value){
+        $cv_obj->skills[] = $value;
+    }
+    foreach($langues as $key => $value){
+        $cv_obj->langues[] = $value;
+    }
+    foreach($hobbie as $key => $value){
+        $cv_obj->hobbie[] = $value;
+    }
+   
+    return $cv_obj;
+};

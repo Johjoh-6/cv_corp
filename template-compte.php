@@ -5,9 +5,6 @@
 get_header(); 
 
 $id_user = get_current_user_id();
-
-// update_user_meta( $id_user, 'phone', '123456789');
-
 $meta_user = get_user_meta($id_user);
 ?>
 

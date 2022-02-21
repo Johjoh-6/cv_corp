@@ -1,6 +1,16 @@
 <?php
+/* Template Name: CV Detail*/
 
-get_header(); ?>
+get_header(); 
+//For get the current user
+$id_user = get_current_user_id();
+$meta_user = get_user_meta($id_user);
+
+//For get the current CV
+$id_cv = $_GET['cv'];
+$cv = getCvById($id_cv);
+debug($cv);
+?>
 
 <h1>cv details</h1>
 
@@ -23,6 +33,7 @@ get_header(); ?>
         </div>
     </div>
 </section>
+<button id="getPdf" data-fisrt-name="<?=  metaField($meta_user, 'first_name');?>" data-last-name="<?=  metaField($meta_user, 'last_name');?>">Click here</button>
 
 
 <?php get_footer();

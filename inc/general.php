@@ -56,6 +56,9 @@ function cv_corp_scripts() {
 	//BUNDLE MAIN
     wp_enqueue_script('mainjs', get_template_directory_uri() . '/public/dist/js/index.bundle.js', array(), _S_VERSION, true);
 
+	// PDF.JS
+	wp_enqueue_script('pdf.js', get_template_directory_uri() . '/public/dist/js/pdf.worker.bundle.js' , array() , _S_VERSION, true);
+
     //AJAX
     wp_add_inline_script('mainjs', 'const ajaxurl = ' . json_encode(admin_url('admin-ajax.php')), 'before');
 }
