@@ -1,3 +1,6 @@
+//Require for PDF.js
+// import * as pdfjsLib from 'pdfjs-dist/webpack';
+
 // Reset CSS Variable
 import './asset/css/reset.scss';
 import './asset/css/variable.scss';
@@ -9,6 +12,7 @@ import '@fortawesome/fontawesome-free/js/regular';
 import '@fortawesome/fontawesome-free/js/brands';
 
 // CSS 
+import './asset/css/dashboard.scss';
 import './asset/css/style.scss';
 import './asset/css/header.scss';
 import './asset/css/home.scss';
@@ -33,6 +37,8 @@ import './asset/js/cv.js';
 import './asset/js/page-cv.js';
 import './asset/js/index.js';
 import './asset/js/burger-menu.js';
+import './asset/js/pdf.js';
+
 
 // AJAX
 import './asset/js/ajax-account.js';

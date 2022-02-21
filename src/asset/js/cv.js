@@ -84,6 +84,7 @@ if (document.body.contains(document.querySelector('.full_page')))  {
 
 
     let dataCv = {
+        titleCv: 'TITLE',
         nomCv: 'NOM ICI',
         prenomCv: '',
         emailCv: '',
@@ -227,10 +228,6 @@ if (document.body.contains(document.querySelector('.full_page')))  {
 
         h++
     })
-
-
-
-
 
 
 

@@ -5,7 +5,8 @@ module.exports = {
     mode: "development", // production || development
     devtool: 'inline-source-map',
     entry: {
-        index: './src/index.js'
+        index: './src/index.js',
+        "pdf.worker": "pdfjs-dist/build/pdf.worker.entry",
     },
     output: {
         filename: 'js/[name].bundle.js',
@@ -66,4 +67,10 @@ module.exports = {
             writeToDisk: true,
         },
     },
+    externals: {
+        // only define the dependencies you are NOT using as externals!
+        canvg: "canvg",
+        html2canvas: "html2canvas",
+        dompurify: "dompurify"
+      }
 };
