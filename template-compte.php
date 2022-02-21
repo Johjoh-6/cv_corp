@@ -30,7 +30,7 @@ $meta_user = get_user_meta($id_user);
             <form action="" method="$_POST" id="detail-account" enctype="multipart/form-data">
                 <p>
                     <label for="first_name">Prénom</label>
-                    <input type="text" id="first_name" name="first_name" value="" placeholder="<?=  metaField($meta_user, 'first_name');?>">
+                    <input type="text" id="first_name" name="first_name" value="" placeholder="<?=  metaField($meta_user, 'first_name'); ?>">
                 </p>
                 <p>
                     <label for="last_name">Nom</label>

@@ -2,10 +2,8 @@
 
 /* Template Name: MyCV */
 
-get_header(); ?>
+get_header();
 
+get_template_part('template-parts/content-mycv') ;
 
-<h1>My Cv</h1>
-
-
-<?php get_footer();
+get_footer();

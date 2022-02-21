@@ -29,6 +29,7 @@ function getTheCvWithAjax() {
     $userId = get_current_user_id();
     $wpdb->insert('cv_cv', array(
         'id' => $post['ID'],
+        'cv_title' => $post['titleCv'],
         'id_user' => $userId,
         'user_firstname' => $post['prenomCv'],
         'user_lastname' => $post['nomCv'],
@@ -41,6 +42,7 @@ function getTheCvWithAjax() {
     $wpdb->update('cv_cv', array(
         'id' => $post['ID'],
         'id_user' => $userId,
+        'cv_title' => $post['titleCv'],
         'user_firstname' => $post['prenomCv'],
         'user_lastname' => $post['nomCv'],
         'user_email' => $post['emailCv'],

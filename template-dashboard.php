@@ -10,11 +10,11 @@ can_access();
     <div class="container_dash">
         <div class="container_profil">
             <h2>Journal de board</h2>
-                <div class="box_profil">
-                    <img src="" alt="ici photo du recruteur">
-                    <p>Recruteur chez : Bouygue</p>
-                    <p>Charger de Recrutement Tech</p>
-                </div>
+            <div class="box_profil">
+                <img src="" alt="ici photo du recruteur">
+                <p>Recruteur chez : Bouygue</p>
+                <p>Charger de Recrutement Tech</p>
+            </div>
         </div>
     </div>
 
@@ -38,9 +38,9 @@ can_access();
                             <p>Nom :</p>
                             <p>Prénom :</p>
                             <p>Offret : Techiciens</p>
-                                <div class="cta_candit">
-                                    <a href="">Voir CV</a>
-                                </div>
+                            <div class="cta_candit">
+                                <a href="">Voir CV</a>
+                            </div>
                         </div>
                 </div>
             </div>
