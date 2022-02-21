@@ -7,6 +7,10 @@
             <h2>Profil</h2>
             <form action="" method="post">
             <ul>
+                <li class="cvTitleInput">
+                    <label for="title">Titre du CV : </label>
+                    <input id="title" name="title" type="text" v-model="titleCv" v-on:change="autosave()">
+                </li>
                 <li class="cvNomInput">
                     <label for="nom">Nom : </label>
                     <input id="nom" name="nom" type="text" v-model="nomCv" v-on:change="autosave()">
@@ -74,6 +78,9 @@
             <div class="cvLeft">
                 <div class="pfpCv" v-bind:style="{ backgroundImage: 'url(' + image + ')' }"></div>
                 <ul>
+                    <li>
+                        <h2>{{ titleCv }}</h2>
+                    </li>
                     <li>
                         <label for="nom">Nom : </label>
                         <span>{{ nomCv }}</span>
