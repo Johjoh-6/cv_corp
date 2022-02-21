@@ -65,7 +65,6 @@ if (document.body.contains(document.querySelector('.full_page')))  {
     function addStarsOutOfFive(level, target) {
         level.forEach(function() {
             document.querySelector('.single'+capitalizeFirstLetter(target)+':last-of-type .niveau'+capitalizeFirstLetter(target)).innerHTML += star
-            console.log('ok')
         })
         for (let nivNegative = level.length; nivNegative < 5; nivNegative++) {
             document.querySelector('.single'+capitalizeFirstLetter(target)+':last-of-type .niveau'+capitalizeFirstLetter(target)).innerHTML += starEmpty
@@ -95,6 +94,8 @@ if (document.body.contains(document.querySelector('.full_page')))  {
         experiences: [],
         formations: [],
         langues: [],
+        hobbies: [],
+        skills: [],
     }
 
     if (typeof retrieveCVSave() != 'undefined') {
@@ -105,6 +106,8 @@ if (document.body.contains(document.querySelector('.full_page')))  {
     let e = 0
     let f = 0
     let l = 0
+    let h = 0
+    let s = 0
     console.log(dataCv.experiences)
     dataCv.experiences.forEach(function () {
 
@@ -164,8 +167,8 @@ if (document.body.contains(document.querySelector('.full_page')))  {
         dataCVSave()
         console.log(dataCVSave())
         document.querySelector('.langueModale').style.display = 'none';
-        const liLangue = '<li class="singleLangue flex" data-expId ="'+(dataCv.langues.length - 1)+'"><button class="deleteLanBtn" data-expIdDelBtn ="'+(dataCv.langues.length - 1)+'">Supprimer</button><div><h2 class="langue"></h2><ul class="niveauLangue"></ul></div></li>'
-        const liLangueCv = '<li class="singleLangueCv flex" data-expId ="'+(dataCv.langues.length - 1)+'"><div><h2 class="langue"></h2><ul class="niveauLangue"></ul></div></li>'
+        const liLangue = '<li class="singleLangue flex" data-langueId ="'+(dataCv.langues.length - 1)+'"><button class="deleteLanBtn" data-expIdDelBtn ="'+(dataCv.langues.length - 1)+'">Supprimer</button><div><h2 class="langue"></h2><ul class="niveauLangue"></ul></div></li>'
+        const liLangueCv = '<li class="singleLangueCv flex" data-langueId ="'+(dataCv.langues.length - 1)+'"><div><h2 class="langue"></h2><ul class="niveauLangue"></ul></div></li>'
         let langue= dataCv.langues[l].langue
         document.querySelector('.langueList').innerHTML+=liLangue
         addTxtLineModale('langue', 'langue',langue)
@@ -176,6 +179,53 @@ if (document.body.contains(document.querySelector('.full_page')))  {
         addStarsOutOfFiveCv(niveauLangue,"langue")
 
         l++
+    })
+
+    dataCv.skills.forEach(function () {
+
+        let niveauSkill= []
+        for (let nivIndex = 1; nivIndex <= dataCv.skills[s].niveau; nivIndex++) {
+            niveauSkill.push(nivIndex)
+        }
+
+        const liSkill = '<li class="singleSkill flex" data-skillId ="'+(dataCv.skills.length - 1)+'"><button class="deleteSkillBtn" data-skillIdDelBtn ="'+(dataCv.skills.length - 1)+'">Supprimer</button><div><h2 class="skill"></h2><ul class="niveauSkill"></ul></div></li>'
+        const liSkillCv = '<li class="singleSkillCv flex" data-skillId ="'+(dataCv.skills.length - 1)+'"><div><h2 class="skill"></h2><ul class="niveauSkill"></ul></div></li>'
+        let skill= dataCv.skills[s].skill
+        document.querySelector('.skillList').innerHTML+=liSkill
+        addTxtLineModale('skill', 'skill',skill)
+        if (niveauSkill.length != 0) {
+            addStarsOutOfFive(niveauSkill,"skill")
+        }
+
+        document.querySelector('.skillListCv').innerHTML+=liSkillCv
+        addTxtLineModaleCv('skill', 'skill',skill)
+        if (niveauSkill.length != 0) {
+            addStarsOutOfFiveCv(niveauSkill,"skill")
+        }
+
+        s++
+    })
+
+    dataCv.hobbies.forEach(function () {
+
+        const liHobby = '<li class="singleHobby flex" data-expId ="'+(dataCv.hobbies.length - 1)+'">' +
+            '<button class="deleteHobbyBtn" data-formIdDelBtn ="'+(dataCv.hobbies.length - 1)+'">Supprimer</button>' +
+            '<div><h2 class="hobbyTitle"></h2><p class="hobbyDetails"></p></div>' +
+            '</li>'
+        const liHobbyCv = '<li class="singleHobbyCv flex" data-expId ="'+(dataCv.formations.length - 1)+'">' +
+            '<div><h2 class="hobbyTitle"></h2><p class="hobbyDetails"></p></div>' +
+            '</li>'
+        let hobbyTitle= dataCv.hobbies[h]['hobby_name']
+        let hobbyDetails= dataCv.hobbies[h]['hobby_details']
+        document.querySelector('.hobbyList').innerHTML+=liHobby
+        addTxtLineModale('hobby', 'hobbyTitle',hobbyTitle)
+        addTxtLineModale('hobby', 'hobbyDetails',hobbyDetails)
+        document.querySelector('.hobbyListCv').innerHTML+=liHobbyCv
+
+        addTxtLineModaleCv('hobby', 'hobbyTitle',hobbyTitle)
+        addTxtLineModaleCv('hobby', 'hobbyDetails',hobbyDetails)
+
+        h++
     })
 
 
@@ -306,6 +356,72 @@ if (document.body.contains(document.querySelector('.full_page')))  {
         //SUPPRESSION LANGUE
     }
 
+
+    //SKILLS
+    document.getElementById('skillBtn').onclick = function() {
+        document.querySelector('.skillModale').style.display = 'block';
+        document.querySelector('.skillModale input.skill').onchange = (function() {
+            if (document.querySelector('.skillModale input.skill').value) {
+                document.querySelector('.skillModale select.skill').disabled = true
+            } else {
+                document.querySelector('.skillModale select.skill').disabled = false
+            }
+        })
+        document.querySelector('.skillModale select.skill').onchange = (function() {
+            if (document.querySelector('.skillModale select.skill').value) {
+                document.querySelector('.skillModale input.skill').disabled = true
+            } else {
+                document.querySelector('.skillModale input.skill').disabled = false
+            }
+        })
+    }
+
+    document.getElementById('skillAdd').onclick = function() {
+        if (document.querySelector('.skillModale select.skill option:checked').value || document.querySelector('.skillModale input.skill').value) {
+            let singleSkill = {
+                id:document.querySelector('.skillModale select.skill option:checked').value,
+                skill: document.querySelector('.skillModale select.skill option:checked').textContent+document.querySelector('.skillModale input.skill').value,
+                niveau: document.querySelector('.skillModale #niveauSkill').value,
+            }
+
+            let niveauSkill= []
+            for (let nivIndex = 1; nivIndex <= singleSkill.niveau; nivIndex++) {
+                niveauSkill.push(nivIndex)
+            }
+            dataCv.skills.push(singleSkill)
+            dataCVSave()
+            document.querySelector('.skillModale').style.display = 'none';
+            const liSkill = '<li class="singleSkill flex" data-expId ="'+(dataCv.skills.length - 1)+'"><button class="deleteSkillBtn" data-skillIdDelBtn ="'+(dataCv.skills.length - 1)+'">Supprimer</button><div><h2 class="skill"></h2><ul class="niveauSkill"></ul></div></li>'
+            const liSkillCv = '<li class="singleSkillCv flex" data-expId ="'+(dataCv.skills.length - 1)+'"><div><h2 class="skill"></h2><ul class="niveauSkill"></ul></div></li>'
+            let skill= singleSkill.skill
+            document.querySelector('.skillList').innerHTML+=liSkill
+            addTxtLineModale('skill', 'skill',skill)
+            if (niveauSkill.length != 0) {
+                niveauSkill.forEach(function() {
+                    document.querySelector('.singleSkill:last-of-type .niveauSkill').innerHTML += star
+                })
+                for (let nivNegative = singleSkill.niveau; nivNegative < 5; nivNegative++) {
+                    document.querySelector('.singleSkill:last-of-type .niveauSkill').innerHTML += starEmpty
+                }
+            }
+
+            document.querySelector('.skillListCv').innerHTML+=liSkillCv
+            addTxtLineModaleCv('skill', 'skill',skill)
+            if (niveauSkill.length != 0) {
+                niveauSkill.forEach(function() {
+                    document.querySelector('.singleSkillCv:last-of-type .niveauSkill').innerHTML += star
+                })
+                for (let nivNegative = singleSkill.niveau; nivNegative < 5; nivNegative++) {
+                    document.querySelector('.singleSkillCv:last-of-type .niveauSkill').innerHTML += starEmpty
+                }
+            }
+        }
+
+
+        //SUPPRESSION LANGUE
+    }
+
+
     document.getElementById('formationBtn').onclick = function() {
         document.querySelector('.formationModale').style.display = 'block';
     }
@@ -343,16 +459,47 @@ if (document.body.contains(document.querySelector('.full_page')))  {
         addTxtLineModale('formation', 'formDetails',formDetails)
         addTxtLineModale('formation', 'formLieu',formLieu)
 
-
-
         document.querySelector('.formationListCv').innerHTML+=liFormCv
-
         addTxtLineModaleCv('formation', 'formTitle',formTitle)
         addTxtLineModaleCv('formation', 'formDates',formDates)
         addTxtLineModaleCv('formation', 'formDetails',formDetails)
         addTxtLineModaleCv('formation', 'formLieu',formLieu)
 
         addFormDelBtn()
+    }
+
+    document.getElementById('hobbyBtn').onclick = function() {
+        document.querySelector('.hobbyModale').style.display = 'block';
+    }
+
+    document.getElementById('hobbyAdd').onclick = function() {
+        let singleHobby= {
+            hobby_name: document.querySelector('.hobbyModale .hobby').value,
+            hobby_details: document.querySelector('.hobbyModale #hobbyDetails').value,
+        }
+        dataCv.hobbies.push(singleHobby)
+        dataCVSave()
+        console.log(dataCVSave())
+        document.querySelector('.hobbyModale').style.display = 'none';
+
+        const liHobby = '<li class="singleHobby flex" data-expId ="'+(dataCv.hobbies.length - 1)+'">' +
+            '<button class="deleteHobbyBtn" data-formIdDelBtn ="'+(dataCv.hobbies.length - 1)+'">Supprimer</button>' +
+            '<div><h2 class="hobbyTitle"></h2><p class="hobbyDetails"></p></div>' +
+            '</li>'
+        const liHobbyCv = '<li class="singleHobbyCv flex" data-expId ="'+(dataCv.formations.length - 1)+'">' +
+            '<div><h2 class="hobbyTitle"></h2><p class="hobbyDetails"></p></div>' +
+            '</li>'
+        let hobbyTitle= singleHobby.hobby_name
+        let hobbyDetails= singleHobby.hobby_details
+
+        document.querySelector('.hobbyList').innerHTML+=liHobby
+        addTxtLineModale('hobby', 'hobbyTitle',hobbyTitle)
+        addTxtLineModale('hobby', 'hobbyDetails',hobbyDetails)
+
+        document.querySelector('.hobbyListCv').innerHTML+=liHobbyCv
+        addTxtLineModaleCv('hobby', 'hobbyTitle',hobbyTitle)
+        addTxtLineModaleCv('hobby', 'hobbyDetails',hobbyDetails)
+
     }
     dataCVSave()
     Object.values(dataCv).onchange = console.log('savetest');
@@ -367,7 +514,7 @@ if (document.body.contains(document.querySelector('.full_page')))  {
 
 
 
-//SUPPRESSION EXPERIENCE
+//SUPPRESSIONS
 
     addExpDelBtn()
     addFormDelBtn()

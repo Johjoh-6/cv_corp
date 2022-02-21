@@ -51,8 +51,23 @@
             </ul>
             <p id="langueBtn">Ajouter une langue parlée</p>
         </div>
+        <div class="skills">
+            <h2>Compétences et savoir-être possédés</h2>
+            <ul class="skillList">
+            </ul>
+            <p id="skillBtn">Ajouter une compétence/un savoir-être</p>
+        </div>
+        <div class="hobbies">
+            <h2>Loisirs</h2>
+            <ul class="hobbyList">
+            </ul>
+            <p id="hobbyBtn" >Ajouter un loisir pratiqué</p>
+        </div>
         <button class="saveBtn">SAUVEGARDER</button>
     </section>
+
+
+
     <section id="cvVisualizer">
         <div class="fullCv relative flex">
             <div class="cvLeft">
@@ -98,6 +113,18 @@
                 <div class="experiences">
                     <h2>Experiences</h2>
                     <ul class="experienceListCv">
+                    </ul>
+                </div>
+
+                <div class="skills">
+                    <h2>Compétences et savoir-être</h2>
+                    <ul class="skillListCv">
+                    </ul>
+                </div>
+
+                <div class="hobbies">
+                    <h2>Loisirs</h2>
+                    <ul class="hobbyListCv">
 
                     </ul>
                 </div>
@@ -107,132 +134,6 @@
     </section>
 
 
-
-
-
-
-
-
-
-    <section class="cvModale dNone experienceModale absolute">
-        <ul>
-            <li>
-                <label for="entreprise">Entreprise : </label>
-                <input id="entreprise" name="entreprise" type="text">
-            </li>
-            <li>
-                <label for="job">Position : </label>
-                <input id="job" name="job" type="text">
-            </li>
-            <li class="flex">
-                <div>
-                    <label for="expStart">Année de début : </label>
-                    <select name="expStart" id="expStart">
-                        <?php for($i = 1900; $i <= date("Y"); $i++) { ?>
-                            <option value="<?= $i ?>"><?= $i ?></option>
-                        <?php } ?>
-                    </select>
-                    <!-- /# -->
-                </div>
-                <div>
-                    <label for="expEnd">Année de fin : </label>
-                    <select name="expEnd" id="expEnd">
-                        <option value="present">Présent</option>
-                        <?php for($i = 1900; $i <= date("Y"); $i++) { ?>
-                            <option value="<?= $i ?>"><?= $i ?></option>
-                        <?php } ?>
-                    </select>
-                </div>
-            </li>
-            <li>
-                <label for="expDetails">Détails de l'expérience</label>
-                <textarea name="expDetails" id="expDetails" cols="20" rows="5"></textarea>
-                <!-- /# -->
-            </li>
-            <li>
-                <span id="experienceAdd">Ajouter une experience</span>
-            </li>
-        </ul>
-
-    </section>
-    <section class="cvModale dNone formationModale absolute">
-        <ul>
-            <li>
-                <label for="organisme">Organisme de formation : </label>
-                <input id="organisme" name="organisme" type="text">
-            </li>
-            <li>
-                <label for="nomFormation">Nom de la formation : </label>
-                <input id="nomFormation" name="nomFormation" type="text">
-            </li>
-            <li>
-                <label for="formLieu">Lieu de formation : </label>
-                <input id="formLieu" name="formLieu" type="text">
-            </li>
-            <li class="flex">
-                <div>
-                    <label for="formStart">Année de début : </label>
-                    <select name="formStart" id="formStart">
-                        <?php for($i = 1900; $i <= date("Y"); $i++) { ?>
-                            <option value="<?= $i ?>"><?= $i ?></option>
-                        <?php } ?>
-                    </select>
-                    <!-- /# -->
-                </div>
-                <div>
-                    <label for="formEnd">Année de fin : </label>
-                    <select name="formEnd" id="formEnd">
-                        <option value="present">Présent</option>
-                        <?php for($i = 1900; $i <= date("Y"); $i++) { ?>
-                            <option value="<?= $i ?>"><?= $i ?></option>
-                        <?php } ?>
-                    </select>
-                </div>
-            </li>
-            <li>
-                <label for="formDetails">Détails de la formation</label>
-                <textarea name="formDetails" id="formDetails" cols="20" rows="5"></textarea>
-                <!-- /# -->
-            </li>
-            <li>
-                <span id="formationAdd">Ajouter une formation</span>
-            </li>
-        </ul>
-
-    </section>
-
-    <section class="cvModale dNone langueModale absolute">
-        <ul>
-            <li>
-                <label for="langue">Langue : </label>
-                <select name="langue" class="langue">
-                    <option value=""></option>
-                    <?php
-                    $langues  = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}langues", ARRAY_A );
-                    foreach ($langues as $langue) {
-                        ?> <option value="<?= $langue['id'] ?>"><?= $langue['langue_name'] ?></option>
-                    <?php }
-                    ?>
-                </select>
-                <input class="langue" name="langue" type="text">
-            </li>
-            <li class="flex">
-                <div>
-                    <label for="niveauLangue">Niveau : </label>
-                    <select name="niveauLangue" id="niveauLangue">
-                        <option value="1">1 (débutant)</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5 (parlé couramment)</option>
-                    </select>
-                </div>
-            </li>
-            <li>
-                <span id="langueAdd">Ajouter une langue</span>
-            </li>
-        </ul>
-
-    </section>
+    <?php include_once 'inc/cv-modales.php' ?>
 </div>
 
