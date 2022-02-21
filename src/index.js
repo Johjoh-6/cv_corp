@@ -9,6 +9,7 @@ import '@fortawesome/fontawesome-free/js/regular';
 import '@fortawesome/fontawesome-free/js/brands';
 
 // CSS 
+import './asset/css/dashboard.scss';
 import './asset/css/style.scss';
 import './asset/css/header.scss';
 import './asset/css/home.scss';
