@@ -30,7 +30,7 @@
 			</a>
 			<nav id="box_header_nav">
 				<ul>
-					<?php if (getRoleCurrentUser() === 'recruiter'){ ?>
+					<?php if (getRoleCurrentUser() === 'recruiter' || getRoleCurrentUser() === 'administrator'){ ?>
 					<li><a href="<?= path('/dashboard'); ?>">Dashboard</a></li>
 					<?php } else {?>
 					<li><a href="<?= path(); ?>">Accueil</a></li>
@@ -50,7 +50,7 @@
 			</nav>
 			<nav id="box_header_nav_phone">
 				<ul>
-					<?php if (getRoleCurrentUser() === 'recruiter'){ ?>
+					<?php if (getRoleCurrentUser() === 'recruiter' || getRoleCurrentUser() === 'administrator'){ ?>
 					<li><a href="<?= path('/dashboard'); ?>">Dashboard</a></li>
 					<?php } else {?>
 					<li><a href="<?= path(); ?>">Accueil</a></li>
