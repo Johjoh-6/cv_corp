@@ -1,5 +1,150 @@
 if (document.body.contains(document.querySelector('.full_page')))  {
     console.log('cvJS')
+    let url_string = window.location.href; //window.location.href
+    let url = new URL(url_string);
+    let cvEditParam = url.searchParams.get('cvEdit');
+    if (cvEditParam) {
+        console.log(cvEditParam);
+        console.log('O LOAD')
+        $.ajax({
+            type: "POST",
+            url: ajaxurl,
+            data: {
+                action: 'ajax_cv_load',
+                data: cvEditParam
+            },
+            // contentType: "application/json",
+            // dataType: 'json',
+            beforeSend: function (){
+                console.log('AJAX SENT')
+            },
+            success: function (response) {
+                let responseData = response
+                console.log(responseData)
+                if (typeof responseData == 'string') {
+                    history.back()
+                }
+                let dataCvLoaded = {
+                    titleCv: responseData['cv_title'],
+                    nomCv: responseData['user_lastname'],
+                    prenomCv: responseData['user_firstname'],
+                    emailCv: responseData['user_email'],
+                    phoneCv: responseData['user_phone'],
+                    adresseCv: responseData['user_adress'],
+                    ID: cvEditParam,
+                    image: responseData['id_picture'],
+                    experiences: responseData['experience'],
+                    formations: responseData['studie'],
+                    langues: responseData['langues'],
+                    hobbies: responseData['hobbie'],
+                    skills: responseData['skills'],
+                }
+
+                if(!dataCvLoaded['titleCv']) {
+                    dataCvLoaded['titleCv'] = ""
+                }
+                if(!dataCvLoaded['nomCv']) {
+                    dataCvLoaded['nomCv'] = ""
+                }
+                if(!dataCvLoaded['prenomCv']) {
+                    dataCvLoaded['prenomCv'] = ""
+                }
+                if(!dataCvLoaded['emailCv']) {
+                    dataCvLoaded['emailCv'] = ""
+                }
+                if(!dataCvLoaded['phoneCv']) {
+                    dataCvLoaded['phoneCv'] = ""
+                }
+                if(!dataCvLoaded['adresseCv']) {
+                    dataCvLoaded['adresseCv'] = ""
+                }
+                if(!dataCvLoaded['image']) {
+                    dataCvLoaded['image'] = ""
+                }
+                if (dataCvLoaded['experiences']) {
+                    for (let i = 0; i < dataCvLoaded['experiences'].length; i++) {
+                        dataCvLoaded['experiences'][i]['job'] = dataCvLoaded['experiences'][i]['job_name'];
+                        delete dataCvLoaded['experiences'][i]['job_name'];
+                        dataCvLoaded['experiences'][i]['entreprise'] = dataCvLoaded['experiences'][i]['company_name'];
+                        delete dataCvLoaded['experiences'][i]['company_name'];
+                        dataCvLoaded['experiences'][i]['expStart'] = dataCvLoaded['experiences'][i]['date_start'];
+                        delete dataCvLoaded['experiences'][i]['date_start'];
+                        dataCvLoaded['experiences'][i]['expEnd'] = dataCvLoaded['experiences'][i]['date_end'];
+                        delete dataCvLoaded['experiences'][i]['date_end'];
+                        dataCvLoaded['experiences'][i]['expDetails'] = dataCvLoaded['experiences'][i]['details'];
+                        delete dataCvLoaded['experiences'][i]['details'];
+                    }
+                } else {
+                    dataCvLoaded['experiences'] = []
+                }
+
+                if (dataCvLoaded['skills']) {
+                    for (let i = 0; i < dataCvLoaded['skills'].length; i++) {
+                        dataCvLoaded['skills'][i]['niveau'] = dataCvLoaded['skills'][i]['skill_level'];
+                        delete dataCvLoaded['skills'][i]['skill_level'];
+                        dataCvLoaded['skills'][i]['skill'] = dataCvLoaded['skills'][i]['skill_name'];
+                        delete dataCvLoaded['skills'][i]['skill_name'];
+                    }
+                } else {
+                    dataCvLoaded['skills'] = []
+                }
+
+                if (dataCvLoaded['formations']) {
+                    for (let i = 0; i < dataCvLoaded['formations'].length; i++) {
+                        dataCvLoaded['formations'][i]['formStart'] = dataCvLoaded['formations'][i]['date_start'];
+                        delete dataCvLoaded['formations'][i]['date_start'];
+                        dataCvLoaded['formations'][i]['formEnd'] = dataCvLoaded['formations'][i]['date_end'];
+                        delete dataCvLoaded['formations'][i]['date_end'];
+                        dataCvLoaded['formations'][i]['formDetails'] = dataCvLoaded['formations'][i]['study_details'];
+                        delete dataCvLoaded['formations'][i]['study_details'];
+                        dataCvLoaded['formations'][i]['formTitle'] = dataCvLoaded['formations'][i]['study_name'];
+                        delete dataCvLoaded['formations'][i]['study_name'];
+                        dataCvLoaded['formations'][i]['organisme'] = dataCvLoaded['formations'][i]['school_name'];
+                        delete dataCvLoaded['formations'][i]['school_name'];
+                        dataCvLoaded['formations'][i]['formLieu'] = dataCvLoaded['formations'][i]['school_location'];
+                        delete dataCvLoaded['formations'][i]['school_location'];
+                    }
+                } else {
+                    dataCvLoaded['formations'] = []
+                }
+
+                if (dataCvLoaded['langues']) {
+                    for (let i = 0; i < dataCvLoaded['langues'].length; i++) {
+                        dataCvLoaded['langues'][i]['langue'] = dataCvLoaded['langues'][i]['langue_name'];
+                        delete dataCvLoaded['langues'][i]['langue_name'];
+                        dataCvLoaded['langues'][i]['niveau'] = dataCvLoaded['langues'][i]['langue_level'];
+                        delete dataCvLoaded['langues'][i]['langue_level'];
+                    }
+                } else {
+                    dataCvLoaded['langues'] = []
+                }
+                if (dataCvLoaded['hobbies']) {
+                    for (let i = 0; i < dataCvLoaded['hobbies'].length; i++) {
+                        dataCvLoaded['hobbies'][i]['hobby_name'] = dataCvLoaded['hobbies'][i]['hobbie_name'];
+                        delete dataCvLoaded['hobbies'][i]['hobbie_name'];
+                        dataCvLoaded['hobbies'][i]['hobby_details'] = dataCvLoaded['hobbies'][i]['hobbie_details'];
+                        delete dataCvLoaded['hobbies'][i]['hobbie_details'];
+                    }
+
+                } else {
+                    dataCvLoaded['hobbies'] = []
+                }
+                console.log(dataCv)
+                dataCv = dataCvLoaded
+                console.log(dataCv)
+                localStorageSave.setItem("dataCv", JSON.stringify(dataCv))
+                console.log(localStorageSave)
+                window.onload = function() {
+                    if(!window.location.hash) {
+                        window.location = window.location + '#loaded';
+                        window.location.reload();
+                    }
+                }
+            },
+        })
+    }
+
+
     let star= '<i class="fa-solid fa-star"></i>'
     let starEmpty= '<i class="fa-regular fa-star"></i>'
 
@@ -104,6 +249,7 @@ if (document.body.contains(document.querySelector('.full_page')))  {
         dataCv = retrieveCVSave()
         console.log(retrieveCVSave())
     }
+
     let e = 0
     let f = 0
     let l = 0
@@ -203,7 +349,6 @@ if (document.body.contains(document.querySelector('.full_page')))  {
         if (niveauSkill.length != 0) {
             addStarsOutOfFiveCv(niveauSkill,"skill")
         }
-
         s++
     })
 
@@ -529,32 +674,37 @@ if (document.body.contains(document.querySelector('.full_page')))  {
 
 
 
-document.querySelector('.saveBtn').onclick = function() {
-    console.log('click')
-    console.log(dataCv)
-    $.ajax({
-        type: "POST",
-        url: ajaxurl,
-        data: {
-            action: 'ajax_cv',
-            data : dataCv
-        },
-        // contentType: "application/json",
-        // dataType: 'json',
-        beforeSend: function (){
-            console.log('AJAX SENT')
-        },
-        success: function (response) {
-            let responseData = response
-            let cvId = responseData.trim().charAt(0)
-            dataCv.ID = cvId
-            console.log(cvId)
-            dataCVSave()
-            console.log('----')
-        },
-    })
+    document.querySelector('.saveBtn').onclick = function() {
+        console.log('click')
+        console.log(dataCv)
+        $.ajax({
+            type: "POST",
+            url: ajaxurl,
+            data: {
+                action: 'ajax_cv',
+                data : dataCv
+            },
+            // contentType: "application/json",
+            // dataType: 'json',
+            beforeSend: function (){
+                console.log('AJAX SENT')
+            },
+            success: function (response) {
+                let responseData = response
+                let cvId = responseData.trim().charAt(0)
+                dataCv.ID = cvId
+                console.log(cvId)
+                dataCVSave()
+                console.log('----')
+            },
+        })
+    }
+    if(window.location.hash) {
+        window.onbeforeunload = function(){
+            localStorageSave.removeItem('dataCv')
+        };
+    }
 
-}
 }
 
 
