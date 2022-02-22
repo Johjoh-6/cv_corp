@@ -89,7 +89,7 @@ function showRoleCurrentUser(){
     if($role === 'candidate'){
         return 'Candidat / candidate';
     } 
-    if($role !== 'recruiter'){
+    if($role === 'recruiter'){
         return 'Recruteur / recruteuse';
     }else {
         return '';

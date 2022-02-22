@@ -39,6 +39,10 @@ import './asset/js/index.js';
 import './asset/js/burger-menu.js';
 import './asset/js/pdf.js';
 
+//FONT for js.PDF
+import './asset/font/Roboto-Regular-normal.js';
+import './asset/font/Roboto-Bold-normal.js';
+import './asset/font/Roboto-Thin-normal.js';
 
 // AJAX
 import './asset/js/ajax-account.js';

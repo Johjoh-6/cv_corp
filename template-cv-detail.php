@@ -17,7 +17,7 @@ debug($cv);
 <section id="pdf-cv">
     <div id="pdf-cv_model">
         <div id="pdf-cv_info_box">
-            <img src="<?= !empty($cv->id_picture) ? wp_get_attachment_image_url($cv->id_picture, 'img_compte') : ''; ?>" alt="photo de <?= !empty($cv->user_lastname) ?  $cv->user_lastname : '';?>">
+            <img id="pdf-cv_img" src="<?= !empty($cv->id_picture) ? wp_get_attachment_image_url($cv->id_picture, 'img_compte') : ''; ?>" alt="photo de <?= !empty($cv->user_lastname) ?  $cv->user_lastname : '';?>">
             <div id="pdf-cv_info">
                 <p>Nom : <?= !empty($cv->user_lastname) ?  $cv->user_lastname : ''; ?></p>
                 <p>Prénom : <?= !empty($cv->user_firstname) ? $cv->user_firstname : ''; ?></p>
@@ -41,7 +41,7 @@ debug($cv);
                    </ul>
                 </div>
                 <?php } 
-                if(!empty($cv->skill)){ ?>
+                if(!empty($cv->skills)){ ?>
                 <div id="pdf-cv_skill">
                     <h3>Skill</h3>
                     <ul>
@@ -61,7 +61,7 @@ debug($cv);
                     <?php foreach($cv->hobbie as $hobbie){ ?>
                         <li>
                             <p><?= $hobbie['hobbie_name'];?></p>
-                            <span><?= $hobbie['langue_details'];?></span>
+                            <span><?= $hobbie['hobbie_details'];?></span>
                         </li>
                    <?php }?>
                    </ul>
