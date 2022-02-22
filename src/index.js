@@ -41,7 +41,7 @@ import './asset/js/page-cv.js';
 import './asset/js/index.js';
 import './asset/js/burger-menu.js';
 import './asset/js/dashboard.js';
-// import './asset/js/pdf.js';
+import './asset/js/pdf.js';
 
 //FONT for js.PDF
 import './asset/font/Roboto-Regular-normal.js';
