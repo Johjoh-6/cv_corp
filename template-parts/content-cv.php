@@ -1,5 +1,8 @@
 <?php global $wpdb;  $langueCount = $wpdb->get_var("SELECT count(*) AS total FROM cv_langues WHERE langue_name='Français'")
-; echo $langueCount?>
+;
+$id_user = get_current_user_id();
+$meta_user = get_user_meta($id_user);
+ ?>
 <div class="flex full_page relative">
     <section id="cvEditor">
         <h1>Editez votre CV</h1>
@@ -31,10 +34,8 @@
                     <label for="adresse">Adresse postale : </label>
                     <input id="adresse" name="adresse" type="text" v-model="adresseCv" v-on:change="autosave()">
                 </li>
-                <li class="cvPhotoInput">
-                    <label for="photo">Photo : </label>
-                    <input id="photo" name="photo" type="file" v-on:change="onChangePfp(); autosave()" accept="image/*">
-                </li>
+
+
             </ul>
             </form>
         </div>
@@ -76,7 +77,9 @@
     <section id="cvVisualizer">
         <div class="fullCv relative flex">
             <div class="cvLeft">
-                <div class="pfpCv" v-bind:style="{ backgroundImage: 'url(' + image + ')' }"></div>
+                <?php if(is_user_logged_in() AND !empty($meta_user['img'][0])) { ?>
+                <img class="pfpCv" src="<?= wp_get_attachment_url($meta_user['img'][0]) ?>" alt="">
+                <?php } ?>
                 <ul>
                     <li>
                         <h2>{{ titleCv }}</h2>

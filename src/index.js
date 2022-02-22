@@ -1,5 +1,5 @@
 //Require for PDF.js
-import * as pdfjsLib from 'pdfjs-dist/webpack';
+// import * as pdfjsLib from 'pdfjs-dist/webpack';
 
 // Reset CSS Variable
 import './asset/css/reset.scss';
@@ -34,10 +34,11 @@ import './asset/css/responsive-header.scss';
 // JS
 // import './asset/js/inc/localstorage.js';
 import './asset/js/cv.js';
+import './asset/js/cv-load.js';
 import './asset/js/page-cv.js';
 import './asset/js/index.js';
 import './asset/js/burger-menu.js';
-import './asset/js/pdf.js';
+// import './asset/js/pdf.js';
 
 
 // AJAX

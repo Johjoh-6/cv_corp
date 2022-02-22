@@ -168,7 +168,7 @@ function getCv($idUser){
 
 function getCvById($idcv){
     global $wpdb;
-    $info = $wpdb->get_results("SELECT `user_firstname`, `user_lastname`, `user_email`, `user_phone`, `user_adress`, `id_picture`  FROM {$wpdb->prefix}cv WHERE id = $idcv", OBJECT);
+    $info = $wpdb->get_results("SELECT `user_firstname`, `user_lastname`, `user_email`, `user_phone`, `user_adress`, `id_picture`, `cv_title`  FROM {$wpdb->prefix}cv WHERE id = $idcv", OBJECT);
     $experience = $wpdb->get_results("SELECT `job_name`, `company_name`, `date_start`, `date_end`, `details` FROM {$wpdb->prefix}experience WHERE id_cv = $idcv", ARRAY_A);
     $studie = $wpdb->get_results("SELECT `study_name`, `study_details`, `school_name`, `school_location`, `date_start`, `date_end`  FROM {$wpdb->prefix}studies WHERE id_cv = $idcv", ARRAY_A);
     $skills = $wpdb->get_results("SELECT skills.skill_name, pivot.skill_level 
