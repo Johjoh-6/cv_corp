@@ -17,9 +17,6 @@ $meta_user = get_user_meta($id_user);
                 <p class="header-account_role">
                     <?= showRoleCurrentUser();?>
                 </p>
-                <p class="header-account_post">
-                    dernier post: technicien
-                </p>
             </div>
         </div>
         <div class="account-detail">
