@@ -17,6 +17,7 @@ import './asset/css/style.scss';
 import './asset/css/header.scss';
 import './asset/css/home.scss';
 import './asset/css/footer.scss';
+import './asset/css/responsive-footer.scss';
 import './asset/css/cv.scss';
 import './asset/css/content-cv.scss';
 import './asset/css/page-cv.scss';
