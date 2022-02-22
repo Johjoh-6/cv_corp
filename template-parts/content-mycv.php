@@ -38,9 +38,8 @@ $allCv = $wpdb->get_results("SELECT * FROM cv_cv WHERE id_user='".$id_user."'");
                     </div>
                 </div>
             <?php } ?>
-
-
         </div>
+
 
 
     </div>
