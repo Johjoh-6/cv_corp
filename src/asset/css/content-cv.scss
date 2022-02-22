@@ -6,6 +6,9 @@
     align-self: center;
     gap: 40px;
     padding: 30px;
+    @media (max-width: 880px){
+        flex-flow: column nowrap;
+    }
     button{
         background: var.$color-btn;
         color: var.$color-background;
@@ -14,45 +17,74 @@
         width: 115px;
         align-self: flex-end;
         align-items: center;
+        cursor: pointer;
         &:hover,
         &:hover a {
             background: var.$color-hover;
             color: var.$color-background;
         }
+        @media (max-width: 880px){
+            align-self: center;
+        }
     }
-    
+    .saveBtn{
+        align-items: center;
+    }
     #cvEditor{
         background: var.$color-recruiter;
         font-size: var.$font-20;
         border-radius: 10px;
         padding: 20px;
         height: 50%;
+        @media (max-width: 880px){
+            width: 90%;
+            align-self: center;
+        }
         .profil{
             input{
                 background: none;
                 border: none;
+                @media (max-width: 880px){
+                    font-size: 10px;
+                }
             }
             .cvPhoneInput{
                 #phone{
                     width: 85px;
                 }
             }
+            .cvTitleInput,.cvNomInput,.cvPrenomInput,.cvEmailInput,.cvPhoneInput,.cvAdresseInput,.cvPhotoInput{
+                font-size: 13px;
+            }
         }
         h1{
             text-align: center;
             font-size: var.$font-24;
+            @media (max-width: 880px){
+                font-size: 15px;
+            }
         }
         h2{
             text-align: center;
             font-size: var.$font-20;
+            @media (max-width: 880px){
+                font-size: 15px;
+            }
         }
-        #experienceBtn,#formationBtn,#langueBtn,#skillBtn,#hobbyBtn{
-            color: var.$color-btn;  
-            font-size: var.$font-20;
+        #experienceBtn,#formationBtn,#langueBtn,#skillBtn,#hobbyBtn{  
+            font-size: var.$font-14;
+            background: var.$color-btn;
+            color: var.$color-background;
+            border-radius: 10px;
+            text-align: center;
             cursor: pointer;
             &:hover,
             &:hover a {
-                color: var.$color-hover;
+                background: var.$color-hover;
+                color: var.$color-background;
+            }
+            @media (max-width: 880px){
+                font-size: 15px;
             }
         }
         .singleExperience,.singleLangue,.singleSkill,.singleHobby,.singleFormation,.singleExperienceCv  {
@@ -60,31 +92,57 @@
             padding: 5px;
             display: flex;
             flex-direction: column-reverse;
-          }
+            @media (max-width: 880px){
+                font-size: 15px;
+                align-items: flex-start;
+            }
+        }
     }
 
     #cvVisualizer{
         border-radius: 10px;
         background: var.$color-recruiter;
-        padding: 40px;
+        padding: 10px;
         height: 50%;
+        @media (max-width: 880px){
+            width: 90%;
+            align-self: center;
+            padding: 10px;
+        }
+        @media (max-width: 400px){
+            width: 95%;
+            padding: 10px;
+        }
         .fullCv{
             background: var.$color-background;
             height: 100%;
+            @media (max-width: 880px){
+                font-size: 10px;
+            }
             .cvLeft{
                 padding: 20px;
                 h2{
                     text-align: center;
-                    font-size: var.$font-24;
+                    font-size: var.$font-18;
+                    @media (max-width: 880px){
+                        font-size: 10px;
+                    }
                 }
                 .info-cv{
                     margin-block-end: 150px;;
+                }
+                .formations{
+                    margin-top: 20%;
                 }
             }
             .pfpCv{
                 width: 144px;
                 height: 140px;
                 margin-bottom: 25px;
+                @media (max-width: 880px){
+                    width: 70px;
+                    height: 70px;
+                }
             }
             .cvRight{
                 align-self: flex-end;
@@ -92,10 +150,12 @@
                 border-left: 2px solid var.$color-separator;
                 h2{
                     text-align: center;
-                    font-size: var.$font-24;
+                    font-size: var.$font-18;
+                    @media (max-width: 880px){
+                        font-size: 10px;
+                    }
                 }
-                
             }
-        }
+        } 
     }
 }

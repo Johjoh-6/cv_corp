@@ -6,9 +6,42 @@
   background-color: var.$color-recruiter;
   display: none;
   border: solid;
-  border-radius: 5px;
-  #formationAdd,#langueAdd,#skillAdd,#hobbyAdd{
+  border-radius: 10px;
+  padding: 20px;
+  .remove.icon {
+    color: var.$color-btn;
+    position: absolute;
+    right: 20px;
+    top: 10px;
     cursor: pointer;
+    &:hover{
+      color: var.$color-hover;
+    }
+  }
+  .remove.icon:before {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 2px;
+    background-color: currentColor;
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+  }
+  .remove.icon:after {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 2px;
+    background-color: currentColor;
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+  }
+  #formationAdd,#langueAdd,#skillAdd,#hobbyAdd,#experienceAdd{
+    cursor: pointer;
+    color: var.$color-btn;
+    &:hover{
+      color: var.$color-hover;
+    }
   }
 }
 .pfpCv {
@@ -17,7 +50,4 @@
   height: 200px;
   width: 200px;
   border-radius: 50%;
-}
-.singleExperience,.singleExperienceCv  {
-  justify-content: space-between;
 }

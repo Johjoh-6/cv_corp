@@ -1,5 +1,6 @@
 
 <section class="cvModale dNone experienceModale absolute">
+<div class="remove icon"></div>
     <ul>
         <li>
             <label for="entreprise">Entreprise : </label>
@@ -41,6 +42,7 @@
 
 </section>
 <section class="cvModale dNone formationModale absolute">
+<div class="remove icon"></div>
     <ul>
         <li>
             <label for="organisme">Organisme de formation : </label>
@@ -87,6 +89,7 @@
 </section>
 
 <section class="cvModale dNone langueModale absolute">
+<div class="remove icon"></div>
     <ul>
         <li>
             <label for="langue">Langue : </label>
@@ -120,6 +123,7 @@
 </section>
 
 <section class="cvModale dNone hobbyModale absolute">
+<div class="remove icon"></div>
     <ul>
         <li>
             <label for="hobby">Loisir : </label>
@@ -138,6 +142,7 @@
 
 
 <section class="cvModale dNone skillModale absolute">
+<div class="remove icon"></div>
     <ul>
         <li>
             <label for="skill">Compétence : </label>
