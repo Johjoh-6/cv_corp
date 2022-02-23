@@ -68,7 +68,9 @@
 					<?php } ?>
 				</ul>
 			</nav>		
-			<i id="menu-burger" class="fas fa-bars"></i>
+			<div id="menu-burger" >
+				<i class="fas fa-bars"></i>
+			</div>
 		</div>
 	</header><!-- #header -->
 	
