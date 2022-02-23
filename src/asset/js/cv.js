@@ -177,6 +177,8 @@ if (document.body.contains(document.querySelector('.full_page')))  {
                 domExpToDelete.remove()
                 domExpToDelete = document.querySelector('.singleExperienceCv[data-expId = "'+expToDelete+'"]')
                 domExpToDelete.remove()
+
+
             }
         }
     }
@@ -699,11 +701,7 @@ if (document.body.contains(document.querySelector('.full_page')))  {
             },
         })
     }
-    if(window.location.hash) {
-        window.onbeforeunload = function(){
-            localStorageSave.removeItem('dataCv')
-        };
-    }
+
 
 }
 
