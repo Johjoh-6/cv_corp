@@ -1,11 +1,13 @@
 if (document.body.contains(document.querySelector('.full_page')))  {
+    let loadedCv = 0
     console.log('cvJS')
     let url_string = window.location.href; //window.location.href
     let url = new URL(url_string);
     let cvEditParam = url.searchParams.get('cvEdit');
+
     if (cvEditParam) {
         console.log(cvEditParam);
-        console.log('O LOAD')
+        console.log('LOAD')
         $.ajax({
             type: "POST",
             url: ajaxurl,
@@ -13,8 +15,7 @@ if (document.body.contains(document.querySelector('.full_page')))  {
                 action: 'ajax_cv_load',
                 data: cvEditParam
             },
-            // contentType: "application/json",
-            // dataType: 'json',
+
             beforeSend: function (){
                 console.log('AJAX SENT')
             },
@@ -140,8 +141,15 @@ if (document.body.contains(document.querySelector('.full_page')))  {
                         window.location.reload();
                     }
                 }
+                loadedCv = 1
             },
         })
+    } else {
+        localStorage.removeItem('dataCv')
+        if(!window.location.hash) {
+            window.location = window.location + '#new';
+            window.location.reload();
+        }
     }
 
 
@@ -151,11 +159,10 @@ if (document.body.contains(document.querySelector('.full_page')))  {
     //CREATION ET CHARGEMENT DE LA DATA DU CV
     let localStorageSave = localStorage
     function dataCVSave() {
-        if (typeof dataCv != 'undefined') {
-            console.log('cv autosavve')
-            localStorageSave.setItem("dataCv", JSON.stringify(dataCv))
-            console.log(localStorageSave)
-        }
+        console.log('cv autosavve')
+        localStorageSave.setItem("dataCv", JSON.stringify(dataCv))
+        console.log(localStorageSave)
+
     }
     function retrieveCVSave() {
         if (typeof localStorageSave.dataCv != 'undefined') {
@@ -228,11 +235,20 @@ if (document.body.contains(document.querySelector('.full_page')))  {
         }
     }
 
+    function modaleCroix(modale) {
+        document.querySelector(''+modale+' .remove').onclick = (function() {
+            console.log('croix')
+            document.querySelectorAll(''+modale+' input').value = ""
+            document.querySelectorAll(''+modale+' textarea').value = ""
+            document.querySelector(''+modale+'').style.display = "none"
+        })
+    }
+
 
 
     let dataCv = {
-        titleCv: 'TITLE',
-        nomCv: 'NOM ICI',
+        titleCv: '',
+        nomCv: '',
         prenomCv: '',
         emailCv: '',
         phoneCv: '',
@@ -399,7 +415,37 @@ if (document.body.contains(document.querySelector('.full_page')))  {
             },
             autosave() {
                 dataCVSave()
-            }
+            },
+            setTitle() {
+                if (cvEditParam) {
+                    dataCv.titleCv = document.querySelector('#title').value
+                }
+            },
+            setNom() {
+                if (cvEditParam) {
+                    dataCv.nomCv = document.querySelector('#nom').value
+                }
+            },
+            setPrenom() {
+                if (cvEditParam) {
+                    dataCv.prenomCv = document.querySelector('#prenom').value
+                }
+            },
+            setAdresse() {
+                if (cvEditParam) {
+                    dataCv.adresseCv = document.querySelector('#adresse').value
+                }
+            },
+            setPhone() {
+                if (cvEditParam) {
+                    dataCv.phoneCv = document.querySelector('#phone').value
+                }
+            },
+            setEmail() {
+                if (cvEditParam) {
+                    dataCv.emailCv = document.querySelector('#email').value
+                }
+            },
         }
     })
 
@@ -663,6 +709,12 @@ if (document.body.contains(document.querySelector('.full_page')))  {
     addExpDelBtn()
     addFormDelBtn()
 
+    modaleCroix('.experienceModale')
+    modaleCroix('.formationModale')
+    modaleCroix('.langueModale')
+    modaleCroix('.hobbyModale')
+    modaleCroix('.skillModale')
+
 
 
 
@@ -677,35 +729,46 @@ if (document.body.contains(document.querySelector('.full_page')))  {
 
 
     document.querySelector('.saveBtn').onclick = function() {
+        window.alert('CV sauvegardé')
         console.log('click')
         console.log(dataCv)
-        $.ajax({
-            type: "POST",
-            url: ajaxurl,
-            data: {
-                action: 'ajax_cv',
-                data : dataCv
-            },
-            // contentType: "application/json",
-            // dataType: 'json',
-            beforeSend: function (){
-                console.log('AJAX SENT')
-            },
-            success: function (response) {
-                let responseData = response
-                let cvId = responseData.trim().charAt(0)
-                dataCv.ID = cvId
-                console.log(cvId)
-                dataCVSave()
-                console.log('----')
-            },
-        })
+        if( dataCv['titleCv']) {
+            $.ajax({
+                type: "POST",
+                url: ajaxurl,
+                data: {
+                    action: 'ajax_cv',
+                    data : dataCv
+                },
+                // contentType: "application/json",
+                // dataType: 'json',
+                beforeSend: function (){
+                    console.log('AJAX SENT')
+                },
+                success: function (response) {
+                    console.log(response)
+                    let responseData = response
+                    let cvId = responseData
+
+                    dataCv.ID = cvId.id
+                    console.log(cvId.id)
+
+                    dataCVSave()
+                    console.log('----')
+                },
+            })
+        } else {
+            window.alert('Votre CV doit avoir un titre')
+        }
+
     }
 
-
+    window.onbeforeunload = function(){
+        if (loadedCv == 0) {
+            localStorage.removeItem('dataCv')
+        }
+    };
 }
-
-
 
 
 

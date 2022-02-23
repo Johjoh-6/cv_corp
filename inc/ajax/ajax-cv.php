@@ -3,6 +3,8 @@ add_action('wp_ajax_ajax_cv', 'getTheCvWithAjax');
 add_action('wp_ajax_nopriv_ajax_cv', 'getTheCvWithAjax');
 
 function getTheCvWithAjax() {
+
+    $userId = get_current_user_id();
     global $wpdb;
     $post = $_POST['data'];
 
@@ -12,45 +14,53 @@ function getTheCvWithAjax() {
         $hasId = 1;
     }
     if($hasId == 0) {
-        $cvCount = $wpdb->get_col(
-            $wpdb->prepare("SELECT count(*) AS total FROM {$wpdb->prefix}cv")
+        $cvCount = $wpdb->get_row(
+            $wpdb->prepare("SELECT id FROM cv_cv ORDER BY id DESC LIMIT 1")
         );
-        $cvCount = $cvCount[0];
-        $post['ID'] =($cvCount+1);
-        echo $post['ID'];
-        debug($post['ID']);
+        $cvCount = json_decode(json_encode($cvCount), true);
+//        debug($cvCount);
+        $cvCount = $cvCount['id'];
+        $post['ID'] = ($cvCount+1);
+        $id = array(
+            'id'=>$post['ID'],
+        );
+        $meta_user = get_user_meta($userId);
+        $wpdb->insert('cv_cv', array(
+            'id' =>$id['id'],
+            'cv_title' => $post['titleCv'],
+            'id_user' => $userId,
+            'user_firstname' => $post['prenomCv'],
+            'user_lastname' => $post['nomCv'],
+            'user_email' => $post['emailCv'],
+            'user_phone' => $post['phoneCv'],
+            'user_adress' => $post['adresseCv'],
+            'id_picture' => $meta_user['img'][0],
+        ));
+
         $hasId = 1;
     } else {
         echo $post['ID'];
     }
+    $meta_user = get_user_meta($userId);
 
 
 
-    $userId = get_current_user_id();
-    $wpdb->insert('cv_cv', array(
-        'id' => $post['ID'],
-        'cv_title' => $post['titleCv'],
-        'id_user' => $userId,
-        'user_firstname' => $post['prenomCv'],
-        'user_lastname' => $post['nomCv'],
-        'user_email' => $post['emailCv'],
-        'user_phone' => $post['phoneCv'],
-        'user_adress' => $post['adresseCv'],
-        'id_picture' => '',
-    ));
 
-    $wpdb->update('cv_cv', array(
-        'id' => $post['ID'],
-        'id_user' => $userId,
-        'cv_title' => $post['titleCv'],
-        'user_firstname' => $post['prenomCv'],
-        'user_lastname' => $post['nomCv'],
-        'user_email' => $post['emailCv'],
-        'user_phone' => $post['phoneCv'],
-        'user_adress' => $post['adresseCv'],
-        'id_picture' => '',
-    ),array('id'=>$post['ID']));
-//    debug($post);
+
+        $wpdb->update('cv_cv', array(
+            'cv_title' => $post['titleCv'],
+            'id_user' => $userId,
+            'user_firstname' => $post['prenomCv'],
+            'user_lastname' => $post['nomCv'],
+            'user_email' => $post['emailCv'],
+            'user_phone' => $post['phoneCv'],
+            'user_adress' => $post['adresseCv'],
+            'id_picture' => $meta_user['img'][0],
+        ),array('id'=>$post['ID']));
+
+
+
+
     $wpdb->delete('cv_langues_pivot', array('id_cv' => $post['ID']));
 
     foreach ($post['langues'] as $langue) {
@@ -138,6 +148,5 @@ function getTheCvWithAjax() {
             )
         );
     }
-
-
+    showJson($id);
 }

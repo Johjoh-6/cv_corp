@@ -11,27 +11,27 @@ $meta_user = get_user_meta($id_user);
             <ul>
                 <li class="cvTitleInput">
                     <label for="title">Titre du CV : </label>
-                    <input id="title" name="title" type="text" v-model="titleCv" v-on:change="autosave()">
+                    <input id="title" name="title" type="text" v-model="titleCv" v-on:change="setTitle(); autosave()">
                 </li>
                 <li class="cvNomInput">
                     <label for="nom">Nom : </label>
-                    <input id="nom" name="nom" type="text" v-model="nomCv" v-on:change="autosave()">
+                    <input id="nom" name="nom" type="text" v-model="nomCv" v-on:change="setNom(); autosave()">
                 </li>
                 <li class="cvPrenomInput">
                     <label for="prenom">Prénom : </label>
-                    <input id="prenom" name="prenom" type="text" v-model="prenomCv" v-on:change="autosave()">
+                    <input id="prenom" name="prenom" type="text" v-model="prenomCv" v-on:change="setPrenom(); autosave()">
                 </li>
                 <li class="cvEmailInput">
                     <label for="email">Adresse e-mail : </label>
-                    <input id="email" name="email" type="text" v-model="emailCv" v-on:change="autosave()">
+                    <input id="email" name="email" type="text" v-model="emailCv" v-on:change="setEmail(); autosave()">
                 </li>
                 <li class="cvPhoneInput">
                     <label for="phone">Numéro de téléphone : </label>
-                    <input id="phone" name="phone" type="text" v-model="phoneCv" v-on:change="autosave()">
+                    <input id="phone" name="phone" type="text" v-model="phoneCv" v-on:change="setPhone(); autosave()">
                 </li>
                 <li class="cvAdresseInput">
                     <label for="adresse">Adresse postale : </label>
-                    <input id="adresse" name="adresse" type="text" v-model="adresseCv" v-on:change="autosave()">
+                    <input id="adresse" name="adresse" type="text" v-model="adresseCv" v-on:change="setAdresse(); autosave()">
                 </li>
 
 
