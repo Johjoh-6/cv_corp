@@ -24,7 +24,7 @@ get_header(); ?>
             </div>
             <div>
                 <i class="fas fa-home"></i>
-                <p>31 PL henri benois 76100 Rouen</p>
+                <a href="https://www.google.com/maps/place/Need+for+School/@49.4304007,1.079024,17z/data=!3m1!4b1!4m5!3m4!1s0x47e0df1548cd768b:0x70b4b34959b1ec9f!8m2!3d49.4304007!4d1.0812127?hl=fr">31 PL henri benois 76100 Rouen</a>
             </div>
         </div>
     </div>
