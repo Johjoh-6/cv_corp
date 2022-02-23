@@ -215,7 +215,7 @@ function getCvById($idcv){
 
 function getCvByIdJoin($idcv){
     global $wpdb;
-    $info = $wpdb->get_results("SELECT  cv.user_firstname, cv.user_lastname, cv.user_email, cv.user_phone, cv.user_adress, cv.id_picture, cv.cv_title,experience.job_name, experience.company_name, experience.date_start, experience.date_end, experience.details ,  studies.study_name, studies.study_details, studies.school_name, studies.school_location, studies.date_start, studies.date_end, skills.skill_name, spivot.skill_level , langue.langue_name, lpivot.langue_level, hobbie.hobbie_name, hpivot.hobbie_details
+    $info = $wpdb->get_results("SELECT cv.user_firstname, cv.user_lastname, cv.user_email, cv.user_phone, cv.user_adress, cv.id_picture, cv.cv_title,experience.job_name, experience.company_name, experience.date_start, experience.date_end, experience.details ,  studies.study_name, studies.study_details, studies.school_name, studies.school_location, studies.date_start, studies.date_end, skills.skill_name, spivot.skill_level , langue.langue_name, lpivot.langue_level, hobbie.hobbie_name, hpivot.hobbie_details
         FROM {$wpdb->prefix}cv AS cv
         JOIN {$wpdb->prefix}experience AS experience
         ON experience.id_cv = cv.id
