@@ -1,6 +1,6 @@
 <?php
 /* Template Name: CV Detail*/
-
+can_access(['candidate', 'recruiter', 'administrator']);
 get_header(); 
 //For get the current user
 $id_user = get_current_user_id();

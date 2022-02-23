@@ -6,9 +6,11 @@ $meta_user = get_user_meta($id_user);
 global $wpdb;
 $allCv = $wpdb->get_results("SELECT * FROM cv_cv");
 debug($meta_user);
+
+can_access(['administrator', 'recruiter']);
 get_header(); 
 
-can_access();
+
 ?>
 <section id="dashboard">
     <div class="container_dash">
