@@ -59,55 +59,39 @@
     }
 
     #partenaire{
+        width: 98%;
+        margin-inline: auto;
         display: flex;
         flex-flow: row nowrap;
         align-items: center;
         justify-content: center;
         @media (max-width: 1151px){
             flex-flow: column nowrap;
-            margin-top: 50px;
+            margin-top: 2rem;
             text-align: center;
         }
         h2{
             font-size: var.$font-20;
-            width: 45%;
+            width: max(200px, 100%);
+            margin-bottom: 1rem;
         }
-        .keyframe{
-            .logo-entreprise{
+        .logo-entreprise{
+            overflow-x: hidden;
+            overflow-y: scroll;
+            width: 90%;
+            ul {
+                min-width: 900px;
                 display: flex;
                 flex-flow: row nowrap;
                 align-items: center;
-                ul {
-                    display: flex;
-                    align-items: center;
-                    img{
-                        @media (max-width: 1151px){
-                            width: 250px;
-                        }
-                    }     
-                } 
-                @media (max-width: 1151px){
-                    overflow: scroll;
-                    animation-name: slidein;
-                    width: 250px;
-                    @keyframes slidein {
-                        from {
-                          margin-left: 100%;
-                          width: 300%;
-                        }
-                        75% {
-                          font-size: 300%;
-                          margin-left: 25%;
-                          width: 150%;
-                        }
-                        to {
-                          margin-left: 0%;
-                          width: 200%;
-                        }
-                    }
-                }
-            }            
-        }
+                gap: 1rem;
+                animation: infinite ease 10s  slideIn ;
+               
+            } 
+            
+               
+        }            
+        
     }
 
     #fonction{
@@ -195,4 +179,17 @@
             }
         }
     }
+}
+
+@keyframes slideIn {
+    0% {  
+        margin-left: 0%;
+        background-color: blue;
+    } 50% { 
+        margin-left: -100%;
+        background-color: red;
+     } 100%{
+        margin-left: 0%;
+         background-color: blue;
+     }
 }
