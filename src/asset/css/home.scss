@@ -78,7 +78,7 @@
         .logo-entreprise{
             overflow-x: hidden;
             overflow-y: scroll;
-            width: 90%;
+            width: max(300px, 90%);
             ul {
                 min-width: 900px;
                 display: flex;
@@ -183,13 +183,10 @@
 
 @keyframes slideIn {
     0% {  
-        margin-left: 0%;
-        background-color: blue;
+       transform: translate(0, 0);
     } 50% { 
-        margin-left: -100%;
-        background-color: red;
+        transform: translate(-600px, 0);
      } 100%{
-        margin-left: 0%;
-         background-color: blue;
+        transform: translate(0, 0);
      }
 }
