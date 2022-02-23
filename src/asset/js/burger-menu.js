@@ -4,8 +4,6 @@ const btnMenu = document.querySelector('#menu-burger');
 btnMenu.addEventListener('click', ()=>{
     console.log('header');
     const navPhone = header.querySelector('#box_header_nav_phone');
-    btnMenu.style.display = 'none';
-    btnMenu.style.visibility = 'hidden';
     navPhone.style.display = 'block';
     navPhone.style.visibility = 'visible';
     const div = document.createElement('div');
@@ -18,19 +16,12 @@ btnMenu.addEventListener('click', ()=>{
 
     div.addEventListener('click', ()=>{
         navPhone.style.display = 'none';
-        navPhone.style.visibility = 'hidden';
-        showBtn();
+        navPhone.style.visibility = 'hidden';       
     })
     window.addEventListener('click', (event) =>{
         if (event.target == navPhone) {
             navPhone.style.visibility = 'hidden';
             navPhone.style.display = 'none';
-            showBtn();
         }
     });
 })
-
-const showBtn = () =>{
-    btnMenu.style.display = 'block';
-    btnMenu.style.visibility = 'visible';
-}
