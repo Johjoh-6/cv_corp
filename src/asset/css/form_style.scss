@@ -20,7 +20,7 @@
    form{
        display: flex;
        flex-flow: column nowrap;
-       gap: .8rem;
+       gap: .6rem;
        align-items: center;
        width: 100%;
        font-size: var.$font-14;
@@ -32,7 +32,7 @@
            display: flex;
            flex-flow: column nowrap;
            width: min(300px, 100%);
-           gap: .8rem;
+           gap: .4rem;
        }
        input{
            border-radius: 5px;
@@ -64,8 +64,7 @@
    }
    .error-form{
         text-align: center;
-        margin-top: .8rem;
-       min-height: 2rem;
+       min-height: 1.5rem;
        color: var.$color-error;
        font-size: var.$font-14;
        width: min(300px, 100%);
@@ -75,10 +74,9 @@
        padding: .3rem .5rem;
        width: 100%;
        margin-bottom: .6rem;
-       }
-      
-    
+       } 
    }
+  
    .form-option{
        margin-top: .5rem;
        display: flex;

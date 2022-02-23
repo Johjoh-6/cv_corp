@@ -69,6 +69,11 @@ function recupInputValue($key)
         echo $_POST[$key];
     }
 }
+function returnError($error, $key){
+    if(!empty($error[$key])){
+        return $error[$key];
+    }
+}
 function dateToRead($dateDb){
     $date = new DateTime();
     $date->setTimestamp($dateDb);
