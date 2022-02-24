@@ -35,7 +35,7 @@
             <textarea name="expDetails" id="expDetails" cols="20" rows="5"></textarea>
             <!-- /# -->
         </li>
-        <li>
+        <li class="btn-add">
             <span id="experienceAdd">Ajouter une experience</span>
         </li>
     </ul>
@@ -81,7 +81,7 @@
             <textarea name="formDetails" id="formDetails" cols="20" rows="5"></textarea>
             <!-- /# -->
         </li>
-        <li>
+        <li class="btn-add">
             <span id="formationAdd">Ajouter une formation</span>
         </li>
     </ul>
@@ -116,7 +116,7 @@
                 </select>
             </div>
         </li>
-        <li>
+        <li class="btn-add">
             <span id="langueAdd">Ajouter une langue</span>
         </li>
     </ul>
@@ -133,7 +133,7 @@
             <label for="hobbyDetails">Details : </label>
             <textarea name="hobbyDetails" id="hobbyDetails" cols="20" rows="5"></textarea>
         </li>
-        <li>
+        <li class="btn-add">
             <span id="hobbyAdd">Ajouter une loisir</span>
         </li>
     </ul>
@@ -170,7 +170,7 @@
                 </select>
             </div>
         </li>
-        <li>
+        <li class="btn-add">
             <span id="skillAdd">Ajouter une compétence</span>
         </li>
     </ul>
