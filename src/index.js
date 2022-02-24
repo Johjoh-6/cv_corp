@@ -37,6 +37,7 @@ import './asset/css/responsive-header.scss';
 // import './asset/js/inc/localstorage.js';
 import './asset/js/cv.js';
 import './asset/js/cv-load.js';
+import './asset/js/cv-delete.js';
 import './asset/js/page-cv.js';
 import './asset/js/index.js';
 import './asset/js/burger-menu.js';

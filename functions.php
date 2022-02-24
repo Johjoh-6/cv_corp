@@ -23,4 +23,5 @@ require get_template_directory() . '/inc/ajax/ajax-account-pwd.php';
 require get_template_directory(). '/inc/ajax/ajax-cv.php';
 require get_template_directory(). '/inc/ajax/ajax-dashboard.php';
 require get_template_directory(). '/inc/ajax/ajax-cv_load.php';
+require get_template_directory(). '/inc/ajax/ajax-cv_delete.php';
 
