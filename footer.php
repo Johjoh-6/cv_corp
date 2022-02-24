@@ -11,7 +11,7 @@
 
 ?>
 	</main><!-- #main -->
-			<footer id="footer">
+			<footer id="footer" class="<?php if(get_current_user() === 'candidate'){ echo 'candidate';} elseif(getRoleCurrentUser() === 'recruiter' || getRoleCurrentUser() === 'administrator'){ echo 'rec';} ?>">
 				<div class="container_footer">
 						<div class="box_footer_0">
 							<h2>CV CORP</h2>

@@ -23,7 +23,7 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 <div id="page" class="site">
-	<header id="header" class="site-header">
+	<header id="header" class="site-header <?php if(get_current_user() === 'candidate'){ echo 'candidate';} elseif(getRoleCurrentUser() === 'recruiter' || getRoleCurrentUser() === 'administrator'){ echo 'rec';} ?>">
 		<div class="container_header">
 			<a href="<?= path(); ?>" class="box_header_logo">	
 				<img src="<?= asset('img/logoheader.svg'); ?>" alt="">
