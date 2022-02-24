@@ -148,7 +148,9 @@ $meta_user = get_user_meta($id_user);
             </div>
         </div>
     </section>
-
+    <div class="loadingScreen flex">
+        <h1>Veuillez patienter, nous chargeons votre CV.</h1>
+    </div>
 
     <?php include_once 'inc/cv-modales.php' ?>
 </div>
