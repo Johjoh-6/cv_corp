@@ -8,6 +8,7 @@
   border: solid;
   border-radius: 10px;
   padding: 20px;
+  text-align: center;
   .remove.icon {
     color: var.$color-btn;
     position: absolute;
@@ -39,9 +40,20 @@
   #formationAdd,#langueAdd,#skillAdd,#hobbyAdd,#experienceAdd{
     cursor: pointer;
     color: var.$color-btn;
+    background: var.$color-cvautor-btn;
+    color: var.$color-background;
+    font-size: var.$font-14;
+    border-radius: 5px;
+    width: 190px;
+    margin-top: 1rem;
+    padding: 0.5rem;
     &:hover{
-      color: var.$color-hover;
+      background: var.$color-cvautor-btn-hover;
+      color: var.$color-background;
     }
+  }
+  .btn-add{
+    margin-top: 1rem;
   }
 }
 .pfpCv {

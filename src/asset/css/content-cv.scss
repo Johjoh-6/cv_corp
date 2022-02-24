@@ -10,52 +10,51 @@
         flex-flow: column nowrap;
         width: 100%;
     }
-    button{
-        background: var.$color-btn;
-        color: var.$color-background;
-        border-radius: 10px;
-        border: none;
-        width: 115px;
-        align-self: flex-end;
-        align-items: center;
-        cursor: pointer;
-        &:hover,
-        &:hover a {
-            background: var.$color-hover;
-            color: var.$color-background;
-        }
-        @media (max-width: 880px){
-            align-self: center;
-        }
-    }
-    .saveBtn{
-        align-items: center;
-    }
+    
+    
     #cvEditor{
-        background: var.$color-recruiter;
+        background: var.$color-connect;
         font-size: var.$font-20;
         border-radius: 10px;
         padding: 20px;
-        height: 50%;
+        width: 50%;
         @media (max-width: 880px){
             width: 90%;
             align-self: center;
+            text-align: center;
         }
         .profil{
             input{
-                width: 100%;
+                width: 55%;
+                border-radius: 5px;
+                margin-bottom: 0.5rem;
                 @media (max-width: 880px){
                     font-size: 10px;
                    width: auto;
                 }
             }
-            .cvPhoneInput{
-                #phone{
-                    width: 85px;
-                }
-            }
+            
             .cvTitleInput,.cvNomInput,.cvPrenomInput,.cvEmailInput,.cvPhoneInput,.cvAdresseInput,.cvPhotoInput{
                 font-size: 13px;
+                display: flex;
+                justify-content: space-between;
+                @media (max-width: 400px){
+                    display: flex;
+                    flex-flow: column;
+                    align-items: center;
+                }
+            }
+            ul{
+                @media (max-width: 880px) {
+                    display: flex;
+                    flex-flow: wrap;
+                    align-items: center;
+                }
+                @media (max-width: 392px){
+                    display: flex;
+                    flex-flow: column nowrap;
+                    align-items: center;
+                }
             }
         }
         h1{
@@ -72,23 +71,166 @@
                 font-size: 15px;
             }
         }
-        #experienceBtn,#formationBtn,#langueBtn,#skillBtn,#hobbyBtn{  
+
+        .experiences{
+            #experienceBtn{  
+                font-size: var.$font-14;
+                background: var.$color-cvautor-btn;
+                color: var.$color-background;
+                border-radius: 5px;
+                width: 190px;
+                text-align: center;
+                padding: 0.5rem;
+                margin-bottom: 0.5rem;
+                cursor: pointer;
+                &:hover,
+                &:hover a {
+                    background: var.$color-cvautor-btn-hover;
+                    color: var.$color-background;
+                }
+                @media (max-width: 880px){
+                    font-size: 15px;
+                }
+            }
+            @media (max-width: 880px){
+                display: flex;
+                flex-flow: column;
+                align-items: center;
+            }
+        }
+        
+        .formations{
+            #formationBtn{
+                font-size: var.$font-14;
+                background: var.$color-cvautor-btn;
+                color: var.$color-background;
+                border-radius: 5px;
+                width: 190px;
+                text-align: center;
+                padding: 0.5rem;
+                margin-bottom: 0.5rem;
+                cursor: pointer;
+                &:hover,
+                &:hover a {
+                    background: var.$color-cvautor-btn-hover;
+                    color: var.$color-background;
+                }
+                @media (max-width: 880px){
+                    font-size: 15px;
+                }
+            }
+            @media (max-width: 880px){
+                display: flex;
+                flex-flow: column;
+                align-items: center;
+            }
+        }
+        
+        .langues{
+            #langueBtn{
+                font-size: var.$font-14;
+                background: var.$color-cvautor-btn;
+                color: var.$color-background;
+                border-radius: 5px;
+                width: 190px;
+                text-align: center;
+                padding: 0.5rem;
+                margin-bottom: 0.5rem;
+                cursor: pointer;
+                &:hover,
+                &:hover a {
+                    background: var.$color-cvautor-btn-hover;
+                    color: var.$color-background;
+                }
+                @media (max-width: 880px){
+                    font-size: 15px;
+                }
+            }
+            @media (max-width: 880px){
+                display: flex;
+                flex-flow: column;
+                align-items: center;
+            }
+        }
+        
+        .skills{
+            #skillBtn{
+                font-size: var.$font-14;
+                background: var.$color-cvautor-btn;
+                color: var.$color-background;
+                border-radius: 5px;
+                width: 270px;
+                text-align: center;
+                padding: 0.5rem;
+                margin-bottom: 0.5rem;
+                cursor: pointer;
+                &:hover,
+                &:hover a {
+                    background: var.$color-cvautor-btn-hover;
+                    color: var.$color-background;
+                }
+                @media (max-width: 400px){
+                    width: 200px;
+                }
+            }
+            @media (max-width: 880px){
+                display: flex;
+                flex-flow: column;
+                align-items: center;
+            }
+        }
+        
+        .hobbies{
+            #hobbyBtn{
+                font-size: var.$font-14;
+                background: var.$color-cvautor-btn;
+                color: var.$color-background;
+                border-radius: 5px;
+                width: 190px;
+                text-align: center;
+                padding: 0.5rem;
+                margin-bottom: 0.5rem;
+                cursor: pointer;
+                &:hover,
+                &:hover a {
+                    background: var.$color-cvautor-btn-hover;
+                    color: var.$color-background;
+                }
+                @media (max-width: 880px){
+                    font-size: 15px;
+                }
+            }
+            @media (max-width: 880px){
+                display: flex;
+                flex-flow: column nowrap;
+                align-items: center;
+            }
+        }
+        .saveBtn{
             font-size: var.$font-14;
-            background: var.$color-btn;
+            background: var.$color-cvautor-btn;
             color: var.$color-background;
-            border-radius: 10px;
-            text-align: center;
+            border-radius: 5px;
+            border: none;
+            padding: 0.5rem;
             cursor: pointer;
             &:hover,
             &:hover a {
-                background: var.$color-hover;
+                background: var.$color-cvautor-btn-hover;
                 color: var.$color-background;
             }
             @media (max-width: 880px){
                 font-size: 15px;
             }
+            @media (max-width: 400px){
+                display: flex;
+                flex-flow: column;
+                align-items: center;
+                width: 100%;
+            }
         }
-        .singleExperience,.singleLangue,.singleSkill,.singleHobby,.singleFormation,.singleExperienceCv  {
+        
+        .singleExperience {
             justify-content: space-between;
             padding: 5px;
             display: flex;
@@ -97,12 +239,152 @@
                 font-size: 15px;
                 align-items: flex-start;
             }
+            .deleteExpBtn{
+                font-size: var.$font-14;
+                background: var.$color-cvautor-btn;
+                color: var.$color-background;
+                border-radius: 5px;
+                border: none;
+                padding: 0.5rem;
+                width: 55%;
+                cursor: pointer;
+                &:hover,
+                &:hover a {
+                    background: var.$color-cvautor-btn-hover;
+                    color: var.$color-background;
+                }
+            }
+        }
+        .singleLangue{
+            justify-content: space-between;
+            padding: 5px;
+            display: flex;
+            flex-direction: column-reverse;
+            @media (max-width: 880px){
+                font-size: 15px;
+                align-items: flex-start;
+            }
+            .deleteLanBtn{
+                font-size: var.$font-14;
+                background: var.$color-cvautor-btn;
+                color: var.$color-background;
+                border-radius: 5px;
+                border: none;
+                padding: 0.5rem;
+                width: 55%;
+                cursor: pointer;
+                &:hover,
+                &:hover a {
+                    background: var.$color-cvautor-btn-hover;
+                    color: var.$color-background;
+                }
+            }
+        }
+        .singleSkill{
+            justify-content: space-between;
+            padding: 5px;
+            display: flex;
+            flex-direction: column-reverse;
+            @media (max-width: 880px){
+                font-size: 15px;
+                align-items: flex-start;
+            }
+            .deleteSkillBtn{
+                font-size: var.$font-14;
+                background: var.$color-cvautor-btn;
+                color: var.$color-background;
+                border-radius: 5px;
+                border: none;
+                padding: 0.5rem;
+                width: 55%;
+                cursor: pointer;
+                &:hover,
+                &:hover a {
+                    background: var.$color-cvautor-btn-hover;
+                    color: var.$color-background;
+                }
+            }
+        }
+        .singleHobby{
+            justify-content: space-between;
+            padding: 5px;
+            display: flex;
+            flex-direction: column-reverse;
+            @media (max-width: 880px){
+                font-size: 15px;
+                align-items: flex-start;
+            }
+            .deleteHobbyBtn{
+                font-size: var.$font-14;
+                background: var.$color-cvautor-btn;
+                color: var.$color-background;
+                border-radius: 5px;
+                border: none;
+                padding: 0.5rem;
+                width: 55%;
+                cursor: pointer;
+                &:hover,
+                &:hover a {
+                    background: var.$color-cvautor-btn-hover;
+                    color: var.$color-background;
+                }
+            }
+        }
+        .singleFormation{
+            justify-content: space-between;
+            padding: 5px;
+            display: flex;
+            flex-direction: column-reverse;
+            @media (max-width: 880px){
+                font-size: 15px;
+                align-items: flex-start;
+            }
+            .deleteFormBtn{
+                font-size: var.$font-14;
+                background: var.$color-cvautor-btn;
+                color: var.$color-background;
+                border-radius: 5px;
+                border: none;
+                padding: 0.5rem;
+                width: 55%;
+                cursor: pointer;
+                &:hover,
+                &:hover a {
+                    background: var.$color-cvautor-btn-hover;
+                    color: var.$color-background;
+                }
+            }
+        }
+        .singleExperienceCv{
+            justify-content: space-between;
+            padding: 5px;
+            display: flex;
+            flex-direction: column-reverse;
+            @media (max-width: 880px){
+                font-size: 15px;
+                align-items: flex-start;
+            }
+            .deleteExpBtn{
+                font-size: var.$font-14;
+                background: var.$color-cvautor-btn;
+                color: var.$color-background;
+                border-radius: 5px;
+                border: none;
+                padding: 0.5rem;
+                width: 55%;
+                cursor: pointer;
+                &:hover,
+                &:hover a {
+                    background: var.$color-cvautor-btn-hover;
+                    color: var.$color-background;
+                }
+            }
         }
     }
 
     #cvVisualizer{
         border-radius: 10px;
-        background: var.$color-recruiter;
+        background: var.$color-connect;
         padding: 10px;
         height: 50%;
         @media (max-width: 880px){
