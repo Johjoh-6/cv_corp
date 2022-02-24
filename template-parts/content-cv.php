@@ -75,10 +75,10 @@ $meta_user = get_user_meta($id_user);
 
     <section id="cvVisualizer">
         <div class="fullCv relative flex">
-            <div class="cvLeft">
-                <?php if(is_user_logged_in() AND !empty($meta_user['img'][0])) { ?>
+            <?php if(is_user_logged_in() AND !empty($meta_user['img'][0])) { ?>
                 <img class="pfpCv" src="<?= wp_get_attachment_url($meta_user['img'][0]) ?>" alt="">
-                <?php } ?>
+            <?php } ?>
+            <div class="cvLeft">
                 <ul>
                     <li>
                         <h2>{{ titleCv }}</h2>
