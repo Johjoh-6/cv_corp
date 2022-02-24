@@ -66,7 +66,7 @@ $meta_user = get_user_meta($id_user);
             </ul>
             <p id="hobbyBtn" >Ajouter un loisir pratiqué</p>
         </div>
-        <button class="saveBtn">SAUVEGARDER</button>
+        <a href="<?= path('/cvsavesend'); ?>" target="_blank" class="saveBtn">SAUVEGARDER</a>
     </section>
 
 

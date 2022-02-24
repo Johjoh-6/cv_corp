@@ -761,7 +761,7 @@ if (document.body.contains(document.querySelector('.full_page')))  {
 
         console.log('click')
         console.log(dataCv)
-        if(dataCv['titleCv']&& dataCv['adresseCv'] && dataCv['emailCv'] && dataCv['prenomCv'] && dataCv['nomCv'] && dataCv['experiences'].length>0 && dataCv['skills'].length>0 && dataCv['hobbies'].length>0 && dataCv['formations'].length>0) {
+        if(dataCv['titleCv'] && dataCv['adresseCv'] && dataCv['emailCv'] && dataCv['prenomCv'] && dataCv['nomCv'] && dataCv['experiences'].length>0 && dataCv['skills'].length>0 && dataCv['hobbies'].length>0 && dataCv['formations'].length>0) {
             $.ajax({
                 type: "POST",
                 url: ajaxurl,
@@ -769,8 +769,7 @@ if (document.body.contains(document.querySelector('.full_page')))  {
                     action: 'ajax_cv',
                     data : dataCv
                 },
-                // contentType: "application/json",
-                // dataType: 'json',
+
                 beforeSend: function (){
                     console.log('AJAX SENT')
                 },
@@ -785,6 +784,9 @@ if (document.body.contains(document.querySelector('.full_page')))  {
                     dataCVSave()
                     console.log('----')
                     window.alert('CV sauvegardé')
+                },
+                error: function(xhr, ajaxOptions, thrownError){
+                    alert(xhr.status);
                 },
             })
         } else {

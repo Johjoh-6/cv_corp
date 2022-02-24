@@ -1,7 +1,6 @@
 <?php
 add_action('wp_ajax_ajax_cv', 'getTheCvWithAjax');
 add_action('wp_ajax_nopriv_ajax_cv', 'getTheCvWithAjax');
-
 function getTheCvWithAjax() {
 
     $userId = get_current_user_id();
@@ -43,10 +42,6 @@ function getTheCvWithAjax() {
     }
     $meta_user = get_user_meta($userId);
 
-
-
-
-
         $wpdb->update('cv_cv', array(
             'cv_title' => $post['titleCv'],
             'id_user' => $userId,
@@ -57,9 +52,6 @@ function getTheCvWithAjax() {
             'user_adress' => $post['adresseCv'],
             'id_picture' => $meta_user['img'][0],
         ),array('id'=>$post['ID']));
-
-
-
 
     $wpdb->delete('cv_langues_pivot', array('id_cv' => $post['ID']));
 
@@ -148,5 +140,5 @@ function getTheCvWithAjax() {
             )
         );
     }
-    showJson($id);
+    debug($id);
 }
