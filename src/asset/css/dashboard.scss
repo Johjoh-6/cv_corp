@@ -1,84 +1,99 @@
 @use 'variable' as var;
 
 
-        #dashboard{
-            display: flex;
-            height: 100vh;
-            .visuel_profil {
+#dashboard{
+    display: flex;
+    flex-flow: row nowrap;
+    #sidebar{
+        position: fixed;
+        height: 100vh;
+        top: 0;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        padding: 1rem;
+        background: var.$color-hover;
+        text-align: center;
+        width: 15rem;
+        z-index: 0;
+        color: var.$color-background;
+        h2{
+            font-size: var.$font-20;
+           
+        }
+        p {
+            font-size: var.$font-14;
+        }
+        img{
+            aspect-ratio: 1 / 1;
+            width: 150px;
+            border-radius: 25%;
+        }
+    }
+
+    
+   
+    .visuel_profil {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        .box_recherche{
+            padding: 2rem;
+        }
+        .cta_recherche {
+            border-radius: 20px;
+            border: var.$color-background;
+            padding: 1rem;
+            background: var.$color-recruiter;
+            text-align: center;
+        }
+
+        .container_candidat{
                 display: flex;
-                flex-direction: column;
-                align-items: center;
-                width: 100%;
-                .box_recherche{
-                    padding: 2rem;
-                }
-                .cta_recherche {
-                    border-radius: 20px;
-                    border: var.$color-background;
-                    padding: 1rem;
-                    background: var.$color-recruiter;
-                    text-align: center;
-                }
-
-                .container_candidat{
-                        display: flex;
-                        justify-content: space-around;
-                        padding: 1rem;
-                }
-                .container_candidat_search{
-                    display: flex;
-                    justify-content: space-around;
-                    padding: 1rem;
-                }
-            }
-
-            .container_dash{
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                padding: 2rem;
-                background: var.$color-hover;
-                height: 100%;
-                width: 30%;
-
-                h2{
-                    font-size: 25px;
-                    text-align: center;
-                }
-                p {
-                    font-size: 12px;
-                    text-align: center;
-                }
-            }
-
-            .box_candidat{
-                display: flex;
-                justify-content: center;
-                background: var.$color-secondary;
-                border-radius: 20px;
+                justify-content: space-around;
                 padding: 1rem;
-                margin: 1rem;
-                .box_candidat_1{
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    padding: 1rem;
-                }
+        }
+        .container_candidat_search{
+            display: flex;
+            justify-content: space-around;
+            padding: 1rem;
+        }
+    }
 
-                .candidat_picture{
-                    background: var.$color-connect;
-                }
-                .cta_candit{
-                    background: var.$color-text;
-                    border-radius: 20px;
-                    border: var.$color-background;
-                    padding: 0.2rem;
-                    color: var.$color-background;
-                    text-align: center;
-                    a{
-                        color: var.$color-background;
-                        text-decoration: none;
-                    }
-                }
+    
+       
+    .box_candidat{
+        display: flex;
+        justify-content: center;
+        background: var.$color-secondary;
+        border-radius: 20px;
+        padding: 1rem;
+        margin: 1rem;
+        .box_candidat_1{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .candidat_picture{
+            background: var.$color-connect;
+        }
+        .cta_candit{
+            background: var.$color-text;
+            border-radius: 20px;
+            border: var.$color-background;
+            padding: 0.2rem;
+            color: var.$color-background;
+            text-align: center;
+            a{
+                color: var.$color-background;
+                text-decoration: none;
             }
         }
+    }
+}

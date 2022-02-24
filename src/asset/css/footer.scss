@@ -3,6 +3,7 @@
 
     #footer{
         background: var.$color-primary;
+        z-index: 1;
         .container_footer {
             width: min(1400px, 100%);
             margin-inline: auto;
