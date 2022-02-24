@@ -4,10 +4,10 @@ if (document.body.contains(document.querySelector('#dashboard')))  {
     const resultDiv = document.querySelector('#result_search');
 
     function showCvSearch(array) {
-        if(array.length >0) {
+        if(array.length > 0) {
             baseCv.style.display = 'none';
             resultDiv.innerHTML = "";
-            array.forEach(single, function () {
+            array.map(single => {
                     resultDiv.innerHTML +=
                     `<div  class="box_candidat default">
                         <img  class="candidat_picture"src="${single.imgSrc}" alt="Photo de ${single.nom}">
@@ -36,14 +36,8 @@ if (document.body.contains(document.querySelector('#dashboard')))  {
                 },
                 // contentType: "application/json",
                 dataType: 'json',
-                beforeSend: function () {
-                    console.log('AJAX SENT');
-                },
                 success: function (response) {
-                    // showCvSearch(response)
-                    console.log(response);
                     showCvSearch(response);
-
                 }
             })
     })

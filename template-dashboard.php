@@ -22,7 +22,7 @@ get_header();
                 <h3><?= metaField($meta_user, 'first_name'); ?> <?= metaField($meta_user, 'last_name'); ?></h3>
                 
             <div class="box_recherche">
-                <form action="">
+                <form action="" novalidate onSubmit="return false">
                         <input class="cta_recherche" type="text" name="recherche" id="searchDash" placeholder="Recherche un CV">
                 </form>
             </div>
