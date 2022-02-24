@@ -30,10 +30,15 @@ function searchTheCvWithAjax() {
     foreach ($allCvNew as $singleCv) {
         $id_user = $singleCv['id_user'];
         $meta_user = get_user_meta($id_user);
+        if(!empty($meta_user['img'])){
+            $img = wp_get_attachment_url($meta_user['img'][0]);
+        } else {
+            $img = asset('img/random-user.png');
+        }
         $CV = array(
             'id' => $singleCv['id'],
             'title' => $singleCv['cv_title'],
-            'imgSrc' => wp_get_attachment_url($meta_user['img'][0]),
+            'imgSrc' => $img,
             'link' => add_query_arg( 'cv', $singleCv['id'], path('/cv-detail') ),
             'nom' =>$singleCv['user_lastname'],
             'prenom' => $singleCv['user_firstname'],

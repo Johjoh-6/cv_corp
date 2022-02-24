@@ -76,7 +76,9 @@
                align-items: center;
                gap: .7rem;
                color: var.$color-background;
-
+            &>h4{
+                font-size: var.$font-16;
+            }
             &>img{
                 aspect-ratio: 1 / 1;
                 width: 150px;
