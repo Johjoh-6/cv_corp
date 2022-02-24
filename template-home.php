@@ -14,8 +14,17 @@ get_header(); ?>
                 <p>Générateur de CV simple, facile et rapide</p>
             </div>
             <diV class="intro-btn">
-                <a href="<?= path('/register'); ?>">Incription</a>
-                <a href="<?= path('/login'); ?>">Connexion</a>
+                <?php if(is_user_logged_in()){
+						if (getRoleCurrentUser() === 'candidate'){ ?>
+                            <a href="<?= path('/mycv'); ?>" >Mes CV</a>
+                        <?php }elseif (getRoleCurrentUser() === 'recruiter' || getRoleCurrentUser() === 'administrator'){ ?>
+                            <a href="<?= path('/dashboard'); ?>">Dashboard</a>
+                        <?php } ?>
+                        
+                <?php } else { ?>
+                    <a href="<?= path('/register'); ?>">Incription</a>
+                    <a href="<?= path('/login'); ?>">Connexion</a>
+                <?php } ?>
             </diV>
         </div>
     </section>

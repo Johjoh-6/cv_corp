@@ -76,16 +76,21 @@
             margin-bottom: 1rem;
         }
         .logo-entreprise{
+            @media (max-width: 900px){
+            width: max(300px, 90%);
             overflow-x: hidden;
             overflow-y: scroll;
-            width: max(300px, 90%);
+            }
             ul {
-                min-width: 900px;
+               
                 display: flex;
                 flex-flow: row nowrap;
                 align-items: center;
                 gap: 1rem;
-                animation: infinite ease 10s  slideIn ;            
+                @media (max-width: 900px){
+                animation: infinite ease 10s  slideIn ;       
+                min-width: 900px;
+            }     
             }               
         }            
         
