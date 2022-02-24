@@ -8,6 +8,7 @@
     padding: 30px;
     @media (max-width: 880px){
         flex-flow: column nowrap;
+        width: 100%;
     }
     button{
         background: var.$color-btn;
@@ -42,10 +43,10 @@
         }
         .profil{
             input{
-                background: none;
-                border: none;
+                width: 100%;
                 @media (max-width: 880px){
                     font-size: 10px;
+                   width: auto;
                 }
             }
             .cvPhoneInput{
@@ -115,18 +116,14 @@
         }
         .fullCv{
             background: var.$color-background;
-            height: 100%;
-            @media (max-width: 880px){
-                font-size: 10px;
+            @media (max-width: 550px){
+                display: flex;
+                flex-flow: column nowrap;
             }
             .cvLeft{
                 padding: 20px;
                 h2{
                     text-align: center;
-                    font-size: var.$font-18;
-                    @media (max-width: 880px){
-                        font-size: 10px;
-                    }
                 }
                 .info-cv{
                     margin-block-end: 150px;;
@@ -146,14 +143,17 @@
             }
             .cvRight{
                 align-self: flex-end;
-                padding: 20px;
                 border-left: 2px solid var.$color-separator;
                 h2{
                     text-align: center;
                     font-size: var.$font-18;
-                    @media (max-width: 880px){
+                    @media (max-width: 0px){
                         font-size: 10px;
                     }
+                }
+                @media (max-width: 550px){
+                    border: none;
+                    padding: 20px;
                 }
             }
         } 

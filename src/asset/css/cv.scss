@@ -1,7 +1,7 @@
 @use 'variable' as var;
 .cvModale {
   top: 50%;
-  left: 53%;
+  left: 50%;
   transform: translate(-50%, -50%);
   background-color: var.$color-recruiter;
   display: none;

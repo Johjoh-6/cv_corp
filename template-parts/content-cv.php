@@ -33,8 +33,6 @@ $meta_user = get_user_meta($id_user);
                     <label for="adresse">Adresse postale : </label>
                     <input id="adresse" name="adresse" type="text" v-model="adresseCv" v-on:change="setAdresse(); autosave()">
                 </li>
-
-
             </ul>
             </form>
         </div>

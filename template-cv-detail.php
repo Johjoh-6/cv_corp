@@ -9,10 +9,8 @@ $meta_user = get_user_meta($id_user);
 //For get the current CV
 $id_cv = $_GET['cv'];
 $cv = getCvById($id_cv);
-debug($cv);
+//debug($cv);
 ?>
-
-<h1>cv details</h1>
 
 <section id="pdf-cv">
     <div id="pdf-cv_model">
@@ -70,8 +68,8 @@ debug($cv);
             </div>
             <div>
                 <?php if(!empty($cv->experience)) { ?>
+                <h3>Épérience Professionnel</h3>
                 <div id="pdf-cv_exp_list">
-                    <h3>Épérience Professionnel</h3>
                     <?php 
                     $experiences = array_slice($cv->experience, -3, 3, true);
                     foreach($experiences as $experience) { ?>
@@ -86,8 +84,8 @@ debug($cv);
                     ?>
                 </div>
                 <?php } if(!empty($cv->studies)){ ?>
+                <h3>Formation et Diplôme</h3>
                 <div id="pdf-cv_studie_list">
-                    <h3>Formation et Diplôme</h3>
                     <?php 
                     $studies = array_slice($cv->studies, -3, 3, true);
                     foreach($studies as $study) { ?>
@@ -105,10 +103,9 @@ debug($cv);
                 <?php } ?>
             </div>
         </div>
-        
     </div>
 </section>
-<button id="getPdf" data-fisrt-name="<?=  metaField($meta_user, 'first_name');?>" data-last-name="<?=  metaField($meta_user, 'last_name');?>">Click here</button>
+<button id="getPdf" data-fisrt-name="<?=  metaField($meta_user, 'first_name');?>" data-last-name="<?=  metaField($meta_user, 'last_name');?>">Exporter le CV</button>
 <input type="hidden" name="jsonarray" value="<?= htmlspecialchars(json_encode($cv),ENT_QUOTES); ?>" id="jsonarray">
 
 

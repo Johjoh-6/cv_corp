@@ -19,14 +19,14 @@
             }
             .separator{
                 width: 115px;
-                border-bottom: 1px solid black;
+                border-bottom: 1px solid var.$color-text;
             }
             @media (max-width: 375px){
                 text-align: center;
             }
         }
         .info-contact{
-            background-color: #E5E5E5;
+            background-color: var.$color-primary;
             border-radius: 10px;
             padding: 1rem;
             &>*{
@@ -37,7 +37,10 @@
                 padding: 1rem;
             }
             a{
-                color: black;
+                color: var.$color-text;
+                &:hover{
+                    color: var.$color-hover;
+                }
             }
         }
     }

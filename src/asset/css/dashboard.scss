@@ -1,4 +1,4 @@
-@use "variable";
+@use 'variable' as var;
 
 
         #dashboard{
@@ -14,9 +14,9 @@
                 }
                 .cta_recherche {
                     border-radius: 20px;
-                    border: white;
+                    border: var.$color-background;
                     padding: 1rem;
-                    background: #458E9D;
+                    background: var.$color-recruiter;
                     text-align: center;
                 }
 
@@ -37,7 +37,7 @@
                 flex-direction: column;
                 align-items: center;
                 padding: 2rem;
-                background: #29555E;
+                background: var.$color-hover;
                 height: 100%;
                 width: 30%;
 
@@ -49,15 +49,12 @@
                     font-size: 12px;
                     text-align: center;
                 }
-
-
             }
 
             .box_candidat{
                 display: flex;
                 justify-content: center;
-                background: #C4C4C4;
-                width: 50%;
+                background: var.$color-secondary;
                 border-radius: 20px;
                 padding: 1rem;
                 margin: 1rem;
@@ -69,17 +66,17 @@
                 }
 
                 .candidat_picture{
-                    background: #5D738D;
+                    background: var.$color-connect;
                 }
                 .cta_candit{
-                    background: #000000;
+                    background: var.$color-text;
                     border-radius: 20px;
-                    border: white;
+                    border: var.$color-background;
                     padding: 0.2rem;
-                    color: white;
+                    color: var.$color-background;
                     text-align: center;
                     a{
-                        color: white;
+                        color: var.$color-background;
                         text-decoration: none;
                     }
                 }
