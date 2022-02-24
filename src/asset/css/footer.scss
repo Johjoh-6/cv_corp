@@ -11,20 +11,22 @@
             display: flex;
             justify-content: space-between;
             gap: 1rem;
-            flex-flow: row nowrap;  
+            flex-flow: row wrap;  
                 h2 {
                     font-size: var.$font-20;
                     color: var.$color-text;
                     font-weight: 700;
-                    margin-bottom: 1rem;
                 }   
             &> div{
+                width: calc(100% / 4 - 3rem);
                 display: flex;
                 flex-flow: nowrap column;
                 align-content:space-between;
+                text-align: center;
                 ul {
+                    display: flex;
+                flex-flow: nowrap column;
                     li {
-                        margin-bottom: 1rem;
                         transition: all .3s;
                         a {
                             color: var.$color-text;
@@ -37,6 +39,9 @@
             }
             .box_footer_1 {
                 align-items: center;
+                li{
+                    margin-top: .8rem;
+               
                     a {
                         color: var.$color-background;
                         padding: 0.7rem;
@@ -47,6 +52,7 @@
                             color: var.$color-background;
                         }
                     }
+                }
             }
         }
     }
