@@ -9,7 +9,7 @@ $meta_user = get_user_meta($id_user);
 //For get the current CV
 $id_cv = $_GET['cv'];
 $cv = getCvById($id_cv);
-$cvtest = getCvByIdJoin($id_cv);
+
 debug($cv);
 ?>
 

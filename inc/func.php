@@ -210,7 +210,7 @@ function getCvById($idcv){
         $cv_obj->hobbie[] = $value;
     }
    
-    return $cv_obj;
+    return stripslashes_deep($cv_obj);
 };
 
 function getCvByIdJoin($idcv){
