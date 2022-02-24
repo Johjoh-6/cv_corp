@@ -35,7 +35,8 @@ the page
 - dashboard, Slug "dashboard" Template model Dashboard
 - mes cv, Slug "mycv" Template model MyCv
 - mon compte, Slug "compte" Template model Compte
-- cv details, Slig "cv-detail" Template model CV Detail
+- cv details, Slug "cv-detail" Template model CV Detail
+- contact, Slug "contact" Template model contact
 
 
 

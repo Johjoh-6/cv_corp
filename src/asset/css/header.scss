@@ -87,6 +87,21 @@
                         color: var.$color-background; 
                     }
                 }
+                .cta_button_phone{
+                    background: var.$color-connect;
+                    a{
+                        color: var.$color-background;
+                        
+                    }
+                    &:hover{
+                        transform: scale(1.03);
+                        background-color: var.$color-btn;
+                    }
+                    &:hover a{
+                        color: var.$color-background; 
+                    }
+                }
+               
             }
 
             #close{
@@ -96,7 +111,7 @@
                 font-size: var.$font-3-5;
                 color: var.$color-background;
                 cursor: pointer;
-                z-index: 500;
+                z-index: 31;
                 transition: all .3s;
                 &:hover{
                     color: var.$color-hover;
@@ -111,7 +126,7 @@
             right: 10px;
             top: 10px;
             cursor: pointer;
-            z-index: 500;
+            z-index: 29;
             transition: all .3s;
             &:hover{
                 color: var.$color-hover;

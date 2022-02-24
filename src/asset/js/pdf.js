@@ -10,13 +10,16 @@ if(getPdf){
     email = cv.user_email,
     phone = cv.user_phone,
     adress = cv.user_adress,
-    img = document.querySelector('#pdf-cv_img').src,
+    imgExist = cv.id_picture,
+    img = document.querySelector('#pdf-cv_img'),
+    imgsrc = img.src,
     skills = cv.skills,
     langues = cv.langues,
     hobbie = cv.hobbie,
     experience = cv.experience,
     studies = cv.studies;
     
+    console.log(imgExist);
 
     getPdf.addEventListener('click', ()=>{ 
         // Default export is a4 paper, portrait, using millimeters for units
@@ -25,8 +28,9 @@ if(getPdf){
         //Style 
         doc.setLineWidth(0.2);
         doc.line(95, 90, 95, 280);
-
-        doc.addImage(img, 7, 7, 40, 40);
+        if(imgExist != 0){
+            doc.addImage(imgsrc, 7, 7, 40, 40);
+        }
 
         font(doc, 'Roboto-Regular', 'normal', 11)
         doc.text(`
@@ -76,8 +80,8 @@ if(getPdf){
            let name = hobbie[i].hobbie_name;
            let detail = hobbie[i].hobbie_details;
            font(doc, 'Roboto-Regular', 'normal', 11);
-           doc.text(`${name}`, x, y);
-           let lines = doc.splitTextToSize(detail, 60, {
+           doc.text(`${stripSlash(name)}`, x, y);
+           let lines = doc.splitTextToSize(stripSlash(detail), 60, {
                'fontSize': 10,
                'fontStyle': 'Normal',
                'fontName': 'Roboto-Thin'
@@ -103,10 +107,10 @@ if(getPdf){
            let end = experience[i].date_end;
            font(doc, 'Roboto-Regular', 'normal', 11);
            doc.text(x , y, `
-           | ${jobName}, ${company} |
-           ${start} - ${end}
+           | ${stripSlash(jobName)}, ${stripSlash(company)} |
+           ${start} - ${dateEnd(end)}
            `, { 'align': 'left'});
-           let lines = doc.splitTextToSize(detail, 80, {
+           let lines = doc.splitTextToSize(stripSlash(detail), 80, {
                'fontSize': 10,
                'fontStyle': 'normal',
                'fontName': 'Roboto-Regular'
@@ -130,10 +134,10 @@ if(getPdf){
            let start = studies[i].date_start;
            let end = studies[i].date_end;
            font(doc, 'Roboto-Regular', 'normal', 11);
-           doc.text(x , y, `Formation ${studyName} à ${schoolPos} chez ${schoolName}
-           ${start} - ${end}
+           doc.text(x , y, `Formation ${stripSlash(studyName)} à ${stripSlash(schoolPos)} chez ${stripSlash(schoolName)}
+           ${start} - ${dateEnd(end)}
            `, { 'align': 'left', 'maxWidth': 130});
-           let lines = doc.splitTextToSize(detail, 80, {
+           let lines = doc.splitTextToSize(stripSlash(detail), 80, {
                'fontSize': 10,
                'fontStyle': 'normal',
                'fontName': 'Roboto-Regular'
@@ -163,6 +167,18 @@ function addLevel(doc, level, x, y){
         }
     }
 }
+function dateEnd(date){
+    if(date == 0){
+        return 'Présent';
+    } else {
+        return date;
+    }
+}
+function stripSlash(text)     
+{     
+    let t = text.replace(/\/$/, "");
+    return t.replace(/\'/, "\u02BC");
+} 
 
 // For capitalize letter
 Object.defineProperty(String.prototype, 'capitalize', {

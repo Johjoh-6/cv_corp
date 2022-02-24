@@ -92,8 +92,8 @@ function gNuUserDetails() {
    
     $data = [
         'id'=> $ID,
-        'first_name'=> $first_name,
-        'last_name'=> $last_name,
+        'first_name'=> stripslashes($first_name),
+        'last_name'=> stripslashes($last_name),
         'email'=>  $email,
         'phone'=> $phone,
         'adress'=> $adress,

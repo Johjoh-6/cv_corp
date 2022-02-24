@@ -22,7 +22,6 @@ get_header(); ?>
 
     <section id="partenaire">
         <h2>Ils nous font confiance : </h2>
-        <div class="keyframe">
             <div class="logo-entreprise">
                 <ul>
                     <li><img src="<?= asset('img/decatlon.png')?>" alt="img-decatlon"></li>
@@ -30,7 +29,6 @@ get_header(); ?>
                     <li><img src="<?= asset('img/bouygues.png')?>" alt="img-bouygues"></li>
                 </ul> 
             </div>
-        </div>
     </section>
 
     <section id="fonction">

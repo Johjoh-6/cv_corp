@@ -33,13 +33,14 @@
                 display: flex;
                 align-items: center;
                 gap: 15px;
-                font-size: 24px;
+                font-size: var.$font-24;
                 padding: 1rem;
+                transition: all .3s;
             }
             a{
                 color: var.$color-text;
                 &:hover{
-                    color: var.$color-hover;
+                    color: var.$color-background;
                 }
             }
         }

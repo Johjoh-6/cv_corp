@@ -7,8 +7,9 @@ add_action( 'register_form', 'myplugin_register_form' );
 
 function myplugin_register_form() {
     $success = false;
+    $registrationError = [];
+
     if (!empty($_POST['wp-submit'])) {
-    global $registrationError;
     $user_login = (!empty( $_POST['user_login'])) ? cleanXss('user_login') : '';
     $user_email = (!empty( $_POST['user_email'])) ? cleanXss('user_email') : '';
     $user_pass = (!empty( $_POST['user_pass'])) ? cleanXss('user_pass') : '';
@@ -17,44 +18,44 @@ function myplugin_register_form() {
     $last_name = (!empty( $_POST['last_name'])) ? cleanXss('last_name') : '';
 
     if(!isset($_POST['readmention'])){
-        $registrationError .= '<p>Veuillez prendre connaissance de nos CGU</p>';
+        $registrationError['readmention'] = 'Veuillez prendre connaissance de nos CGU';
     }
     if ($user_login == '') {
-        $registrationError .= '<p>Entrer un noms d\'utilisateur</p>';
+        $registrationError['user_login'] = 'Entrer un noms d\'utilisateur';
     }
   
     if (username_exists($user_login)) {
-        $registrationError .= '<p>Ce noms d\'utilisateur existe déjà</p>';
+        $registrationError['user_login'] = 'Ce noms d\'utilisateur existe déjà';
     }
   
     if ($user_email == '') {
-        $registrationError .= '<p>Entrer un email</p>';
+        $registrationError['user_email'] = 'Entrer un email';
     }
   
     if ($user_pass == '' || $confirm_pass == '') {
-        $registrationError .= '<p>Entrer un mots de passe</p>';
+        $registrationError['confirm_pass'] = 'Entrer un mots de passe';
     }
   
     if (strlen($user_pass) < 8) {
-        $registrationError .= '<p>Mots de passe trop court</p>';
+        $registrationError['user_pass'] = 'Mots de passe trop court';
     }
   
     if ($user_pass != $confirm_pass) {
-        $registrationError .= '<p>Mots de passe différent</p>';
+        $registrationError['confirm_pass'] = 'Mots de passe différent';
     }
   
     if ($user_email != '' && !is_email($user_email)) {
-        $registrationError .= '<p>Entrer un email valide</p>';
+        $registrationError['user_email'] = 'Entrer un email valide';
     }
   
     if (email_exists($user_email) != false) {
-        $registrationError .= '<p>Cette email existe déjà</p>';
+        $registrationError['user_email'] = 'Cette email existe déjà';
     }
     if ($first_name == '') {
-        $registrationError .= '<p>Ajouté votre prénom</p>';
+        $registrationError['first_name'] = 'Ajouté votre prénom';
     }
     if ($last_name == '') {
-        $registrationError .= '<p>Ajouté votre nom</p>';
+        $registrationError['last_name'] = 'Ajouté votre nom';
     }
     if (empty($registrationError)) {
         $data = [
@@ -91,26 +92,32 @@ function myplugin_register_form() {
            <p>
                <label for="user_login">Noms d'utilisateur</label>
                <input type="text" name="user_login" id="user_login" class="input" value="<?= recupInputValue('user_login'); ?>">
+               <span class="error-form"><?= returnError($registrationError, 'user_login');?></span>
            </p>
             <p>
                 <label for="user_email">Email</label>
                 <input type="email" name="user_email" id="user_email" class="input" value="<?= recupInputValue('user_email'); ?>">
+                <span class="error-form"><?= returnError($registrationError,'user_email');?></span>
             </p>
             <p>
                 <label for="user_pass">Mots de passe</label>
                 <input type="password" name="user_pass" id="user_pass" class="input">
+                <span class="error-form"><?= returnError($registrationError, 'user_pass');?></span>
             </p>
             <p>
                 <label for="confirm_pass">Confirmer le mots de passe</label>
                 <input type="password" name="confirm_pass" id="confirm_pass" class="input">
+                <span class="error-form"><?= returnError($registrationError, 'confirm_pass');?></span>
             </p>
             <p>
                 <label for="first_name">Prénom</label>
                 <input type="text" name="first_name" id="first_name" class="input" value="<?= recupInputValue('first_name'); ?>">
+                <span class="error-form"><?= returnError($registrationError, 'first_name');?></span>
             </p>
             <p>
                 <label for="last_name">Nom</label>
                 <input type="text" name="last_name" id="last_name" class="input" value="<?= recupInputValue('last_name'); ?>">
+                <span class="error-form"><?= returnError($registrationError, 'last_name');?></span>
             </p>
             <p>
            
@@ -120,6 +127,7 @@ function myplugin_register_form() {
             </p>
         <p>
             <input type="submit" name="wp-submit" id="wp-submit" class="button button-primary" value="S'enregistrer">
+            <span class="error-form"><?= returnError($registrationError, 'readmention');?></span>
         </p>
         
         </form>

@@ -114,12 +114,16 @@ function can_access($array){
     $login_page  = home_url( '/login/' );
 
 	if(is_user_logged_in()){
+		$access = false;
 		foreach($array as $roleName){
 			$role = wp_get_current_user()->roles[0];
-			if($role !== $roleName){
-				wp_redirect( $login_page . "?login=denied" );
-				exit;
+			if($role === $roleName){
+				$access = true;
 			}
+		}
+		if($access != true){
+			wp_redirect( $login_page . "?login=denied" );
+			exit;
 		}
 	}else{
 		wp_redirect( $login_page . "?login=false" );
