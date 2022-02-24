@@ -135,14 +135,15 @@ if (document.body.contains(document.querySelector('.full_page')))  {
                 console.log(dataCv)
                 localStorageSave.setItem("dataCv", JSON.stringify(dataCv))
                 console.log(localStorageSave)
-                window.onload = function() {
-                    if(!window.location.hash) {
-                        window.location = window.location + '#loaded';
-                        window.location.reload();
-                    }
-                }
+
                 loadedCv = 1
             },
+        }).done(function() {
+            console.log('ajax DONE')
+            if(!window.location.hash) {
+                window.location = window.location + '#loaded';
+                window.location.reload();
+            }
         })
     } else {
         localStorage.removeItem('dataCv')
