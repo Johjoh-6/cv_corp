@@ -1,24 +1,34 @@
 @use 'variable' as var;
 
 #dashboard{
+    width: min(1350px, 98%);
+    margin-inline: auto;
     display: flex;
     flex-flow: row nowrap;
-    #sidebar{
-        position: fixed;
-        height: 100vh;
+    gap: 1rem;
+    @media (max-width: 640px) {
+        flex-direction: column;
+        align-items: center;
+       }
+    #box{
+        position: sticky;
         top: 0;
-        bottom: 0;
+        margin-top: -1.5rem;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
         gap: 1rem;
         padding: 1rem;
         background: var.$color-hover;
         text-align: center;
+        border-radius: 10px;
         width: 15rem;
         z-index: 0;
         color: var.$color-background;
+        height: fit-content;
+        @media (max-width: 640px) {
+            top: -250px;
+        }
         h2{
             font-size: var.$font-20;
            
@@ -31,68 +41,61 @@
             width: 150px;
             border-radius: 25%;
         }
-    }
-
-    
-   
-    .visuel_profil {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        .box_recherche{
-            padding: 2rem;
-        }
-        .cta_recherche {
-            border-radius: 20px;
-            border: var.$color-background;
-            padding: 1rem;
-            background: var.$color-recruiter;
-            text-align: center;
-        }
-
-        .container_candidat{
-                display: flex;
-                justify-content: space-around;
-                padding: 1rem;
-        }
-        .container_candidat_search{
-            display: flex;
-            justify-content: space-around;
-            padding: 1rem;
-        }
-    }
-
-    
-       
-    .box_candidat{
-        display: flex;
-        justify-content: center;
-        background: var.$color-secondary;
-        border-radius: 20px;
-        padding: 1rem;
-        margin: 1rem;
-        .box_candidat_1{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1rem;
-        }
-
-        .candidat_picture{
-            background: var.$color-connect;
-        }
-        .cta_candit{
-            background: var.$color-text;
-            border-radius: 20px;
-            border: var.$color-background;
-            padding: 0.2rem;
-            color: var.$color-background;
-            text-align: center;
-            a{
-                color: var.$color-background;
-                text-decoration: none;
+        input{
+            border-radius: 10px;
+            padding: .6rem;
+            &:focus-visible{
+                outline: 2px solid var.$color-connect;
             }
         }
     }
+    #board{
+        flex-grow: 2;
+        
+       .container_candidat{
+           display: flex;
+           flex-flow: row wrap;
+           justify-content: space-between;
+           gap: 1rem;
+           &>div{
+               width: calc(100% / 4 - 1rem);
+               @media (max-width: 960px) {
+                width: calc(100% / 3 - 1rem);
+               }
+               @media (max-width: 800px) {
+                width: calc(100% / 2 - 1rem);
+               }
+               @media (max-width: 450px) {
+                width: 100%;
+               }
+               background-color: var.$color-connect;
+               border-radius: 10px;
+               padding: .7rem;
+               display: flex;
+               flex-flow: column nowrap;
+               align-items: center;
+               gap: .7rem;
+               color: var.$color-background;
+
+            &>img{
+                aspect-ratio: 1 / 1;
+                width: 150px;
+                border-radius: 25%;
+            }
+            a{
+                color: var.$color-background;
+                font-size: var.$color-background;
+                padding: .7rem;
+                background-color: var.$color-btn;
+                border-radius: 20px;
+                transition: all .3s;
+                cursor: pointer;
+                &:hover{
+                    background-color: var.$color-hover;
+                }
+            }
+           }
+       }
+    }   
 }
+

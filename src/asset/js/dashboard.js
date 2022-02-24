@@ -52,32 +52,29 @@ if (document.body.contains(document.querySelector('#dashboard')))  {
 
     }
 
-
-    console.log('bite')
-    document.querySelector('#searchDash').onkeyup = (function () {
-        if (document.querySelector('#searchDash').value) {
+    const search = document.querySelector('#searchDash');
+    search.onkeyup = (function (e) {
+        e.preventDefault();
+            console.log(search.value);
             $.ajax({
                 type: "POST",
                 url: ajaxurl,
                 data: {
                     action: 'ajax_dash_search',
-                    searchData: {
-                        value: document.querySelector('#searchDash').value
-                    }
+                    search: search.value
                 },
                 // contentType: "application/json",
                 dataType: 'json',
                 beforeSend: function () {
-                    console.log('AJAX SENT')
+                    console.log('AJAX SENT');
                 },
                 success: function (response) {
                     // showCvSearch(response)
-                    console.log(response)
-                    showCvSearch(response)
+                    console.log(response);
+                    showCvSearch(response);
 
                 }
             })
-        }
     })
 }
 

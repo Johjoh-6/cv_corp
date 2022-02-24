@@ -14,7 +14,7 @@ get_header();
 ?>
 
 <section id="dashboard">
-    <div id="sidebar">
+    <div id="box">
             <h2>Journal de board</h2>
             <?php if(is_user_logged_in() AND !empty(metaField($meta_user, 'img'))) { ?>
                 <img src="<?= metaFieldImg($meta_user, 'img', 'img_compte'); ?>" alt="ici photo du recruteur">
@@ -29,34 +29,24 @@ get_header();
 
     </div>
     <div id="board">
-    <div class="visuel_profil">
-        <div class="container_candidat">
-            <?php foreach ($allCv as $singleCv) {  
-                ?>
-                <div class="box_candidat default">
-                    <div class="box_candidat_1">
-                    <?php if ($singleCv->id_picture != 0) { ?>
-                        <div class="candidat_picture">
-                            <img src="<?= wp_get_attachment_url($singleCv->id_picture, 'img_compte'); ?>" alt="Photo de <?= $singleCv->user_lastname;?>">
-                        </div>
-                    <?php } ?>
-                            <div class="box_text_profil_candidat">
-                                <h1><?= $singleCv->cv_title; ?></h1>
-                                <p>Nom : <?= $singleCv->user_lastname; ?></p>
-                                <p>Prénom : <?= $singleCv->user_firstname; ?></p>
-                                <div class="cta_candit">
-                                    <a href="<?= path('/cv-detail') ?>?cv=<?= $singleCv->id; ?>">Voir ce CV</a>
-                                </div>
-                            </div>
+            <div class="container_candidat">
+                <?php foreach ($allCv as $singleCv) {  
+                    ?>
+                    <div class="box_candidat default">
+                                <?php if ($singleCv->id_picture != 0) { ?>
+                                    <img  class="candidat_picture"src="<?= wp_get_attachment_url($singleCv->id_picture, 'img_compte'); ?>" alt="Photo de <?= $singleCv->user_lastname;?>">
+                                <?php } else { ?>
+                                    <img src="<?= asset('img/random-user.png'); ?>" alt="random image">
+                                <?php } ?>
+                                        <h1><?= $singleCv->cv_title; ?></h1>
+                                        <p>Nom : <?= $singleCv->user_lastname; ?></p>
+                                        <p>Prénom : <?= $singleCv->user_firstname; ?></p>
+                                        <a class="cta_candit" href="<?= path('/cv-detail') ?>?cv=<?= $singleCv->id; ?>">Voir ce CV</a>
                     </div>
-                </div>
-            <?php } ?>
+                <?php } ?>
 
-        </div>
-            <div class="container_candidat_search">
-
-
-        </div>
+            </div>
+            <div class="container_candidat_search"></div>
     </div>
 </section>
 

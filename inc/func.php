@@ -44,7 +44,7 @@ function metaFieldImg($meta, $string, $img_size){
     if (!empty($meta[$string][0])){
         return wp_get_attachment_image_url($meta[$string][0], $img_size);
     } else{
-        return 'Image not found';
+        return asset('img/random-user.png');
     }
 }
 
@@ -219,7 +219,6 @@ function getCvByIdJoin($idcv){
         FROM {$wpdb->prefix}cv AS cv
         JOIN {$wpdb->prefix}experience AS experience
         ON experience.id_cv = cv.id
-        GROUP BY experience.id_cv
         JOIN {$wpdb->prefix}studies AS studies
         ON studies.id_cv = cv.id
         JOIN {$wpdb->prefix}skill_pivot AS spivot
