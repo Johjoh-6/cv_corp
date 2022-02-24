@@ -17,7 +17,6 @@ import './asset/css/style.scss';
 import './asset/css/header.scss';
 import './asset/css/home.scss';
 import './asset/css/footer.scss';
-import './asset/css/responsive-footer.scss';
 import './asset/css/cv.scss';
 import './asset/css/content-cv.scss';
 import './asset/css/page-cv.scss';
@@ -27,9 +26,11 @@ import './asset/css/mentions.scss';
 import './asset/css/404.scss';
 import './asset/css/contact.scss';
 import './asset/css/account.scss';
+import './asset/css/my-cv.scss'
 
 // CSS Responsive
 import './asset/css/responsive-header.scss';
+import './asset/css/responsive-footer.scss';
 
 
 
