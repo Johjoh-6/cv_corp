@@ -7,6 +7,7 @@ git clone https://github.com/Johjoh-6/cv_corp
 cd cv_corp
 
 npm install
+composer install
 ```
 
 For run Webpack. 

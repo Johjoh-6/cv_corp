@@ -2,6 +2,7 @@
 
 #header {
     background: var.$color-primary;
+    z-index: 1;
     .container_header {
         width: min(1400px, 100%);
         margin-inline: auto;
@@ -11,6 +12,7 @@
         align-items: center;
         padding: 1rem .6rem;
         position: relative;
+        
 
         #box_header_nav {
             ul {
@@ -38,13 +40,13 @@
             }
 
             .cta_button {
-                background: var.$color-btn;
-                border-radius: 20px;
-                padding: 0.7rem;
+                
                 a {
+                    background: var.$color-btn;
+                    border-radius: 20px;
+                    padding: 0.7rem;
                     color: var.$color-background;
                 }
-                &:hover,
                 &:hover a {
                     background: var.$color-hover;
                     color: var.$color-background;
