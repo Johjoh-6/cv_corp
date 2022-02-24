@@ -1,7 +1,7 @@
 <?php global $wpdb;
 $id_user = get_current_user_id();
 $meta_user = get_user_meta($id_user);
-$allCv = $wpdb->get_results("SELECT * FROM cv_cv WHERE id_user= $id_user ORDER BY id DESC LIMIT 10");
+$allCv = $wpdb->get_results("SELECT * FROM cv_cv WHERE id_user= $id_user ORDER BY id DESC");
 ?>
 
 <section id="my-cv">
@@ -32,7 +32,7 @@ $allCv = $wpdb->get_results("SELECT * FROM cv_cv WHERE id_user= $id_user ORDER B
                     <div class="cta_candit" data_cvid="<?= $singleCv["id"] ?>">
                         <a href="<?= path('/cv') ?>?cvEdit=<?= $singleCv["id"] ?>"><i class="fa-solid fa-pen-to-square"></i></i></a>
                         <a href="<?= path('/cv-detail') ?>?cv=<?= $singleCv["id"] ?>"><i class="fa-solid fa-eye"></i></a>
-                        <a href="#"><i class="fa-solid fa-trash"></i></a>
+                        <a class="deleteCvBtn" href="#" data-cvid="<?= $singleCv["id"] ?>"><i class="fa-solid fa-trash"></i></a>
                     </div>
             </div>
         <?php } ?>

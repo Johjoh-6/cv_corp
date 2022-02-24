@@ -4,15 +4,30 @@ add_action('wp_ajax_nopriv_ajax_cv_delete', 'deleteTheCvWithAjax');
 
 function deleteTheCvWithAjax() {
     global $wpdb;
-    $idCheck = $wpdb->get_col('SELECT * FROM cv_cv WHERE id = '.$_POST['data'].' AND id_user = '.get_current_user_id());
-//    $_POST['data']['mabite']= $idCheck;
-    $loadedData = getCvById($_POST['data']);
-//    var_dump($idCheck);
-//    $loadedData::append($idCheck[0]);
-    if ($idCheck[0] != 0) {
-        showJson($loadedData);
-    } else {
-        echo 'ERREUR';
-    }
+    $id = $_POST['id'];
+
+    $wpdb->delete('cv_experience',array(
+        'id_cv'=> $id
+    ));
+
+    $wpdb->delete('cv_hobbie_pivot',array(
+        'id_cv'=>$id
+    ));
+
+    $wpdb->delete('cv_langues_pivot',array(
+        'id_cv'=>$id
+    ));
+
+    $wpdb->delete('cv_skill_pivot',array(
+        'id_cv'=>$id
+    ));
+
+    $wpdb->delete('cv_studies',array(
+        'id_cv'=>$id
+    ));
+
+    $wpdb->delete('cv_cv',array(
+        'id'=>$id
+    ));
 
 }
