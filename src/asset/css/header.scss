@@ -38,13 +38,13 @@
             }
 
             .cta_button {
-                background: var.$color-btn;
-                border-radius: 20px;
-                padding: 0.7rem;
+                
                 a {
+                    background: var.$color-btn;
+                    border-radius: 20px;
+                    padding: 0.7rem;
                     color: var.$color-background;
                 }
-                &:hover,
                 &:hover a {
                     background: var.$color-hover;
                     color: var.$color-background;
