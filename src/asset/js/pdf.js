@@ -28,7 +28,7 @@ if(getPdf){
         //Style 
         doc.setLineWidth(0.2);
         doc.line(95, 90, 95, 280);
-        if(imgExist != 0){
+        if(imgExist !== 0 || imgExist !== 'undefined' || imgExist !== null){
             doc.addImage(imgsrc, 7, 7, 40, 40);
         }
 
