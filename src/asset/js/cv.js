@@ -168,6 +168,13 @@ if (document.body.contains(document.querySelector('.full_page')))  {
         console.log('cv autosavve')
         localStorageSave.setItem("dataCv", JSON.stringify(dataCv))
         console.log(localStorageSave)
+        if(dataCv['titleCv'] && dataCv['adresseCv'] && dataCv['emailCv'] && dataCv['prenomCv'] && dataCv['nomCv'] && dataCv['experiences'].length>0 && dataCv['skills'].length>0 && dataCv['hobbies'].length>0 && dataCv['formations'].length>0) {
+            document.querySelector('.saveBtn').style.pointerEvents = "auto"
+            document.querySelector('.saveBtn').style.filter = "none"
+        } else {
+            document.querySelector('.saveBtn').style.pointerEvents = "none"
+            document.querySelector('.saveBtn').style.filter = "grayscale(80%)"
+        }
 
     }
     function retrieveCVSave() {
@@ -176,41 +183,8 @@ if (document.body.contains(document.querySelector('.full_page')))  {
         }
     }
 
-    function addExpDelBtn() {
-        let delBtns = document.querySelectorAll('.deleteExpBtn')
-        for(let i = 0; i<delBtns.length; i++) {
-            delBtns[i].onclick = function() {
-                console.log('click')
-                let expToDelete = this.dataset.expiddelbtn
-                console.log(expToDelete)
-                dataCv['experiences'].splice(expToDelete,1)
-                dataCVSave()
-                console.log(dataCv)
-                let domExpToDelete = document.querySelector('.singleExperience[data-expId = "'+expToDelete+'"]')
-                domExpToDelete.remove()
-                domExpToDelete = document.querySelector('.singleExperienceCv[data-expId = "'+expToDelete+'"]')
-                domExpToDelete.remove()
 
-            }
-        }
-    }
-    function addFormDelBtn() {
-        let delBtns = document.querySelectorAll('.deleteFormBtn')
-        for(let i = 0; i<delBtns.length; i++) {
-            delBtns[i].onclick = function() {
-                console.log('click')
-                let formToDelete = this.dataset.formiddelbtn
-                console.log(formToDelete)
-                dataCv['formations'].splice(formToDelete,1)
-                dataCVSave()
-                console.log(dataCv)
-                let domFormToDelete = document.querySelector('.singleFormation[data-expId = "'+formToDelete+'"]')
-                domFormToDelete.remove()
-                domFormToDelete = document.querySelector('.singleFormationCv[data-expId = "'+formToDelete+'"]')
-                domFormToDelete.remove()
-            }
-        }
-    }
+
     function capitalizeFirstLetter(string) {
         return string.charAt(0).toUpperCase() + string.slice(1)
     }
@@ -494,7 +468,6 @@ if (document.body.contains(document.querySelector('.full_page')))  {
             addTxtLineModaleCv('experience', 'expDates',expDates)
 
             //SUPPRESSION EXPERIENCE
-            addExpDelBtn()
         }
     }
 
@@ -677,7 +650,6 @@ if (document.body.contains(document.querySelector('.full_page')))  {
             addTxtLineModaleCv('formation', 'formDetails',formDetails)
             addTxtLineModaleCv('formation', 'formLieu',formLieu)
 
-            addFormDelBtn()
         }
 
     }
@@ -735,8 +707,6 @@ if (document.body.contains(document.querySelector('.full_page')))  {
 
 //SUPPRESSIONS
 
-    addExpDelBtn()
-    addFormDelBtn()
 
     modaleCroix('.experienceModale')
     modaleCroix('.formationModale')
@@ -746,9 +716,13 @@ if (document.body.contains(document.querySelector('.full_page')))  {
 
 
 
-
-
-
+if(dataCv['titleCv'] && dataCv['adresseCv'] && dataCv['emailCv'] && dataCv['prenomCv'] && dataCv['nomCv'] && dataCv['experiences'].length>0 && dataCv['skills'].length>0 && dataCv['hobbies'].length>0 && dataCv['formations'].length>0) {
+    document.querySelector('.saveBtn').style.pointerEvents = "auto"
+    document.querySelector('.saveBtn').style.filter = "none"
+} else {
+    document.querySelector('.saveBtn').style.pointerEvents = "none"
+    document.querySelector('.saveBtn').style.filter = "grayscale(80%)"
+}
 
 
 
@@ -762,6 +736,7 @@ if (document.body.contains(document.querySelector('.full_page')))  {
         console.log('click')
         console.log(dataCv)
         if(dataCv['titleCv'] && dataCv['adresseCv'] && dataCv['emailCv'] && dataCv['prenomCv'] && dataCv['nomCv'] && dataCv['experiences'].length>0 && dataCv['skills'].length>0 && dataCv['hobbies'].length>0 && dataCv['formations'].length>0) {
+            document.querySelector('.saveBtn').style.pointerEvents = "none"
             $.ajax({
                 type: "POST",
                 url: ajaxurl,
@@ -792,7 +767,7 @@ if (document.body.contains(document.querySelector('.full_page')))  {
         } else {
 
             window.alert('Veuillez remplir toutes les informations demandées.')
-            response.preventDefault()
+
         }
 
     }
