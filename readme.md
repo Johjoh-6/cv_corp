@@ -38,6 +38,7 @@ the page
 - mon compte, Slug "compte" Template model Compte
 - cv details, Slug "cv-detail" Template model CV Detail
 - contact, Slug "contact" Template model contact
+- cvsavemail, Slug "cvsavesend" Template model mailsend
 
 
 
