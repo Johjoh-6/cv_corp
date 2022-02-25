@@ -36,7 +36,7 @@ if (document.body.contains(document.querySelector('.full_page')))  {
                     ID: cvEditParam,
                     image: responseData['id_picture'],
                     experiences: responseData['experience'],
-                    formations: responseData['studie'],
+                    formations: responseData['studies'],
                     langues: responseData['langues'],
                     hobbies: responseData['hobbie'],
                     skills: responseData['skills'],
@@ -790,7 +790,9 @@ if (document.body.contains(document.querySelector('.full_page')))  {
                 },
             })
         } else {
+
             window.alert('Veuillez remplir toutes les informations demandées.')
+            response.preventDefault()
         }
 
     }
