@@ -1,148 +1,73 @@
 @use 'variable' as var;
 
 #pdf-cv{
-    background: var.$color-secondary;
+    background: var.$color-connect;
     border-radius: 10px;
-    align-self: center;
-    padding: 1rem;
-    width: 90%;
+    padding: 2rem;
+    width: min(1350px, 98%);
+    margin-inline: auto;
+    #pdf-cv_model{
+        background-color: var.$color-background;
+        padding: 2rem;
+       display: flex;
+       flex-flow: column nowrap;
+       gap: 1rem;
+       #pdf-cv_info_box{
+        display: flex;
+        flex-flow: column nowrap;
+        gap: .8rem;
+        &>img{
+             width: 200px;
+            height: 200px;
+            border-radius: 25px;
+        }
+       }
+       
+    }
     #pdf-cv_box{
         display: flex;
-        flex-flow: column;
-        gap: 1rem;
-        h3{
-            text-align: center;
-            font-size: var.$font-24;
+        flex-flow: row nowrap;
+        @media (max-width: 750px) {
+            flex-direction: column;
         }
-        #pdf-cv_langue{
-            ul{
-                text-align: center;
-                display: flex;
-                flex-flow: row nowrap;
-                justify-content: center;
-                gap: 5%;
-                @media (max-width: 530px){
-                    flex-flow: column nowrap;
-                    gap: 1rem;
-                }
-                p{
-                    font-size: var.$font-18;
-                }
-                li{
-                    background-color: darkgray;
-                    border-radius: 10px;
-                    width: 10%;
-                }
-            }
-        }
-        #pdf-cv_skill {
-            ul{
-                text-align: center;
-                display: flex;
-                flex-flow: row nowrap;
-                justify-content: center;
-                gap: 5%;
-                @media (max-width: 400px){
-                    flex-flow: column nowrap;
-                    gap: 1rem;
-                }
-                p{
-                    font-size: var.$font-18;
-                }
-                li{
-                    background-color: darkgray;
-                    border-radius: 10px;
-                    width: 10%;
-                }
-            }
-        }
-        #pdf-cv_hobbie {
-            ul{
-                text-align: center;
-                display: flex;
-                flex-flow: row nowrap;
-                justify-content: center;
-                gap: 5%;
-                @media (max-width: 550px){
-                    flex-flow: column nowrap;
-                    gap: 1rem;
-                }
-                p{
-                    font-size: var.$font-18;
-                }
-                li{
-                    background-color: darkgray;
-                    border-radius: 10px;
-                }
-            }
-        }
-        #pdf-cv_exp_list {
-            text-align: center;
+        gap: 2rem;
+        &>div{
             display: flex;
-            flex-flow: row nowrap;
-            justify-content: center;
-            gap: 5%;
-            .pdf-cv_exp_box {
-                h4{
-                    font-size: var.$font-20;
-                }
+            flex-flow: column nowrap;
+            gap: .8rem;
+            width: calc(100% / 2 - 2rem);
+            @media (max-width: 750px) {
+                width: 100%;
             }
-            .pdf-cv_exp_box{
-                background-color: darkgray;
-                border-radius: 10px;
-                h4{
-                    font-size: var.$font-20;
-                }
-            }
-            @media (max-width: 550px){
+            align-items: center;
+            &>div{
+                width: 100%;
+                display: flex;
                 flex-flow: column nowrap;
-                gap: 1rem;
+                gap: .5rem;
             }
-            p{
-                font-size: var.$font-18;
-            }
-            
-        }
-        #pdf-cv_studie_list{
-            text-align: center;
-            display: flex;
-            flex-flow: row nowrap;
-            justify-content: center;
-            gap: 5%;
-            .pdf-cv_studie_box{
-                background-color: darkgray;
-                border-radius: 10px;
-                h4{
-                    font-size: var.$font-20;
-                }
-            }
-            .pdf-cv_studie_box{
-                h4{
-                    font-size: var.$font-20;
-                }
-            }
-            @media (max-width: 550px){
-                flex-flow: column nowrap;
-                gap: 1rem;
-            }
-            p{
-                font-size: var.$font-18;
+            h3{
+                font-size: var.$font-20;
+                font-weight: 700;
+                text-align: center;
             }
         }
+
     }
 }
+
 #getPdf{
-    align-self: center;
-    background: var.$color-btn;
+    width: fit-content;
+    background: var.$color-cvautor-btn;
     color: var.$color-background;
     border-radius: 10px;
-    border: 0;
-    padding: 0.5rem 5rem;
-    margin: 1rem;
+    border: none;
+    padding: .5rem 1rem;
+    margin: 1rem auto;
     cursor: pointer;
     &:hover,
     &:hover a {
-        background: var.$color-hover;
+        background: var.$color-cvautor-btn-hover;
         color: var.$color-background;
 
     }

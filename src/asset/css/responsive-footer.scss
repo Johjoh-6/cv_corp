@@ -3,25 +3,18 @@
 @media (max-width: 810px) {
   #footer{
       .container_footer {
-        display: flex;
-        flex-flow: column nowrap;
           &> div{
-              display: flex;
-              flex-direction: column;
+            width: calc(100% / 2 - 1rem);
               justify-content: center;
-              text-align: center;
-              ul {
-                  li {
-                      margin-bottom: 1rem;
-                      transition: all .3s;
-                      a {
-                          color: var.$color-text;
-                      }
-                      &:hover a{
-                          color: var.$color-hover;
-                      }
-                  }        
-                }
+            }
+        }
+    }
+}
+@media (max-width: 500px) {
+    #footer{
+        .container_footer {
+            &> div{
+              width: 100%;
             }
         }
     }
