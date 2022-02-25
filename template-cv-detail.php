@@ -29,7 +29,7 @@ $cv = getCvById($id_cv);
             <div>
                 <?php if(!empty($cv->langues)){ ?>
                 <div id="pdf-cv_langue">
-                    <h3>Langue</h3>
+                    <h3>Langues</h3>
                     <ul>
                     <?php foreach($cv->langues as $langue){ ?>
                         <li>
@@ -42,7 +42,7 @@ $cv = getCvById($id_cv);
                 <?php } 
                 if(!empty($cv->skills)){ ?>
                 <div id="pdf-cv_skill">
-                    <h3>Skill</h3>
+                    <h3>Compétences</h3>
                     <ul>
                     <?php foreach($cv->skills as $skill){ ?>
                         <li>
@@ -55,7 +55,7 @@ $cv = getCvById($id_cv);
                 <?php } 
                 if(!empty($cv->hobbie)){ ?>
                 <div id="pdf-cv_hobbie">
-                    <h3>Hobbie</h3>
+                    <h3>Loisirs</h3>
                     <ul>
                     <?php foreach($cv->hobbie as $hobbie){ ?>
                         <li>
@@ -69,7 +69,7 @@ $cv = getCvById($id_cv);
             </div>
             <div>
                 <?php if(!empty($cv->experience)) { ?>
-                <h3>Épérience Professionnel</h3>
+                <h3>Expériences Professionnelles</h3>
                 <div id="pdf-cv_exp_list">
                     <?php 
                     $experiences = array_slice($cv->experience, -3, 3, true);
@@ -85,7 +85,7 @@ $cv = getCvById($id_cv);
                     ?>
                 </div>
                 <?php } if(!empty($cv->studies)){ ?>
-                <h3>Formation et Diplôme</h3>
+                <h3>Formations et Diplômes</h3>
                 <div id="pdf-cv_studie_list">
                     <?php 
                     $studies = array_slice($cv->studies, -3, 3, true);

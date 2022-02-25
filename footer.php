@@ -28,7 +28,7 @@
 							<h2>Données</h2>
 							<ul>
 								<li><a href="<?= path('/cookies')?>">Données personnelles et cookies</a></li>
-								<li><a href="<?= path('/mention-juridique')?>">Mentions légal</a></li>
+								<li><a href="<?= path('/mention-juridique')?>">Mentions légales</a></li>
 							</ul>
 						</div>
 						<div class="box_footer_1">

@@ -57,7 +57,7 @@ get_header(); ?>
             </div>
             <div class="fonction-texte">
                 <h2>Crée un CV</h2>
-                <p>Remplissez vos experiances et compétances avec nos phrases prêtes à l'emploi.</p>
+                <p>Remplissez vos experiences et compétences avec nos fonctions prêtes à l'emploi.</p>
             </div>
         </div>
 
@@ -78,7 +78,7 @@ get_header(); ?>
                 <img src="<?= asset('img/avis1.svg')?>" alt="img-avies1">
             </div>
             <div class="avis-texte">
-                <p>"Un exenllent service, à l'écoute et efficace. Large gamme proposée pour crée un CV, et corrige également les fautes; Je recommande fortement."</p>
+                <p>"Un excellent service, à l'écoute et efficace. Large gamme d'outils proposés pour créer un CV; Je recommande fortement."</p>
             </div>
         </div>
         <div class="avis-box">
@@ -86,7 +86,7 @@ get_header(); ?>
                 <img src="<?= asset('img/avis2.svg')?>" alt="img-avies2">
             </div>
             <div class="avis-texte">
-                <p>"Super ! J"ai directement été prise pour un poste. Merci !"</p>
+                <p>"Super ! J'ai directement été prise pour un poste. Merci !"</p>
             </div>
         </div>
         <div class="avis-box">
@@ -94,7 +94,7 @@ get_header(); ?>
                 <img src="<?= asset('img/avis3.svg')?>" alt="img-avies3">
             </div>
             <div class="avis-texte">
-                <p>"Tres pratique, très rapide et bonne mise en valeur du CV !!! Merci."</p>
+                <p>"Très pratique, très rapide et bonne mise en valeur du CV !!! Merci."</p>
             </div>
         </div>
 
