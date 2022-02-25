@@ -15,7 +15,7 @@ get_header();
 
 <section id="dashboard">
     <div id="box">
-            <h2>Journal de board</h2>
+            <h2>Journal de bord</h2>
             <?php if(is_user_logged_in() AND !empty(metaField($meta_user, 'img'))) { ?>
                 <img src="<?= metaFieldImg($meta_user, 'img', 'img_compte'); ?>" alt="ici photo du recruteur">
             <?php } ?>
@@ -23,7 +23,7 @@ get_header();
                 
             <div class="box_recherche">
                 <form action="" novalidate onSubmit="return false">
-                        <input class="cta_recherche" type="text" name="recherche" id="searchDash" placeholder="Recherche un CV">
+                        <input class="cta_recherche" type="text" name="recherche" id="searchDash" placeholder="Rechercher un CV">
                 </form>
             </div>
 

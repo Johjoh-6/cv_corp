@@ -47,7 +47,7 @@ if(getPdf){
         let y = 100;
         //Skills
         font(doc, 'Roboto-Bold', 'normal', 13);
-        doc.text(`Skills`, 35, yStartSkill, 'center');
+        doc.text(`Compétences`, 35, yStartSkill, 'center');
         font(doc, 'Roboto-Regular', 'normal', 11);
         for(let i = 0; i < skills.length; i++){
             let name = skills[i].skill_name;
@@ -74,7 +74,7 @@ if(getPdf){
        
        //Hobbie
        font(doc, 'Roboto-Bold', 'normal', 13);
-       doc.text(`Hobbie`, 35, yStartHobbie, 'center');
+       doc.text(`Loisirs`, 35, yStartHobbie, 'center');
        y = yStartHobbie + 5;
        for(let i = 0; i < hobbie.length; i++){
            let name = hobbie[i].hobbie_name;
@@ -96,7 +96,7 @@ if(getPdf){
 
        //Experience 
        font(doc, 'Roboto-Bold', 'normal', 13);
-       doc.text(`Expérience Professionnel`, 135, yStartExperience, 'center');
+       doc.text(`Expériences Professionnelles`, 135, yStartExperience, 'center');
        x = 100;
        y = yStartExperience + 5;
        for(let i = 0; i < experience.length; i++){
@@ -123,7 +123,7 @@ if(getPdf){
 
        // Studies
        font(doc, 'Roboto-Bold', 'normal', 13);
-       doc.text(`Formation et Diplôme`, 135, yStartStudiy, 'center');
+       doc.text(`Formations et Diplômes`, 135, yStartStudiy, 'center');
        x = 100;
        y = yStartStudiy + 5;
        for(let i = 0; i < studies.length; i++){

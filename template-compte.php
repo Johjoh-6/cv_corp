@@ -43,7 +43,7 @@ $meta_user = get_user_meta($id_user);
                     <input type="text" id="adress" name="adress"  value="" placeholder="<?=  metaField($meta_user, 'adress');?>">
                 </p>
                 <p>
-                    <label for="img">Photos de profil</label>
+                    <label for="img">Photo de profil</label>
                     <input type="file" id="img" name="img">
                 </p>
                 <p class="submit">

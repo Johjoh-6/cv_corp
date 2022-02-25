@@ -11,14 +11,14 @@ if ( $login === "failed" ) {
   } elseif ( $login === "false" ) {
     $error = '<p> Vous n\'êtes pas connecter.</p>';
   }elseif ( $login === "denied" ) {
-    $error = '<p> Vous n\'avais pas les permisions.</p>';
+    $error = '<p> Vous n\'avez pas les permisions.</p>';
   }
 ?>
 
 
 <section id="login-page">
 <div class="login-form form-style-account">
-    <h2>Connection</h2>
+    <h2>Connexion</h2>
 <?php
 $args = [
     'redirect' => home_url(), 
